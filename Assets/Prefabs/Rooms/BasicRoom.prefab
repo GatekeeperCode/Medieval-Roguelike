@@ -75,6 +75,10 @@ MonoBehaviour:
   _backgroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
 --- !u!1 &910657849
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +154,10 @@ MonoBehaviour:
   _backgroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
 --- !u!1 &935910164
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +233,10 @@ MonoBehaviour:
   _backgroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
 --- !u!1 &1291237871
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +312,10 @@ MonoBehaviour:
   _backgroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
 --- !u!1 &37032769711970516
 GameObject:
   m_ObjectHideFlags: 0

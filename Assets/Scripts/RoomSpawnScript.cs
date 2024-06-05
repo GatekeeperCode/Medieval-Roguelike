@@ -11,7 +11,7 @@ public class RoomSpawnScript : MonoBehaviour
     public void spawnRoom(Vector2 centerPos, Vector2 dir)
     {
         print("Room Spawned");
-        int rand = Random.Range(0, 5);
+        int rand = Random.Range(0, 3);
 
         if (rand == 0)
         {

@@ -75,6 +75,10 @@ MonoBehaviour:
   _backgroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
 --- !u!1 &3689161335623948737
 GameObject:
   m_ObjectHideFlags: 0

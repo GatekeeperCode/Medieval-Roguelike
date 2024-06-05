@@ -6,11 +6,20 @@ public class DoorwayTrigger : MonoBehaviour
 {
     public Vector2 _dir;
     public LayerMask _backgroundLayer;
+    public LayerMask _wallLayer;
+    public GameObject _wall;
+
+    Vector2 faceDirection;
+    Transform _trans;
+    bool wallSpawn;
+    float startTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        Vector2 faceDirection;
+        _trans = transform;
+        wallSpawn = false;
+        startTime = Time.time;
 
         if(_dir == Vector2.left * 11.5f)
         {
@@ -33,7 +42,54 @@ public class DoorwayTrigger : MonoBehaviour
         if(!isInContact(_dir))
         {
             GameObject.FindGameObjectWithTag("SceneManager").GetComponent<RoomSpawnScript>().spawnRoom(new Vector2(transform.position.x + _dir.x, transform.position.y + _dir.y), faceDirection);
+            wallSpawn = true;
         }
+        else
+        {
+            if(!neighborRoomCheck(faceDirection))
+            {
+                wallSpawn = true;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if(!wallSpawn)
+        {
+            if(neighborRoomCheck(faceDirection))
+            {
+                print("Spawning Location: " + _trans.position + " direction " + faceDirection);
+
+                spawnWall();
+            }
+        }
+
+        if(!wallSpawn && (Time.time - startTime)>2)
+        {
+            wallSpawn = true;
+        }
+    }
+
+    void spawnWall()
+    {
+        if (neighborRoomCheck(faceDirection))
+        {
+            Vector3 placeDirection = faceDirection * -1;
+            Vector3 placePos = new Vector3(_trans.position.x + placeDirection.x, _trans.position.y + placeDirection.y, _trans.position.z);
+            GameObject newWall = Instantiate(_wall, placePos, Quaternion.identity);
+            Transform wallTrans = newWall.transform;
+
+            wallTrans.eulerAngles = new Vector3(
+                    wallTrans.eulerAngles.x + _trans.eulerAngles.x,
+                    wallTrans.eulerAngles.y + _trans.eulerAngles.y,
+                    wallTrans.eulerAngles.z + _trans.eulerAngles.z
+                );
+
+            wallTrans.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
+        }
+
+        wallSpawn = true;
     }
 
     /// <summary>
@@ -43,6 +99,13 @@ public class DoorwayTrigger : MonoBehaviour
     bool isInContact(Vector2 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, 7f, _backgroundLayer);
+
+        return (hit.collider != null);
+    }
+
+    bool neighborRoomCheck(Vector2 direction)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, 1f, _wallLayer);
 
         return (hit.collider != null);
     }
