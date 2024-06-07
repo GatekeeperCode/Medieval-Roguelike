@@ -10,7 +10,6 @@ public class RoomSpawnScript : MonoBehaviour
 
     public void spawnRoom(Vector2 centerPos, Vector2 dir)
     {
-        print("Room Spawned");
         int rand = Random.Range(0, 3);
 
         if (rand == 0)
@@ -31,6 +30,7 @@ public class RoomSpawnScript : MonoBehaviour
                     room.transform.eulerAngles.y,
                     room.transform.eulerAngles.z + 180
                 );
+                room.GetComponent<roomVarScript>().isFlipped = true;
             }
             else if(dir == Vector2.left)
             {
@@ -44,6 +44,7 @@ public class RoomSpawnScript : MonoBehaviour
                     room.transform.eulerAngles.y,
                     room.transform.eulerAngles.z + 180
                 );
+                room.GetComponent<roomVarScript>().isFlipped = true;
             }
         }
     }

@@ -21,15 +21,15 @@ public class DoorwayTrigger : MonoBehaviour
         wallSpawn = false;
         startTime = Time.time;
 
-        if(_dir == Vector2.left * 11.5f)
+        if(_dir == Vector2.left * 11.75f)
         {
             faceDirection = Vector2.left;
         }
-        else if(_dir == Vector2.right * 11.5f)
+        else if(_dir == Vector2.right * 11.75f)
         {
             faceDirection = Vector2.right;
         }
-        else if(_dir == Vector2.up * 4.5f)
+        else if(_dir == Vector2.up * 4.75f)
         {
             faceDirection = Vector2.up;
         }
@@ -59,8 +59,6 @@ public class DoorwayTrigger : MonoBehaviour
         {
             if(neighborRoomCheck(faceDirection))
             {
-                print("Spawning Location: " + _trans.position + " direction " + faceDirection);
-
                 spawnWall();
             }
         }
@@ -75,7 +73,7 @@ public class DoorwayTrigger : MonoBehaviour
     {
         if (neighborRoomCheck(faceDirection))
         {
-            Vector3 placeDirection = faceDirection * -1;
+            Vector3 placeDirection = faceDirection * -0.5f;
             Vector3 placePos = new Vector3(_trans.position.x + placeDirection.x, _trans.position.y + placeDirection.y, _trans.position.z);
             GameObject newWall = Instantiate(_wall, placePos, Quaternion.identity);
             Transform wallTrans = newWall.transform;

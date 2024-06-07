@@ -5,6 +5,15 @@ using UnityEngine;
 public class CameraShiftScript : MonoBehaviour
 {
     public Vector2 _dir;
+    public roomVarScript room;
+
+    private void Start()
+    {
+        if(room.isFlipped)
+        {
+            _dir = _dir * -1;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
