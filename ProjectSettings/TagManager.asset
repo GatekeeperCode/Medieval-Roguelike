@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floor
   - SceneManager
+  - Sword
+  - Shield
   layers:
   - Default
   - TransparentFX
