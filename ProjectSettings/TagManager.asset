@@ -8,6 +8,7 @@ TagManager:
   - SceneManager
   - Sword
   - Shield
+  - Spear
   layers:
   - Default
   - TransparentFX

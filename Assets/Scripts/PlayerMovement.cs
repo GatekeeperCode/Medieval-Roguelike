@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float _defense;
     public int _gold;
 
+    public GameObject _shield;
+
     Rigidbody2D _rbody;
 
     void Start()
@@ -27,5 +29,14 @@ public class PlayerMovement : MonoBehaviour
 
         //_rbody.velocity = new Vector2(x, y) * _speed;
         _rbody.velocity = transform.up * y * _speed + transform.right * x * _speed;
+
+        if(Input.GetMouseButton(1))
+        {
+            _shield.SetActive(true);
+        }
+        else
+        {
+            _shield.SetActive(false);
+        }
     }
 }
