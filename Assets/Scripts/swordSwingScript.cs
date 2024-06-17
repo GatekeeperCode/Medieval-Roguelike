@@ -20,6 +20,7 @@ public class swordSwingScript : MonoBehaviour
         sword = swordGo.transform;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         swordObject = swordGo.transform.GetChild(0).gameObject;
+        swordObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -29,7 +30,6 @@ public class swordSwingScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !rotating)
         {
-            swordObject.SetActive(true);
             StartCoroutine(Rotate90());
         }
     }
@@ -60,6 +60,5 @@ public class swordSwingScript : MonoBehaviour
         }
         sword.rotation = targetRotation;
         rotating = false;
-        swordObject.SetActive(false);
     }
 }

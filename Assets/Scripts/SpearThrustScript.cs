@@ -19,7 +19,8 @@ public class SpearThrustScript : MonoBehaviour
         attacking = false;
         spear = spearGO.transform;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        spearObject = spearGO.transform.GetChild(1).gameObject;
+        spearObject = spearGO.transform.GetChild(1).gameObject; 
+        spearObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -29,7 +30,6 @@ public class SpearThrustScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !attacking)
         {
-            spearObject.SetActive(true);
             StartCoroutine(thrust());
         }
     }
@@ -67,6 +67,5 @@ public class SpearThrustScript : MonoBehaviour
         }
         spearObject.transform.localPosition = spearStartLoc;
         attacking = false;
-        spearObject.SetActive(false);
     }
 }
