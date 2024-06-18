@@ -9,6 +9,7 @@ TagManager:
   - Sword
   - Shield
   - Spear
+  - Bow
   layers:
   - Default
   - TransparentFX
