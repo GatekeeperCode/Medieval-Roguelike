@@ -58,7 +58,6 @@ public class BowScript : MonoBehaviour
         }
         else if(Input.GetMouseButtonUp(0))
         {
-            print(bowObject.transform.rotation);
             GameObject arrow = Instantiate(projectile, bowObject.transform.GetChild(0).transform.position, Quaternion.identity);
             arrow.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0,0,90);
             arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -10 * _charge);

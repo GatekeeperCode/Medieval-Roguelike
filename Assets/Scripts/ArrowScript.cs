@@ -18,8 +18,9 @@ public class ArrowScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag != "Floor" && collision.tag != "Bow" && collision.tag != "Player")
+        if(collision.tag != "Floor" && collision.tag != "Bow" && collision.tag != "Player" && collision.tag != "Crossbow")
         {
+            print(collision.gameObject);
             Destroy(gameObject);
         }
     }

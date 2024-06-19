@@ -49,8 +49,8 @@ public class swordSwingScript : MonoBehaviour
     {
         rotating = true;
         float timeElapsed = 0;
-        Quaternion startRotation = swordGo.transform.rotation * Quaternion.Euler(0, 0, 180);
-        Quaternion targetRotation = swordGo.transform.rotation;
+        Quaternion startRotation = swordGo.transform.rotation;
+        Quaternion targetRotation = swordGo.transform.rotation * Quaternion.Euler(0, 0, 125);
 
         while (timeElapsed < lerpDuration)
         {

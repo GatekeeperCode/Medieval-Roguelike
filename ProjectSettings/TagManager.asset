@@ -10,6 +10,7 @@ TagManager:
   - Shield
   - Spear
   - Bow
+  - Crossbow
   layers:
   - Default
   - TransparentFX
