@@ -6,9 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public float _speed;
-    public float _physStren;
-    public float _rangStren;
-    public float _magStren;
+    public float _physicalStren;
+    public float _rangeStren;
+    public float _magicalStren;
     public float _defense;
     public int _gold;
 

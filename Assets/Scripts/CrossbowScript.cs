@@ -32,6 +32,8 @@ public class CrossbowScript : MonoBehaviour
             GameObject arrow = Instantiate(projectile, crossbowObject.transform.GetChild(0).transform.position, Quaternion.identity);
             arrow.transform.rotation = crossbowObject.transform.rotation * Quaternion.Euler(0, 0, 90);
             arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -50);
+            arrow.GetComponent<ArrowScript>().damage = crossbowObject.GetComponent<RangedDmgScript>().damage;
+
             canFire = false;
             StartCoroutine(reloadCrossbow());
         }

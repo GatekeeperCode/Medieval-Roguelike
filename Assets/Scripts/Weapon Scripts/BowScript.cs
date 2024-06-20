@@ -61,6 +61,8 @@ public class BowScript : MonoBehaviour
             GameObject arrow = Instantiate(projectile, bowObject.transform.GetChild(0).transform.position, Quaternion.identity);
             arrow.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0,0,90);
             arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -10 * _charge);
+            arrow.GetComponent<ArrowScript>().damage = bowObject.GetComponent<RangedDmgScript>().damage;
+
             _charge = 0;
             sr.color = Color.red;
         }

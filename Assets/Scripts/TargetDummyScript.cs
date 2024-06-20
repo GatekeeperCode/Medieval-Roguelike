@@ -20,15 +20,16 @@ public class TargetDummyScript : MonoBehaviour
     {
         if (collision.gameObject.tag != "Floor")
         {
-            GetComponent<SpriteRenderer>().color = Color.green;
-            StartCoroutine("colorReset");
-        }
-    }
+            if(collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
+            {
+                print("Ow! I took: " + collision.gameObject.GetComponent<MeleeDmgScript>().damage + " damage!");
+            }
 
-    private void OnTriggerEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag != "Floor")
-        {
+            if(collision.gameObject.tag == "Arrow")
+            {
+                print("Ow! I took: " + collision.gameObject.GetComponent<ArrowScript>().damage + " damage!");
+            }
+
             GetComponent<SpriteRenderer>().color = Color.green;
             StartCoroutine("colorReset");
         }
