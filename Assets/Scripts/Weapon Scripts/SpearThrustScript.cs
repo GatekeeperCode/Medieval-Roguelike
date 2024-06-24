@@ -23,6 +23,15 @@ public class SpearThrustScript : MonoBehaviour
         spearObject.SetActive(true);
     }
 
+    private void OnEnable()
+    {
+        attacking = false;
+        spear = spearGO.transform;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        spearObject = spearGO.transform.GetChild(1).gameObject;
+        spearObject.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +41,11 @@ public class SpearThrustScript : MonoBehaviour
         {
             StartCoroutine(thrust());
         }
+    }
+
+    private void OnDisable()
+    {
+        spearObject.SetActive(false);
     }
 
     //https://www.antoniovalentini.com/rotate-an-object-towards-the-mouse-position-2d/

@@ -23,6 +23,15 @@ public class swordSwingScript : MonoBehaviour
         swordObject.SetActive(true);
     }
 
+    private void OnEnable()
+    {
+        rotating = false;
+        sword = swordGo.transform;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        swordObject = swordGo.transform.GetChild(0).gameObject;
+        swordObject.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +41,11 @@ public class swordSwingScript : MonoBehaviour
         {
             StartCoroutine(Rotate90());
         }
+    }
+
+    private void OnDisable()
+    {
+        swordObject.SetActive(false);
     }
 
     //https://www.antoniovalentini.com/rotate-an-object-towards-the-mouse-position-2d/

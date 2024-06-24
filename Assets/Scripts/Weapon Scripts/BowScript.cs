@@ -26,6 +26,16 @@ public class BowScript : MonoBehaviour
         _charge = 0;
     }
 
+    private void OnEnable()
+    {
+        bow = bowGO.transform;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        bowObject = bowGO.transform.GetChild(2).gameObject;
+        sr = bowObject.GetComponent<SpriteRenderer>();
+        bowObject.SetActive(true);
+        _charge = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -66,6 +76,11 @@ public class BowScript : MonoBehaviour
             _charge = 0;
             sr.color = Color.red;
         }
+    }
+
+    private void OnDisable()
+    {
+        bowObject.SetActive(false);
     }
 
     //https://www.antoniovalentini.com/rotate-an-object-towards-the-mouse-position-2d/

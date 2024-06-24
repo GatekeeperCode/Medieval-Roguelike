@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float _magicalStren;
     public float _defense;
     public int _gold;
+    public string activeWeaponString;
 
     public GameObject _shield;
 
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        activeWeaponString = "Sword";
         _rbody = GetComponent<Rigidbody2D>();
     }
 

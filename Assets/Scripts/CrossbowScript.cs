@@ -22,6 +22,15 @@ public class CrossbowScript : MonoBehaviour
         canFire = true;
     }
 
+    private void OnEnable()
+    {
+        crossbow = bowGO.transform;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        crossbowObject = bowGO.transform.GetChild(3).gameObject;
+        crossbowObject.SetActive(true);
+        canFire = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +46,11 @@ public class CrossbowScript : MonoBehaviour
             canFire = false;
             StartCoroutine(reloadCrossbow());
         }
+    }
+
+    private void OnDisable()
+    {
+        crossbowObject.SetActive(false);
     }
 
     IEnumerator reloadCrossbow()
