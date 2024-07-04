@@ -868,6 +868,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8930007583987190219, guid: c7dad49d54f5b194abcd52e657872ba3, type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5536346972236434190, guid: c7dad49d54f5b194abcd52e657872ba3, type: 3}
       propertyPath: m_Name
       value: Gobbo
