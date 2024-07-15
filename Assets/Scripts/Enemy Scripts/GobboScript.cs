@@ -7,6 +7,9 @@ public class GobboScript : MonoBehaviour
     GameObject player;
     public float health;
     public float speed;
+    public GameObject resetPoint;
+    public roomVarScript roomVars;
+
     bool hitStun = false;
     Color _c;
 
@@ -20,7 +23,12 @@ public class GobboScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!hitStun)
+        if(!roomVars.playerPresent)
+        {
+            transform.position = resetPoint.transform.position;
+        }
+
+        if(!hitStun && roomVars.playerPresent)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }

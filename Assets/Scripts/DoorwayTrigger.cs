@@ -8,6 +8,7 @@ public class DoorwayTrigger : MonoBehaviour
     public LayerMask _backgroundLayer;
     public LayerMask _wallLayer;
     public GameObject _wall;
+    public roomVarScript roomVars;
 
     Vector2 faceDirection;
     Transform _trans;
@@ -106,5 +107,13 @@ public class DoorwayTrigger : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, 1f, _wallLayer);
 
         return (hit.collider != null);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            roomVars.playerPresent = false;
+        }
     }
 }

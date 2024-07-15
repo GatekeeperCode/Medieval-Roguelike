@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraShiftScript : MonoBehaviour
 {
     public Vector2 _dir;
-    public roomVarScript room;
+    public roomVarScript roomVars;
 
     private void Start()
     {
-        if(room.isFlipped)
+        if(roomVars.isFlipped)
         {
             _dir = _dir * -1;
         }
@@ -19,6 +19,7 @@ public class CameraShiftScript : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            roomVars.playerPresent = true;
             GameObject camObject = GameObject.FindGameObjectWithTag("MainCamera");
             camObject.transform.position = new Vector3(transform.position.x + _dir.x, transform.position.y + _dir.y, camObject.transform.position.z);
         }

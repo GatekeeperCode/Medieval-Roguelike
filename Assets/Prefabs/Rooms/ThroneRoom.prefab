@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dir: {x: 0, y: -4.25}
-  room: {fileID: 4404425830278891537}
+  roomVars: {fileID: 4404425830278891537}
 --- !u!1 &6648761039524145392
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 1
+  playerPresent: 0
 --- !u!1 &7230137506709186757
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +217,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
+  roomVars: {fileID: 4404425830278891537}
 --- !u!1 &8032077851416976229
 GameObject:
   m_ObjectHideFlags: 0

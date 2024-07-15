@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 387926366071563543}
   - component: {fileID: 5978784998505714803}
   - component: {fileID: 1520038976703795778}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bow
   m_TagString: Bow
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6961429283154838512}
   - component: {fileID: 9143995302134722935}
   - component: {fileID: 7780363759883800053}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sword
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6690256480443583385}
   - component: {fileID: 2669292952414493768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShieldRotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1796041505686367618}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArrowSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8999160450404836520}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArrowSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 1748413750584425089}
   - component: {fileID: 591525840304392123}
   - component: {fileID: 5317801599404196503}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CrossBow
   m_TagString: Crossbow
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1341846027374692333}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SwordRotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 5990040136443138520}
   - component: {fileID: 7795726419291420657}
   - component: {fileID: 8778819090233488684}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spear
   m_TagString: Spear
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 1876618451748595608}
   - component: {fileID: 4516325659050052139}
   - component: {fileID: 279475270393493327}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerObject
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 2199297326544698962}
   - component: {fileID: 7775675370680572331}
   - component: {fileID: 7706689305765686984}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shield
   m_TagString: Shield
   m_Icon: {fileID: 0}

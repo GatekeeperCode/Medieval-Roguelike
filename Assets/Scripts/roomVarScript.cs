@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class roomVarScript : MonoBehaviour
 {
-    public bool isFlipped;
+    public bool isFlipped = false;
+    public bool playerPresent = false;
 }
