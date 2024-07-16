@@ -8,7 +8,7 @@ public class ArrowScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag != "Floor" && collision.tag != "Bow" && collision.tag != "Player" && collision.tag != "Crossbow")
+        if(collision.tag != "Floor" && collision.tag != "Bow" && collision.tag != "Sword" && collision.tag != "Crossbow" && collision.tag != "Spear")
         {
             print(collision.gameObject);
             Destroy(gameObject);

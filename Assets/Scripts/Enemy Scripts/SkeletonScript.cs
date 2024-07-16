@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GobboScript : MonoBehaviour
+public class SkeletonScript : MonoBehaviour
 {
     GameObject player;
+    public GameObject arrowPrefab;
     public float health;
     public float speed;
-    public GameObject resetPoint;
+    public float fireRate;
+    public float skeleDmg;
+    //public GameObject resetPoint;
     public roomVarScript roomVars;
 
     bool hitStun = false;
@@ -18,29 +21,23 @@ public class GobboScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
+
+        StartCoroutine("fireArrow");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!roomVars.playerPresent)
+        if(roomVars.playerPresent)
         {
-            transform.position = resetPoint.transform.position;
-        }
-
-        if(!hitStun && roomVars.playerPresent)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-
             Quaternion rotation = Quaternion.LookRotation(
                 player.transform.position - transform.position,
                 transform.TransformDirection(Vector3.up)
-            );
-
+                );
             transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
         }
 
-        if (health<=0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
@@ -64,6 +61,22 @@ public class GobboScript : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = Color.red;
                 hitStun = true;
                 StartCoroutine(hitReg());
+            }
+        }
+    }
+
+    IEnumerator fireArrow()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(fireRate);
+
+            if (roomVars.playerPresent && !hitStun)
+            {
+                GameObject arrow = Instantiate(arrowPrefab, transform.GetChild(0).transform.position, Quaternion.identity);
+                arrow.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 90);
+                arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * 50);
+                arrow.GetComponent<ArrowScript>().damage = skeleDmg;
             }
         }
     }
