@@ -1,0 +1,127 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MinotaurScript : MonoBehaviour
+{
+    GameObject player;
+    public float health;
+    public float speed;
+    public float chargeBueildupTime;
+    public GameObject resetPoint;
+    public roomVarScript roomVars;
+
+    Color _c;
+    bool isCharging;
+    Rigidbody2D _rbody;
+    Vector3 chargeTarget;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        _c = GetComponent<SpriteRenderer>().color;
+        _rbody = GetComponent<Rigidbody2D>();
+
+        StartCoroutine("charge");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!roomVars.playerPresent)
+        {
+            transform.position = resetPoint.transform.position;
+        }
+
+        if (roomVars.playerPresent)
+        {
+            if(!isCharging)
+            {
+                //Stop Movement for prior charges
+                _rbody.velocity = Vector2.zero;
+
+                //Looking at player
+                Quaternion rotation = Quaternion.LookRotation(
+                    player.transform.position - transform.position,
+                    transform.TransformDirection(Vector3.up)
+                );
+
+                transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+            }
+            if(isCharging)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, chargeTarget, speed * Time.deltaTime);
+
+                if(Vector3.Distance(transform.position, chargeTarget) < .5f)
+                {
+                    _rbody.velocity = Vector2.zero;
+                    endCharge();
+                }
+            }
+        }
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag != "Floor")
+        {
+            endCharge();
+        }
+    }
+
+    void endCharge()
+    {
+        isCharging = false;
+        StartCoroutine("charge");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag != "Floor")
+        {
+            if (collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
+            {
+                health -= (collision.gameObject.GetComponent<MeleeDmgScript>().damage * .75f);
+                GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(hitReg());
+            }
+
+            if (collision.gameObject.tag == "Arrow")
+            {
+                health -= (collision.gameObject.GetComponent<ArrowScript>().damage * .75f);
+                GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(hitReg());
+            }
+        }
+    }
+
+    private IEnumerator hitReg()
+    {
+        yield return new WaitForSeconds(.25f);
+        GetComponent<SpriteRenderer>().color = _c;
+    }
+
+    private IEnumerator charge()
+    {
+        yield return new WaitForSeconds(chargeBueildupTime);
+        isCharging = true;
+        //Setting end position
+        var chargeTarget1 = transform.position + transform.right * 10;
+        var chargeTarget2 = transform.position + -transform.right * 10;
+
+        if(Vector2.Distance(chargeTarget1, player.transform.position)< Vector2.Distance(chargeTarget2, player.transform.position))
+        {
+            chargeTarget = chargeTarget1;
+        }
+        else
+        {
+            chargeTarget = chargeTarget2;
+        }
+    }
+}
