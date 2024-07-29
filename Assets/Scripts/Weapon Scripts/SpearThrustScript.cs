@@ -9,7 +9,6 @@ public class SpearThrustScript : MonoBehaviour
     Transform spear;
     Camera mainCamera;
     GameObject spearObject;
-
     float lerpDuration = 0.5f;
     float stabSpeed = 2;
 

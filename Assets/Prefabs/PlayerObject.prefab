@@ -251,7 +251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2199297326544698962}
-  m_Father: {fileID: 1768420527764005456}
+  m_Father: {fileID: 9139420398599029301}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2669292952414493768
@@ -455,7 +455,7 @@ Transform:
   - {fileID: 3584946435486697425}
   - {fileID: 387926366071563543}
   - {fileID: 1748413750584425089}
-  m_Father: {fileID: 1768420527764005456}
+  m_Father: {fileID: 9139420398599029301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5281008666620619271
@@ -617,7 +617,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1768420527764005456}
+  - component: {fileID: 9139420398599029301}
   - component: {fileID: 5396071585597789822}
   - component: {fileID: 5396071585597789821}
   - component: {fileID: 5396071585597789820}
@@ -633,8 +633,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1768420527764005456
-RectTransform:
+--- !u!4 &9139420398599029301
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -649,11 +649,6 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5396071585597789822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -798,6 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spearGO: {fileID: 4590364096070916917}
+  attacking: 0
 --- !u!114 &4516325659050052139
 MonoBehaviour:
   m_ObjectHideFlags: 0
