@@ -2,16 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GobboScript : MonoBehaviour
+public class GobboScript : EnemyBase
 {
-    GameObject player;
-    public float health;
-    public float speed;
-    public GameObject resetPoint;
-    public roomVarScript roomVars;
-
     bool hitStun = false;
-    Color _c;
 
     // Start is called before the first frame update
     void Start()
@@ -46,30 +39,9 @@ public class GobboScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override IEnumerator hitReg()
     {
-        if (collision.gameObject.tag != "Floor")
-        {
-            if (collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
-            {
-                health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-
-            if (collision.gameObject.tag == "Arrow")
-            {
-                health -= collision.gameObject.GetComponent<ArrowScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-        }
-    }
-
-    private IEnumerator hitReg()
-    {
+        hitStun = true;
         yield return new WaitForSeconds(.25f);
         GetComponent<SpriteRenderer>().color = _c;
         hitStun = false;

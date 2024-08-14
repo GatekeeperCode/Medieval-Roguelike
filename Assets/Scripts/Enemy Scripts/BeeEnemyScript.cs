@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeeEnemyScript : MonoBehaviour
+public class BeeEnemyScript : EnemyBase
 {
-    public float health;
-    public float speed;
     public GameObject BeeHive;
-    public roomVarScript roomVars;
     public float moveMin;
     public float moveMax;
 
     bool isMoving = false;
     Rigidbody2D rb;
-    Color _c;
 
     // Start is called before the first frame update
     void Start()
@@ -41,27 +37,7 @@ public class BeeEnemyScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag != "Floor")
-        {
-            if (collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
-            {
-                health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                StartCoroutine(hitReg());
-            }
-
-            if (collision.gameObject.tag == "Arrow")
-            {
-                health -= collision.gameObject.GetComponent<ArrowScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                StartCoroutine(hitReg());
-            }
-        }
-    }
-
-    private IEnumerator hitReg()
+    public override IEnumerator hitReg()
     {
         yield return new WaitForSeconds(.25f);
         GetComponent<SpriteRenderer>().color = _c;

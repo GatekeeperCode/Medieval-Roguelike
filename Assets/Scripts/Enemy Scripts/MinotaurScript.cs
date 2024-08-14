@@ -2,16 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinotaurScript : MonoBehaviour
+public class MinotaurScript : EnemyBase
 {
-    GameObject player;
-    public float health;
-    public float speed;
     public float chargeBueildupTime;
-    public GameObject resetPoint;
-    public roomVarScript roomVars;
 
-    Color _c;
     bool isCharging;
     Rigidbody2D _rbody;
     Vector3 chargeTarget;
@@ -81,27 +75,7 @@ public class MinotaurScript : MonoBehaviour
         StartCoroutine("charge");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag != "Floor")
-        {
-            if (collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
-            {
-                health -= (collision.gameObject.GetComponent<MeleeDmgScript>().damage * .75f);
-                GetComponent<SpriteRenderer>().color = Color.red;
-                StartCoroutine(hitReg());
-            }
-
-            if (collision.gameObject.tag == "Arrow")
-            {
-                health -= (collision.gameObject.GetComponent<ArrowScript>().damage * .75f);
-                GetComponent<SpriteRenderer>().color = Color.red;
-                StartCoroutine(hitReg());
-            }
-        }
-    }
-
-    private IEnumerator hitReg()
+    public override IEnumerator hitReg()
     {
         yield return new WaitForSeconds(.25f);
         GetComponent<SpriteRenderer>().color = _c;

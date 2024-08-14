@@ -2,21 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordEnemyScript : MonoBehaviour
+public class SwordEnemyScript : EnemyBase
 {
     bool rotating;
     float lerpDuration = 0.5f;
     Transform sword;
     bool hitStun = false;
-    Color _c;
     float timeSinceLastSwing;
     Quaternion rotReset;
 
-    GameObject player;
-    public float health;
-    public float speed;
-    public GameObject resetPoint;
-    public roomVarScript roomVars;
     public GameObject swordGo;
     public float SwingTime;
 
@@ -75,28 +69,6 @@ public class SwordEnemyScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag != "Floor")
-        {
-            if (collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
-            {
-                health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-
-            if (collision.gameObject.tag == "Arrow")
-            {
-                health -= collision.gameObject.GetComponent<ArrowScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-        }
-    }
-
     IEnumerator swing()
     {
         rotating = true;
@@ -115,7 +87,7 @@ public class SwordEnemyScript : MonoBehaviour
         rotating = false;
     }
 
-    private IEnumerator hitReg()
+    public override IEnumerator hitReg()
     {
         yield return new WaitForSeconds(.25f);
         GetComponent<SpriteRenderer>().color = _c;
