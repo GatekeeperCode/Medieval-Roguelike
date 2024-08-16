@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonScript : MonoBehaviour
+public class SkeletonScript : EnemyBase
 {
-    GameObject player;
     public GameObject arrowPrefab;
-    public float health;
-    public float speed;
     public float fireRate;
     public float skeleDmg;
-    //public GameObject resetPoint;
-    public roomVarScript roomVars;
 
     bool hitStun = false;
-    Color _c;
 
     // Start is called before the first frame update
     void Start()
@@ -43,28 +37,6 @@ public class SkeletonScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag != "Floor")
-        {
-            if (collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
-            {
-                health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-
-            if (collision.gameObject.tag == "Arrow")
-            {
-                health -= collision.gameObject.GetComponent<ArrowScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-        }
-    }
-
     IEnumerator fireArrow()
     {
         while(true)
@@ -81,7 +53,7 @@ public class SkeletonScript : MonoBehaviour
         }
     }
 
-    private IEnumerator hitReg()
+    public override IEnumerator hitReg()
     {
         yield return new WaitForSeconds(.25f);
         GetComponent<SpriteRenderer>().color = _c;

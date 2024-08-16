@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GooScript : MonoBehaviour
+public class GooScript : EnemyBase
 {
-    GameObject player;
-    public float health;
-    public float speed;
     public GameObject gooPrefab;
 
     bool hitStun = false;
     float startHealth;
     bool isMoving = false;
-    Color _c;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +17,6 @@ public class GooScript : MonoBehaviour
         _c = GetComponent<SpriteRenderer>().color;
         startHealth = health;
         print("Health: " + health + ", Start Health: " + startHealth + ", Scale: " + transform.lossyScale.x);
-
-        //Adjusting Health if on smaller Goo
-        //health = health * transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -81,29 +74,7 @@ public class GooScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag != "Floor")
-        {
-            if (collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
-            {
-                health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-
-            if (collision.gameObject.tag == "Arrow")
-            {
-                health -= collision.gameObject.GetComponent<ArrowScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-        }
-    }
-
-    private IEnumerator hitReg()
+    public override IEnumerator hitReg()
     {
         yield return new WaitForSeconds(.25f);
         GetComponent<SpriteRenderer>().color = _c;

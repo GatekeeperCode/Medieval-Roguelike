@@ -2,22 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpearEnemyScript : MonoBehaviour
+public class SpearEnemyScript : EnemyBase
 {
     bool attacking;
     GameObject spearObject;
     float lerpDuration = 0.5f;
     float stabSpeed = 2;
 
-    GameObject player;
-    public float health;
-    public float speed;
-    public GameObject resetPoint;
-    public roomVarScript roomVars;
     public GameObject spearGO;
 
     bool hitStun = false;
-    Color _c;
 
     // Start is called before the first frame update
     void Start()
@@ -62,28 +56,6 @@ public class SpearEnemyScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag != "Floor")
-        {
-            if (collision.gameObject.tag == "Sword" || collision.gameObject.tag == "Spear")
-            {
-                health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-
-            if (collision.gameObject.tag == "Arrow")
-            {
-                health -= collision.gameObject.GetComponent<ArrowScript>().damage;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                hitStun = true;
-                StartCoroutine(hitReg());
-            }
-        }
-    }
-
     IEnumerator thrust()
     {
         attacking = true;
@@ -109,7 +81,7 @@ public class SpearEnemyScript : MonoBehaviour
         attacking = false;
     }
 
-    private IEnumerator hitReg()
+    public override IEnumerator hitReg()
     {
         yield return new WaitForSeconds(.25f);
         GetComponent<SpriteRenderer>().color = _c;
