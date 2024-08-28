@@ -154,10 +154,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760d7d5ff7f2bdb4d955912141e4cd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  speed: 0
+  player: {fileID: 0}
+  health: 2
+  speed: 2
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
+  _c: {r: 0, g: 0, b: 0, a: 0}
+  spearGO: {fileID: 5631390986329243070}
 --- !u!1 &5631390988170017940
 GameObject:
   m_ObjectHideFlags: 0

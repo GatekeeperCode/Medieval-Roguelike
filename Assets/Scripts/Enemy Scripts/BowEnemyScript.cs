@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonScript : EnemyBase
+public class BowEnemyScript : EnemyBase
 {
-    public GameObject arrowPrefab;
+    public GameObject bowGO;
+    public GameObject projectile;
+
+    public float dmg;
     public float fireRate;
-    public float skeleDmg;
     public float range;
 
+    Camera mainCamera;
+    GameObject bowObject;
     bool hitStun = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        bowObject = bowGO.transform.GetChild(0).gameObject;
+        bowObject.SetActive(true);
+
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
 
@@ -23,7 +30,7 @@ public class SkeletonScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        if(roomVars.playerPresent)
+        if (roomVars.playerPresent)
         {
             Vector3 targ = player.transform.position;
             targ.z = 0f;
@@ -34,6 +41,15 @@ public class SkeletonScript : EnemyBase
 
             float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+            if (Vector2.Distance(transform.position, player.transform.position) > range && !hitStun)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            transform.position = resetPoint.transform.position;
         }
 
         if (health <= 0)
@@ -44,16 +60,16 @@ public class SkeletonScript : EnemyBase
 
     IEnumerator fireArrow()
     {
-        while(true)
+        while (true)
         {
-            yield return new WaitForSeconds(Random.Range(fireRate-2f, fireRate+2f));
+            yield return new WaitForSeconds(Random.Range(fireRate - 2f, fireRate + 2f));
 
             if (roomVars.playerPresent && !hitStun && Vector2.Distance(transform.position, player.transform.position) < range)
             {
-                GameObject arrow = Instantiate(arrowPrefab, transform.GetChild(0).transform.position, Quaternion.identity);
+                GameObject arrow = Instantiate(projectile, bowObject.transform.position, Quaternion.identity);
                 arrow.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 90);
                 arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -50);
-                arrow.GetComponent<ArrowScript>().damage = skeleDmg;
+                arrow.GetComponent<ArrowScript>().damage = dmg;
             }
         }
     }
