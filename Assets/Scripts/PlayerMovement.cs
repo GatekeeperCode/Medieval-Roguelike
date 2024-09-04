@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float _rangeStren;
     public float _magicalStren;
     public float _defense;
+    public float _health;
     public int _gold;
     public string activeWeaponString;
 
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         activeWeaponString = "Sword";
         _rbody = GetComponent<Rigidbody2D>();
+        _health = 20;
     }
 
     // Update is called once per frame
@@ -39,6 +41,34 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _shield.SetActive(false);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "BEE")
+        {
+            _health = _health - collision.gameObject.GetComponent<BeeEnemyScript>().beeDmg;
+        }
+        else if(collision.transform.tag == "Gobbo")
+        {
+            _health = _health - collision.gameObject.GetComponent<GobboScript>().gobboDamage;
+        }
+        else if (collision.transform.tag == "Goo")
+        {
+            _health = _health - collision.gameObject.GetComponent<GooScript>().gooDamage;
+        }
+        else if (collision.transform.tag == "Minotaur")
+        {
+            _health = _health - collision.gameObject.GetComponent<MinotaurScript>().minoDamage;
+        }
+        else if (collision.transform.tag == "Spear" || collision.transform.tag == "Sword")
+        {
+            _health = _health - collision.gameObject.GetComponent<MeleeDmgScript>().damage;
+        }
+        else if (collision.gameObject.tag == "Arrow")
+        {
+            _health -= collision.gameObject.GetComponent<ArrowScript>().damage;
         }
     }
 }

@@ -9,6 +9,7 @@ public class GooScript : EnemyBase
     bool hitStun = false;
     float startHealth;
     bool isMoving = false;
+    public float gooDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class GooScript : EnemyBase
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         startHealth = health;
-        print("Health: " + health + ", Start Health: " + startHealth + ", Scale: " + transform.lossyScale.x);
+        //print("Health: " + health + ", Start Health: " + startHealth + ", Scale: " + transform.lossyScale.x);
     }
 
     // Update is called once per frame
@@ -55,16 +56,21 @@ public class GooScript : EnemyBase
                 if (transform.localScale.x == 1f)
                 {
                     mini1.GetComponent<GooScript>().health = startHealth * (mini1.transform.localScale.x);
+                    mini1.GetComponent<GooScript>().gooDamage = startHealth * (mini1.transform.localScale.x);
                 }
                 else if(transform.localScale.x == .75f)
                 {
                     mini1.GetComponent<GooScript>().health = startHealth * 4/3 * mini1.transform.localScale.x;
+                    mini1.GetComponent<GooScript>().gooDamage = startHealth * 4 / 3 * mini1.transform.localScale.x;
                 }
                 else
                 {
                     mini1.GetComponent<GooScript>().health = startHealth * 2 * mini1.transform.localScale.x;
+                    mini1.GetComponent<GooScript>().gooDamage = startHealth * 2 * mini1.transform.localScale.x;
                 }
                 mini2.GetComponent<GooScript>().health = mini1.GetComponent<GooScript>().health;
+                mini2.GetComponent<GooScript>().gooDamage = mini1.GetComponent<GooScript>().gooDamage;
+
 
                 mini1.GetComponent<SpriteRenderer>().color = _c;
                 mini2.GetComponent<SpriteRenderer>().color = _c;

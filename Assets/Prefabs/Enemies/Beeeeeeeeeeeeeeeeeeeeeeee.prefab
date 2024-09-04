@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5497741532283444392}
   m_Layer: 0
   m_Name: Beeeeeeeeeeeeeeeeeeeeeeee
-  m_TagString: Untagged
+  m_TagString: BEE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,10 +123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe1ef5d5aaf3e34f9fef2d919eb74b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 1
   speed: 3
-  BeeHive: {fileID: 0}
+  resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
+  _c: {r: 0, g: 0, b: 0, a: 0}
+  BeeHive: {fileID: 0}
   moveMin: -3
   moveMax: 3
 --- !u!50 &5497741532283444392

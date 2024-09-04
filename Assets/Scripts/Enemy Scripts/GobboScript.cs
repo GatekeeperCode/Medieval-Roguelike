@@ -5,6 +5,7 @@ using UnityEngine;
 public class GobboScript : EnemyBase
 {
     bool hitStun = false;
+    public float gobboDamage;
 
     // Start is called before the first frame update
     void Start()

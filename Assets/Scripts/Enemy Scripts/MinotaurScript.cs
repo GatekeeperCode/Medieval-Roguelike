@@ -9,6 +9,7 @@ public class MinotaurScript : EnemyBase
     bool isCharging;
     Rigidbody2D _rbody;
     Vector3 chargeTarget;
+    public float minoDamage;
 
     // Start is called before the first frame update
     void Start()

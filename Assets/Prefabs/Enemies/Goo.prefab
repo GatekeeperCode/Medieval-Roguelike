@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3052841301665231271}
   m_Layer: 0
   m_Name: Goo
-  m_TagString: Untagged
+  m_TagString: Goo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,11 +96,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017c67ec4f38f74babe84ac4af41fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 5
   speed: 100
   resetPoint: {fileID: 0}
-  gooPrefab: {fileID: 5814588668391964459}
   roomVars: {fileID: 0}
+  _c: {r: 0, g: 0, b: 0, a: 0}
+  gooPrefab: {fileID: 5814588668391964459}
+  gooDamage: 5
 --- !u!61 &3052841301665231271
 BoxCollider2D:
   m_ObjectHideFlags: 0

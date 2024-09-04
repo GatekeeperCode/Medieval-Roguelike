@@ -12,6 +12,13 @@ TagManager:
   - Bow
   - Crossbow
   - Arrow
+  - Monster
+  - BEE
+  - Gobbo
+  - Goo
+  - Minotaur
+  - SpearEnemy
+  - SwordEnemy
   layers:
   - Default
   - TransparentFX

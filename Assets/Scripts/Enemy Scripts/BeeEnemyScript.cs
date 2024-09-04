@@ -7,6 +7,7 @@ public class BeeEnemyScript : EnemyBase
     public GameObject BeeHive;
     public float moveMin;
     public float moveMax;
+    public float beeDmg;
 
     bool isMoving = false;
     Rigidbody2D rb;
