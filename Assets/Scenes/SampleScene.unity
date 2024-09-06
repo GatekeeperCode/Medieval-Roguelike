@@ -491,9 +491,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347ff77ca96b4c8438825239bfa9c5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _basicRoom: {fileID: 4040783507984582924, guid: 452d22fa4aab9a346aa44fcdcfd71236, type: 3}
-  _sideRoom: {fileID: 8536602612051476038, guid: 68ab044a912b4654e9085d80e2ba7bba, type: 3}
-  _topRoom: {fileID: 3689161335623948737, guid: 43f901b5344168b47b1f48eae69ed2ff, type: 3}
+  _basicRoomFight:
+  - {fileID: 3947312082521832210, guid: 81db3f7b7eecae5409e1a19d93ab575c, type: 3}
+  - {fileID: 3331285439025328207, guid: d44de37e660593145b301e03f4fefe9d, type: 3}
+  - {fileID: 6244734793375766752, guid: 1bf1e3a2df5e3574891f5bf6aafe5d42, type: 3}
+  - {fileID: 7578500866735499068, guid: 1a28f78117e54d0488749ccc48b0f55f, type: 3}
+  _basicRoomPuzzle:
+  - {fileID: 2254741198697275978, guid: 452fd3c672981454c9ef0acd708063d3, type: 3}
+  _basicRoomNavigate:
+  - {fileID: 4040783507984582924, guid: 452d22fa4aab9a346aa44fcdcfd71236, type: 3}
+  - {fileID: 1676529546170320530, guid: ca191b649df444f49936cf7625b77e87, type: 3}
+  - {fileID: 3346118517397888539, guid: 238e0e655bacb5648ad71054bc935672, type: 3}
+  - {fileID: 3190270151778451959, guid: 992b66b6bd4fc5341b5462bbd2c4c8f4, type: 3}
+  _sideRoomFight:
+  - {fileID: 2165354573358456521, guid: 605b82122adb481458526a76a5b02e2e, type: 3}
+  _sideRoomPuzzle: []
+  _sideRoomNavigate:
+  - {fileID: 8536602612051476038, guid: 68ab044a912b4654e9085d80e2ba7bba, type: 3}
+  - {fileID: 6643122460158575880, guid: 5039a3f4a780cc94aa32b72fdc1e2b67, type: 3}
+  _topRoomFight:
+  - {fileID: 4230928315679156356, guid: 398fa6c9eb2ac474aa0edb012f9bf678, type: 3}
+  _topRoomPuzzle: []
+  _topRoomNavigate:
+  - {fileID: 3689161335623948737, guid: 43f901b5344168b47b1f48eae69ed2ff, type: 3}
+  - {fileID: 8906040550273064238, guid: 441cf1f9635881c42a7eb7822344bce0, type: 3}
+  - {fileID: 8811922446744355643, guid: 88e24680944eef24898a9fac9e44371e, type: 3}
 --- !u!4 &683496044
 Transform:
   m_ObjectHideFlags: 0
@@ -1210,7 +1232,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2165354573358456520, guid: 605b82122adb481458526a76a5b02e2e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2165354573358456520, guid: 605b82122adb481458526a76a5b02e2e, type: 3}
       propertyPath: m_LocalPosition.x

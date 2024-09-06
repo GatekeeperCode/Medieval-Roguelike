@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class RoomSpawnScript : MonoBehaviour
 {
-    public GameObject _basicRoom;
-    public GameObject _sideRoom;
-    public GameObject _topRoom;
+    public GameObject[] _basicRoomFight;
+    public GameObject[] _basicRoomPuzzle;
+    public GameObject[] _basicRoomNavigate;
+
+    public GameObject[] _sideRoomFight;
+    public GameObject[] _sideRoomPuzzle;
+    public GameObject[] _sideRoomNavigate;
+
+    public GameObject[] _topRoomFight;
+    public GameObject[] _topRoomPuzzle;
+    public GameObject[] _topRoomNavigate;
 
     public void spawnRoom(Vector2 centerPos, Vector2 dir)
     {
@@ -14,17 +22,100 @@ public class RoomSpawnScript : MonoBehaviour
 
         if (rand == 0)
         {
-            Instantiate(_basicRoom, centerPos, Quaternion.identity);
+            rand = Random.Range(0, 2);
+
+            if (rand == 0)
+            {
+                rand = Random.Range(0, _basicRoomFight.Length);
+
+                Instantiate(_basicRoomFight[rand], centerPos, Quaternion.identity);
+            }
+            else if (rand == 1)
+            {
+                rand = Random.Range(0, _basicRoomPuzzle.Length);
+
+                Instantiate(_basicRoomPuzzle[rand], centerPos, Quaternion.identity);
+            }
+            else
+            {
+                rand = Random.Range(0, _basicRoomNavigate.Length);
+
+                Instantiate(_basicRoomNavigate[rand], centerPos, Quaternion.identity);
+            }
         }
         else
         {
             if(dir == Vector2.down)
             {
-                Instantiate(_topRoom, centerPos, Quaternion.identity);
+                rand = Random.Range(0, 2);
+
+                if (rand == 0)
+                {
+                    rand = Random.Range(0, _topRoomFight.Length);
+
+                    Instantiate(_topRoomFight[rand], centerPos, Quaternion.identity);
+                }
+                else if (rand == 1)
+                {
+                    if (_topRoomPuzzle.Length != 0)
+                    {
+                        rand = Random.Range(0, _topRoomPuzzle.Length);
+
+                        Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(_topRoomNavigate[0], centerPos, Quaternion.identity);
+                    }
+
+                    //rand = Random.Range(0, _topRoomPuzzle.Length);
+
+                    //Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
+                }
+                else
+                {
+                    rand = Random.Range(0, _topRoomNavigate.Length);
+
+                    Instantiate(_topRoomNavigate[rand], centerPos, Quaternion.identity);
+                }
             }
             else if(dir == Vector2.up)
             {
-                GameObject room = Instantiate(_topRoom, centerPos, Quaternion.identity);
+                GameObject room;
+
+                rand = Random.Range(0, 2);
+
+                if (rand == 0)
+                {
+                    rand = Random.Range(0, _topRoomFight.Length);
+
+                    room = Instantiate(_topRoomFight[rand], centerPos, Quaternion.identity);
+                }
+                else if (rand == 1)
+                {
+                    if (_topRoomPuzzle.Length != 0)
+                    {
+                        rand = Random.Range(0, _topRoomPuzzle.Length);
+
+                        room = Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
+                    }
+                    else
+                    {
+                        room = Instantiate(_topRoomNavigate[0], centerPos, Quaternion.identity);
+                    }
+
+                    //rand = Random.Range(0, _topRoomPuzzle.Length);
+
+                    //room = Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
+                }
+                else
+                {
+                    rand = Random.Range(0, _topRoomNavigate.Length);
+
+                    room = Instantiate(_topRoomNavigate[rand], centerPos, Quaternion.identity);
+                }
+
+
                 room.transform.eulerAngles = new Vector3(
                     room.transform.eulerAngles.x,
                     room.transform.eulerAngles.y,
@@ -34,11 +125,66 @@ public class RoomSpawnScript : MonoBehaviour
             }
             else if(dir == Vector2.left)
             {
-                Instantiate(_sideRoom, centerPos, Quaternion.identity);
+                rand = Random.Range(0, 2);
+
+                if (rand == 0)
+                {
+                    rand = Random.Range(0, _sideRoomFight.Length);
+
+                    Instantiate(_sideRoomFight[rand], centerPos, Quaternion.identity);
+                }
+                else if (rand == 1)
+                {
+                    if (_sideRoomPuzzle.Length != 0)
+                    {
+                        rand = Random.Range(0, _sideRoomPuzzle.Length);
+
+                        Instantiate(_sideRoomPuzzle[rand], centerPos, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(_sideRoomNavigate[0], centerPos, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    rand = Random.Range(0, _sideRoomNavigate.Length);
+
+                    Instantiate(_sideRoomNavigate[rand], centerPos, Quaternion.identity);
+                }
             }
             else
             {
-                GameObject room = Instantiate(_sideRoom, centerPos, Quaternion.identity);
+                GameObject room;
+
+                rand = Random.Range(0, 2);
+
+                if (rand == 0)
+                {
+                    rand = Random.Range(0, _sideRoomFight.Length);
+
+                    room = Instantiate(_sideRoomFight[rand], centerPos, Quaternion.identity);
+                }
+                else if (rand == 1)
+                {
+                    if(_sideRoomPuzzle.Length != 0)
+                    {
+                        rand = Random.Range(0, _sideRoomPuzzle.Length);
+
+                        room = Instantiate(_sideRoomPuzzle[rand], centerPos, Quaternion.identity);
+                    }
+                    else
+                    {
+                        room = Instantiate(_sideRoomNavigate[0], centerPos, Quaternion.identity);
+                    }
+                }
+                else
+                {
+                    rand = Random.Range(0, _sideRoomNavigate.Length);
+
+                    room = Instantiate(_sideRoomNavigate[rand], centerPos, Quaternion.identity);
+                }
+
                 room.transform.eulerAngles = new Vector3(
                     room.transform.eulerAngles.x,
                     room.transform.eulerAngles.y,
