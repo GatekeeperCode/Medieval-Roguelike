@@ -35,14 +35,6 @@ public class MinotaurScript : EnemyBase
             {
                 //Stop Movement for prior charges
                 _rbody.velocity = Vector2.zero;
-
-                //Looking at player
-                Quaternion rotation = Quaternion.LookRotation(
-                    player.transform.position - transform.position,
-                    transform.TransformDirection(Vector3.up)
-                );
-
-                transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
             }
             if(isCharging)
             {

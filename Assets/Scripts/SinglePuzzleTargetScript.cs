@@ -5,7 +5,9 @@ using UnityEngine;
 public class SinglePuzzleTargetScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool isHit;
+    public SelectiveDoorOpenScript sdos;
+    public int index;
+
     public bool canMultiHit;
 
     Color startColor;
@@ -17,7 +19,7 @@ public class SinglePuzzleTargetScript : MonoBehaviour
 
     private void Update()
     {
-        if(isHit)
+        if(sdos.targets[index])
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;
         }
@@ -31,11 +33,11 @@ public class SinglePuzzleTargetScript : MonoBehaviour
     {
         if(canMultiHit)
         {
-            isHit = !isHit;
+            sdos.targets[index] = !sdos.targets[index];
         }
         else
         {
-            isHit = true;
+            sdos.targets[index] = true;
         }
     }
 }

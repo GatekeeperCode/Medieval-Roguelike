@@ -25,13 +25,6 @@ public class GobboScript : EnemyBase
         if(!hitStun && roomVars.playerPresent)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-
-            Quaternion rotation = Quaternion.LookRotation(
-                player.transform.position - transform.position,
-                transform.TransformDirection(Vector3.up)
-            );
-
-            transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
         }
 
         if (health<=0)

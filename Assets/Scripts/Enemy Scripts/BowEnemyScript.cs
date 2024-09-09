@@ -11,7 +11,6 @@ public class BowEnemyScript : EnemyBase
     public float fireRate;
     public float range;
 
-    Camera mainCamera;
     GameObject bowObject;
     bool hitStun = false;
 
@@ -40,7 +39,7 @@ public class BowEnemyScript : EnemyBase
             targ.y = targ.y - objectPos.y;
 
             float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            bowGO.transform.parent.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
             if (Vector2.Distance(transform.position, player.transform.position) > range && !hitStun)
             {

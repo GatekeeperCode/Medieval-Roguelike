@@ -47,7 +47,7 @@ public class SpearEnemyScript : EnemyBase
                 transform.TransformDirection(Vector3.up)
             );
 
-            transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+            spearGO.transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
         }
 
         if (health <= 0)

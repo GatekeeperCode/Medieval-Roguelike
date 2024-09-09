@@ -60,7 +60,7 @@ public class SwordEnemyScript : EnemyBase
                 transform.TransformDirection(Vector3.up)
             );
 
-            transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+            swordGo.transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
         }
 
         if (health <= 0)
@@ -74,7 +74,18 @@ public class SwordEnemyScript : EnemyBase
         rotating = true;
         float timeElapsed = 0;
         Quaternion startRotation = swordGo.transform.rotation;
-        Quaternion targetRotation = swordGo.transform.rotation * Quaternion.Euler(0, 0, 125);
+
+        Quaternion targetRotation;
+
+        if ((player.transform.position.x - transform.position.x)>0)
+        {
+            targetRotation = swordGo.transform.rotation * Quaternion.Euler(0, 0, 125);
+        }
+        else
+        {
+            targetRotation = swordGo.transform.rotation * Quaternion.Euler(0, 0, -125);
+        }
+
         rotReset = startRotation;
 
         while (timeElapsed < lerpDuration)

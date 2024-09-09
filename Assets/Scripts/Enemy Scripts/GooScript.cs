@@ -25,13 +25,6 @@ public class GooScript : EnemyBase
     {
         if (!hitStun)
         {
-
-            Quaternion rotation = Quaternion.LookRotation(
-                player.transform.position - transform.position,
-                transform.TransformDirection(Vector3.up)
-            );
-            transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
-
             if(!isMoving)
             {
                 StartCoroutine(creeping());

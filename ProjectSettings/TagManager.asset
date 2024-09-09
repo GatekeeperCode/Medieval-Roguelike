@@ -19,6 +19,7 @@ TagManager:
   - Minotaur
   - SpearEnemy
   - SwordEnemy
+  - PushBox
   layers:
   - Default
   - TransparentFX

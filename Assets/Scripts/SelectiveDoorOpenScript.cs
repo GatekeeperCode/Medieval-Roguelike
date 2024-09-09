@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelectiveDoorOpenScript : MonoBehaviour
 {
-    public GameObject[] targets;
+    public bool[] targets;
     public GameObject[] walls;
     public bool hasOpenedDoor;
 
@@ -21,7 +21,7 @@ public class SelectiveDoorOpenScript : MonoBehaviour
         {
             for (int i = 0; i < targets.Length; i++)
             {
-                if (targets[i].GetComponent<SinglePuzzleTargetScript>().isHit)
+                if (targets[i])
                 {
                     walls[i].SetActive(false);
                     hasOpenedDoor = true;
