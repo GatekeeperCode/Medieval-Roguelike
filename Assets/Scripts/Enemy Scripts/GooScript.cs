@@ -25,7 +25,11 @@ public class GooScript : EnemyBase
     {
         if (!hitStun)
         {
-            if(!isMoving)
+            if(!roomVars.playerPresent)
+            {
+                transform.position = resetPoint.transform.position;
+            }
+            else if (!isMoving)
             {
                 StartCoroutine(creeping());
             }

@@ -150,6 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b8cbbd45f8c304187ffb9da556cb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: 0000
+  walls:
+  - {fileID: 2038822979011154213}
+  - {fileID: 5660526793240349526}
+  hasOpenedDoor: 0
 --- !u!1 &2353751322242804339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,6 +1732,14 @@ PrefabInstance:
       value: PuzzleTargetDummy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7629574046275930382, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
+      propertyPath: sdos
+      value: 
+      objectReference: {fileID: 701160892257151850}
+    - target: {fileID: 7629574046275930382, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629574046275930382, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
       propertyPath: walls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2380,6 +2393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuzzleTargetDummy
       objectReference: {fileID: 0}
+    - target: {fileID: 7629574046275930382, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
+      propertyPath: sdos
+      value: 
+      objectReference: {fileID: 701160892257151850}
     - target: {fileID: 7629574046275930382, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
       propertyPath: walls.Array.size
       value: 1

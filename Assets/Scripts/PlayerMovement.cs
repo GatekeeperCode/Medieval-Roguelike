@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float _health;
     public int _gold;
     public string activeWeaponString;
+    public bool canUseMap;
 
     public GameObject _shield;
 
@@ -42,6 +43,18 @@ public class PlayerMovement : MonoBehaviour
         {
             _shield.SetActive(false);
         }
+
+        if(canUseMap && Input.GetKey(KeyCode.E))
+        {
+            GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+
+            cam.GetComponent<Camera>().orthographicSize = 25;
+        }
+        else
+        {
+            GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+            cam.GetComponent<Camera>().orthographicSize = 4.701583f;
+        }    
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
