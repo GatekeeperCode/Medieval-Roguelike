@@ -12,6 +12,7 @@ public class DoorwayBlockSpawn : MonoBehaviour
     
     public bool roomClear = false;
     public bool wallsGone = false;
+    public bool manualOverride;
     GameObject spawnedWall;
     Transform _trans;
 
@@ -31,7 +32,7 @@ public class DoorwayBlockSpawn : MonoBehaviour
             wallsGone = true;
         }
 
-        if(!roomClear)
+        if(!roomClear && !manualOverride)
         {
             int count = 0;
             for(int i = 0; i < enemies.Length; i++)
