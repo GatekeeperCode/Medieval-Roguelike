@@ -76,7 +76,9 @@ public class MinotaurScript : EnemyBase
 
     private IEnumerator charge()
     {
-        yield return new WaitForSeconds(chargeBueildupTime);
+        float chargeTime = Random.Range(chargeBueildupTime - .5f, chargeBueildupTime + .5f);
+
+        yield return new WaitForSeconds(chargeTime);
         isCharging = true;
         //Setting end position
         var chargeTarget1 = transform.position + transform.right * 10;
