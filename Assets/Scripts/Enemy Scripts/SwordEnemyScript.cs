@@ -65,6 +65,7 @@ public class SwordEnemyScript : EnemyBase
 
         if (health <= 0)
         {
+            player.GetComponent<PlayerMovement>()._physicalStren+=1;
             Destroy(gameObject);
         }
     }

@@ -50,6 +50,8 @@ public class MinotaurScript : EnemyBase
 
         if (health <= 0)
         {
+            player.GetComponent<PlayerMovement>()._physicalStren += .5f;
+            player.GetComponent<PlayerMovement>()._defense += .5f;
             Destroy(gameObject);
         }
     }

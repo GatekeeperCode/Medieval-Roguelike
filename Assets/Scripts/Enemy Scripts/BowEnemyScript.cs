@@ -53,6 +53,8 @@ public class BowEnemyScript : EnemyBase
 
         if (health <= 0)
         {
+            player.GetComponent<PlayerMovement>()._rangeStren += .5f;
+            player.GetComponent<PlayerMovement>()._defense += .5f;
             Destroy(gameObject);
         }
     }

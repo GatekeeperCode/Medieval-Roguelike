@@ -73,6 +73,7 @@ public class GooScript : EnemyBase
                 mini2.GetComponent<SpriteRenderer>().color = _c;
             }
 
+            player.GetComponent<PlayerMovement>()._magicalStren += .25f;
             Destroy(gameObject);
         }
     }

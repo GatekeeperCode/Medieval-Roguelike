@@ -29,6 +29,7 @@ public class GobboScript : EnemyBase
 
         if (health<=0)
         {
+            player.GetComponent<PlayerMovement>()._health += .5f;
             Destroy(gameObject);
         }
     }

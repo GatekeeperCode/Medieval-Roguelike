@@ -38,6 +38,7 @@ public class SkeletonScript : EnemyBase
 
         if (health <= 0)
         {
+            player.GetComponent<PlayerMovement>()._rangeStren += 1;
             Destroy(gameObject);
         }
     }
