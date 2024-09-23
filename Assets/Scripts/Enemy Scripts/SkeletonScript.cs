@@ -8,6 +8,10 @@ public class SkeletonScript : EnemyBase
     public float fireRate;
     public float skeleDmg;
     public float range;
+    /*
+     * Higher Scaling factor means slowing scaling in game.
+     */
+    public int scalingFactor;
 
     bool hitStun = false;
 
@@ -20,10 +24,23 @@ public class SkeletonScript : EnemyBase
         StartCoroutine("fireArrow");
     }
 
+    void scaleStats(float playerScore)
+    {
+        while (playerScore > 0)
+        {
+            float scaleFun = (playerScore * playerScore) / scalingFactor;
+            health = scaleFun * health;
+            skeleDmg *= scaleFun;
+            playerScore -= 10;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(roomVars.playerPresent)
+        scaleStats(player.GetComponent<PlayerMovement>().score);
+
+        if (roomVars.playerPresent)
         {
             Vector3 targ = player.transform.position;
             targ.z = 0f;

@@ -10,6 +10,10 @@ public class MinotaurScript : EnemyBase
     Rigidbody2D _rbody;
     Vector3 chargeTarget;
     public float minoDamage;
+    /*
+     * Higher Scaling factor means slowing scaling in game.
+     */
+    public int scalingFactor;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +25,22 @@ public class MinotaurScript : EnemyBase
         StartCoroutine("charge");
     }
 
+    void scaleStats(float playerScore)
+    {
+        while (playerScore > 0)
+        {
+            float scaleFun = (playerScore * playerScore) / scalingFactor;
+            health = scaleFun * health;
+            minoDamage *= scaleFun;
+            playerScore -= 10;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        scaleStats(player.GetComponent<PlayerMovement>().score);
+
         if (!roomVars.playerPresent)
         {
             transform.position = resetPoint.transform.position;

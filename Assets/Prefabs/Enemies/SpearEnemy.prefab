@@ -161,6 +161,7 @@ MonoBehaviour:
   roomVars: {fileID: 0}
   _c: {r: 0, g: 0, b: 0, a: 0}
   spearGO: {fileID: 5631390986329243070}
+  scalingFactor: 40
 --- !u!1 &5631390988170017940
 GameObject:
   m_ObjectHideFlags: 0

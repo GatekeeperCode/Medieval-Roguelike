@@ -139,6 +139,7 @@ MonoBehaviour:
   dmg: 1
   fireRate: 1
   range: 5
+  scalingFactor: 50
 --- !u!61 &8244790721723962426
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -292,4 +293,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponModifier: 0.5
-  damage: 0
+  damage: 1

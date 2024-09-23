@@ -14,21 +14,26 @@ public class PlayerMovement : MonoBehaviour
     public int _gold;
     public string activeWeaponString;
     public bool canUseMap;
+    public float score;
 
     public GameObject _shield;
 
     Rigidbody2D _rbody;
+    float baseScore;
 
     void Start()
     {
         activeWeaponString = "Sword";
         _rbody = GetComponent<Rigidbody2D>();
         _health = 20;
+        baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health);
     }
 
     // Update is called once per frame
     void Update()
     {
+        score = (_speed + _physicalStren + _rangeStren + _defense + _health)/baseScore;
+
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 

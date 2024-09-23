@@ -10,6 +10,10 @@ public class SpearEnemyScript : EnemyBase
     float stabSpeed = 2;
 
     public GameObject spearGO;
+    /*
+     * Higher Scaling factor means slowing scaling in game.
+     */
+    public int scalingFactor;
 
     bool hitStun = false;
 
@@ -21,9 +25,22 @@ public class SpearEnemyScript : EnemyBase
         spearObject = spearGO.transform.GetChild(0).gameObject;
     }
 
+    void scaleStats(float playerScore)
+    {
+        while (playerScore > 0)
+        {
+            float scaleFun = (playerScore * playerScore) / scalingFactor;
+            health = scaleFun * health;
+            spearObject.transform.GetChild(0).GetComponent<MeleeDmgScript>().damage = spearObject.transform.GetChild(0).GetComponent<MeleeDmgScript>().damage * scaleFun;
+            playerScore -= 10;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        scaleStats(player.GetComponent<PlayerMovement>().score);
+
         if (!roomVars.playerPresent)
         {
             transform.position = resetPoint.transform.position;

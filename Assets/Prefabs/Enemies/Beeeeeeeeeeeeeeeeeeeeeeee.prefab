@@ -132,6 +132,8 @@ MonoBehaviour:
   BeeHive: {fileID: 0}
   moveMin: -3
   moveMax: 3
+  beeDmg: 1
+  scalingFactor: 100
 --- !u!50 &5497741532283444392
 Rigidbody2D:
   serializedVersion: 4

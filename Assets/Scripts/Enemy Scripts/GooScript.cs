@@ -10,6 +10,10 @@ public class GooScript : EnemyBase
     float startHealth;
     bool isMoving = false;
     public float gooDamage;
+    /*
+     * Higher Scaling factor means slowing scaling in game.
+     */
+    public int scalingFactor;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +24,22 @@ public class GooScript : EnemyBase
         //print("Health: " + health + ", Start Health: " + startHealth + ", Scale: " + transform.lossyScale.x);
     }
 
+    void scaleStats(float playerScore)
+    {
+        while (playerScore > 0)
+        {
+            float scaleFun = (playerScore * playerScore) / scalingFactor;
+            health = scaleFun * health;
+            gooDamage *= scaleFun;
+            playerScore -= 10;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        scaleStats(player.GetComponent<PlayerMovement>().score);
+
         if (!hitStun)
         {
             if(!roomVars.playerPresent)
