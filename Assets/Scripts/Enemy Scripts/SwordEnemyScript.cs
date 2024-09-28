@@ -17,6 +17,7 @@ public class SwordEnemyScript : EnemyBase
      * Higher Scaling factor means slowing scaling in game.
      */
     public int scalingFactor;
+    float lastPSCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -27,23 +28,28 @@ public class SwordEnemyScript : EnemyBase
         sword = swordGo.transform;
         rotReset = sword.rotation;
         timeSinceLastSwing = 10;
+        lastPSCheck = 0;
     }
 
     void scaleStats(float playerScore)
     {
-        while(playerScore>0)
+        if(playerScore>0)
         {
-            float scaleFun = (playerScore * playerScore) / scalingFactor;
+            lastPSCheck += playerScore;
+
+            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+
+            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+
             health = scaleFun * health;
             swordGo.transform.GetChild(0).GetComponent<MeleeDmgScript>().damage = swordGo.transform.GetChild(0).GetComponent<MeleeDmgScript>().damage * scaleFun;
-            playerScore -= 10;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score);
+        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
         if (!roomVars.playerPresent)
         {

@@ -16,6 +16,8 @@ public class SpearEnemyScript : EnemyBase
     public int scalingFactor;
 
     bool hitStun = false;
+    float lastPSCheck;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,23 +25,28 @@ public class SpearEnemyScript : EnemyBase
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         spearObject = spearGO.transform.GetChild(0).gameObject;
+        lastPSCheck = 0;
     }
 
     void scaleStats(float playerScore)
     {
-        while (playerScore > 0)
+        if (playerScore > 0)
         {
-            float scaleFun = (playerScore * playerScore) / scalingFactor;
+            lastPSCheck += playerScore;
+
+            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+
+            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+
             health = scaleFun * health;
-            spearObject.transform.GetChild(0).GetComponent<MeleeDmgScript>().damage = spearObject.transform.GetChild(0).GetComponent<MeleeDmgScript>().damage * scaleFun;
-            playerScore -= 10;
+            spearObject.transform.GetComponent<MeleeDmgScript>().damage = spearObject.GetComponent<MeleeDmgScript>().damage * scaleFun;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score);
+        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
         if (!roomVars.playerPresent)
         {

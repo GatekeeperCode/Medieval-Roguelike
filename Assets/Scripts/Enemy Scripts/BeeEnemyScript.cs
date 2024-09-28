@@ -12,6 +12,7 @@ public class BeeEnemyScript : EnemyBase
      * Higher Scaling factor means slowing scaling in game.
      */
     public int scalingFactor;
+    float lastPSCheck;
 
     bool isMoving = false;
     Rigidbody2D rb;
@@ -19,25 +20,31 @@ public class BeeEnemyScript : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         rb = GetComponent<Rigidbody2D>();
+        lastPSCheck = 0;
     }
 
     void scaleStats(float playerScore)
     {
-        while (playerScore > 0)
+        if (playerScore > 0)
         {
-            float scaleFun = (playerScore * playerScore) / scalingFactor;
+            lastPSCheck += playerScore;
+
+            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+
+            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+
             health = scaleFun * health;
             beeDmg *= scaleFun;
-            playerScore -= 10;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score);
+        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
         if (!roomVars.playerPresent)
         {

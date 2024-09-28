@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         activeWeaponString = "Sword";
         _rbody = GetComponent<Rigidbody2D>();
         _health = 20;
-        baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health);
+        baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health)/36;
     }
 
     // Update is called once per frame

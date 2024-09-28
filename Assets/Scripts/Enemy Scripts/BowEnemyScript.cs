@@ -14,6 +14,7 @@ public class BowEnemyScript : EnemyBase
      * Higher Scaling factor means slowing scaling in game.
      */
     public int scalingFactor;
+    float lastPSCheck;
 
     GameObject bowObject;
     bool hitStun = false;
@@ -26,25 +27,30 @@ public class BowEnemyScript : EnemyBase
 
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
+        lastPSCheck = 0;
 
         StartCoroutine("fireArrow");
     }
 
     void scaleStats(float playerScore)
     {
-        while (playerScore > 0)
+        if (playerScore > 0)
         {
-            float scaleFun = (playerScore * playerScore) / scalingFactor;
+            lastPSCheck += playerScore;
+
+            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+
+            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+
             health = scaleFun * health;
             bowGO.GetComponent<RangedDmgScript>().damage *= scaleFun;
-            playerScore -= 10;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score);
+        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
         if (roomVars.playerPresent)
         {
