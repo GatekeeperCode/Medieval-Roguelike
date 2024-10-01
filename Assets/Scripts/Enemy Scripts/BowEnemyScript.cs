@@ -92,7 +92,7 @@ public class BowEnemyScript : EnemyBase
             {
                 GameObject arrow = Instantiate(projectile, bowObject.transform.position, Quaternion.identity);
                 arrow.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 90);
-                arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -50);
+                arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * 50);
                 arrow.GetComponent<ArrowScript>().damage = dmg;
             }
         }

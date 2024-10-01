@@ -268,6 +268,32 @@ MonoBehaviour:
     m_Bits: 128
   _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
   roomVars: {fileID: 1835065746717349200}
+--- !u!61 &8569462448740311062
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836667429125850903}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &8659854281719690673
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,6 +914,10 @@ PrefabInstance:
       propertyPath: canClose
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7757691598089492045, guid: 89752d205e4de8b42983eec565e12ac3, type: 3}
+      propertyPath: doorOpen
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89752d205e4de8b42983eec565e12ac3, type: 3}
 --- !u!4 &2267752285217943678 stripped
@@ -1155,14 +1185,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bafab3af3caaa347a9630a88cd45a10, type: 3}
---- !u!4 &6105157093694836238 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 727121032163866051, guid: 4bafab3af3caaa347a9630a88cd45a10, type: 3}
-  m_PrefabInstance: {fileID: 6822567224850824141}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3207829775532498293 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8226423476689151672, guid: 4bafab3af3caaa347a9630a88cd45a10, type: 3}
+  m_PrefabInstance: {fileID: 6822567224850824141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6105157093694836238 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 727121032163866051, guid: 4bafab3af3caaa347a9630a88cd45a10, type: 3}
   m_PrefabInstance: {fileID: 6822567224850824141}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8659854280186681268
