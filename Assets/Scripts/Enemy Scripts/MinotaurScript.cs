@@ -106,16 +106,8 @@ public class MinotaurScript : EnemyBase
         yield return new WaitForSeconds(chargeTime);
         isCharging = true;
         //Setting end position
-        var chargeTarget1 = transform.position + transform.right * 10;
-        var chargeTarget2 = transform.position + -transform.right * 10;
+        var chargeTarget1 = player.transform.position;
 
-        if(Vector2.Distance(chargeTarget1, player.transform.position)< Vector2.Distance(chargeTarget2, player.transform.position))
-        {
-            chargeTarget = chargeTarget1;
-        }
-        else
-        {
-            chargeTarget = chargeTarget2;
-        }
+        chargeTarget = chargeTarget1;
     }
 }
