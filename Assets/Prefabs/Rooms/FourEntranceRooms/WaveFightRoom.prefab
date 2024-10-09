@@ -88,7 +88,10 @@ MonoBehaviour:
   faceDirection: {x: 0, y: -1}
   _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
   enemies: []
-  actionTriggers: []
+  actionTriggers:
+  - {fileID: 8942072322557869445}
+  - {fileID: 8892628198091007076}
+  - {fileID: 1608591347138135939}
   wallSpawn: 0
   roomClear: 0
   wallsGone: 0
@@ -181,7 +184,10 @@ MonoBehaviour:
   faceDirection: {x: -1, y: 0}
   _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
   enemies: []
-  actionTriggers: []
+  actionTriggers:
+  - {fileID: 701537707357371941}
+  - {fileID: 8942072322557869445}
+  - {fileID: 8892628198091007076}
   wallSpawn: 0
   roomClear: 0
   wallsGone: 0
@@ -872,7 +878,10 @@ MonoBehaviour:
   faceDirection: {x: 1, y: 0}
   _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
   enemies: []
-  actionTriggers: []
+  actionTriggers:
+  - {fileID: 701537707357371941}
+  - {fileID: 8942072322557869445}
+  - {fileID: 1608591347138135939}
   wallSpawn: 0
   roomClear: 0
   wallsGone: 0
@@ -1281,7 +1290,10 @@ MonoBehaviour:
   faceDirection: {x: 0, y: 1}
   _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
   enemies: []
-  actionTriggers: []
+  actionTriggers:
+  - {fileID: 701537707357371941}
+  - {fileID: 8892628198091007076}
+  - {fileID: 1608591347138135939}
   wallSpawn: 0
   roomClear: 0
   wallsGone: 0

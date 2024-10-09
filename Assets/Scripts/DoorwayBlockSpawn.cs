@@ -81,7 +81,18 @@ public class DoorwayBlockSpawn : MonoBehaviour
 
     void spawnWall()
     {
-        Vector3 placeDirection = faceDirection * -0.5f;
+        Vector3 placeDirection;
+
+        if (transform.parent.GetComponent<roomVarScript>().isFlipped)
+        {
+            placeDirection = faceDirection * 0.5f;
+
+        }
+        else
+        {
+            placeDirection = faceDirection * -0.5f;
+        }
+
         Vector3 placePos = new Vector3(_trans.position.x + placeDirection.x, _trans.position.y + placeDirection.y, _trans.position.z);
         spawnedWall = Instantiate(_wall, placePos, Quaternion.identity);
         spawnedWall.GetComponent<SpriteRenderer>().color = Color.gray;

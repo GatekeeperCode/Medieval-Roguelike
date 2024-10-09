@@ -40,4 +40,16 @@ public class SinglePuzzleTargetScript : MonoBehaviour
             sdos.targets[index] = true;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (canMultiHit)
+        {
+            sdos.targets[index] = !sdos.targets[index];
+        }
+        else
+        {
+            sdos.targets[index] = true;
+        }
+    }
 }
