@@ -33,8 +33,6 @@ public class GobboScript : EnemyBase
             health = scaleFun * health;
             gobboDamage *= scaleFun;
         }
-
-
     }
 
     // Update is called once per frame
