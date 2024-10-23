@@ -8,17 +8,22 @@ public class WizardScript : EnemyBase
     public float damage;
     public GameObject fireballObject;
     public GameObject fireballAim;
+    public float attackDelay;
 
     bool playerInRange;
+    bool canFire;
     float lastPSCheck;
+    float lastAttack;
 
     // Start is called before the first frame update
     void Start()
     {
         playerInRange = false;
+        canFire = true;
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         lastPSCheck = 0;
+        lastAttack = 0;
     }
 
     void scaleStats(float playerScore)
@@ -54,22 +59,34 @@ public class WizardScript : EnemyBase
 
         if (roomVars.playerPresent)
         {
-            if (!playerInRange)
+            if (!playerInRange && canFire)
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             }
             else
             {
-                GameObject fireball = Instantiate(fireballObject, fireballAim.transform.GetChild(0).transform.position, Quaternion.identity);
-                fireball.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 90);
-                fireball.GetComponent<Rigidbody2D>().AddForce(fireball.transform.up * 50);
-                fireball.GetComponent<ArrowScript>().damage = damage;
+                if(canFire)
+                {
+                    GameObject fireball = Instantiate(fireballObject, fireballAim.transform.GetChild(0).transform.position, Quaternion.identity);
+                    fireball.transform.rotation = fireballAim.transform.rotation * Quaternion.Euler(0, 0, 90);
+                    fireball.GetComponent<Rigidbody2D>().AddForce(fireball.transform.up * -50);
+                    fireball.GetComponent<FireballScript>().damage = damage;
+                    lastAttack = 0;
+                    canFire = false;
+                }
             }
         }
         else
         {
             transform.position = resetPoint.transform.position;
         }
+
+        if(lastAttack >= attackDelay)
+        {
+            canFire = true;
+        }
+
+        lastAttack += Time.deltaTime;
 
         if (health <= 0)
         {

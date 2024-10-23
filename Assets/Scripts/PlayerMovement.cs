@@ -88,5 +88,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _health -= collision.gameObject.GetComponent<ArrowScript>().damage;
         }
+        else if (collision.gameObject.tag == "Fireball")
+        {
+            _health -= collision.gameObject.GetComponent<FireballScript>().damage;
+        }
     }
 }

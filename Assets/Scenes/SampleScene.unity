@@ -1227,6 +1227,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 963956236440226537, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 963956236440226537, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 963956236440226537, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 963956236440226537, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 1998602407}
+    - target: {fileID: 963956236440226537, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: resetPoint
+      value: 
+      objectReference: {fileID: 1326890525}
+    - target: {fileID: 963956236440226537, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: attackDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 963956236440226537, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: fireballAim
+      value: 
+      objectReference: {fileID: 1433093947476181647}
+    - target: {fileID: 963956236440226537, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: scalingFactor
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_Name
       value: Wizard Man
@@ -1277,6 +1309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+--- !u!1 &1433093947476181647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1014905507860406148, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+  m_PrefabInstance: {fileID: 1433093947476181646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2173886701105846779
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -158,7 +158,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 10
 --- !u!114 &963956236440226537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,13 +172,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 0
-  speed: 0
+  health: 5
+  speed: 3
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
   _c: {r: 0, g: 0, b: 0, a: 0}
-  scalingFactor: 0
-  fireball: {fileID: 0}
+  scalingFactor: 5
+  damage: 5
+  fireballObject: {fileID: 4375364342831269234, guid: a7a51d24f1ec5f84fbace53119704750, type: 3}
+  fireballAim: {fileID: 1014905507860406148}
+  attackDelay: 0
 --- !u!1 &7727639246415396369
 GameObject:
   m_ObjectHideFlags: 0
