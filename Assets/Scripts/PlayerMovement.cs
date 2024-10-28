@@ -92,5 +92,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _health -= collision.gameObject.GetComponent<FireballScript>().damage;
         }
+        else if(collision.gameObject.tag == "ElementSphere")
+        {
+            _health -= collision.gameObject.GetComponent<ElementCircleScript>().damage;
+        }
     }
 }

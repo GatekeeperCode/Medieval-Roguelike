@@ -21,6 +21,8 @@ TagManager:
   - SwordEnemy
   - PushBox
   - PlayerClone
+  - ElementSphere
+  - Fireball
   layers:
   - Default
   - TransparentFX
