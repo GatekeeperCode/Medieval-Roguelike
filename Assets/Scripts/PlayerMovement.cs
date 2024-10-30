@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D _rbody;
     float baseScore;
+    float baseSpeed;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         _rbody = GetComponent<Rigidbody2D>();
         _health = 20;
         baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health)/36;
+        baseSpeed = _speed;
     }
 
     // Update is called once per frame
@@ -96,5 +98,18 @@ public class PlayerMovement : MonoBehaviour
         {
             _health -= collision.gameObject.GetComponent<ElementCircleScript>().damage;
         }
+    }
+
+    public IEnumerator waterSphereSlow()
+    {
+        _speed *= .75f;
+        StartCoroutine("resumeSpeed");
+        yield return null;
+    }
+
+    IEnumerator resumeSpeed()
+    {
+        yield return new WaitForSeconds(1.5f);
+        _speed = baseSpeed;
     }
 }

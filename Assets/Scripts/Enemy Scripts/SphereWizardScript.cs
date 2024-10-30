@@ -45,7 +45,7 @@ public class SphereWizardScript : EnemyBase
     {
         scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
-        //elementRotation.transform.Rotate(0, 0, 50 * Time.deltaTime);
+        elementRotation.transform.Rotate(0, 0, 50 * Time.deltaTime);
 
         if (!roomVars.playerPresent)
         {
