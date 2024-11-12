@@ -181,7 +181,7 @@ MonoBehaviour:
   damage: 5
   fireballObject: {fileID: 4375364342831269234, guid: a7a51d24f1ec5f84fbace53119704750, type: 3}
   fireballAim: {fileID: 1014905507860406148}
-  attackDelay: 0
+  attackDelay: 4
 --- !u!1 &7727639246415396369
 GameObject:
   m_ObjectHideFlags: 0
