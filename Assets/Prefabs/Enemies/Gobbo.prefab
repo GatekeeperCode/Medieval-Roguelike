@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  health: 0
+  health: 3
   speed: 2
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
