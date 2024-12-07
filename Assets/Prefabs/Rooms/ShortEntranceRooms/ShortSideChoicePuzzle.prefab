@@ -329,6 +329,10 @@ PrefabInstance:
       value: PuzzleTargetDummy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7629574046275930382, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
+      propertyPath: sdos
+      value: 
+      objectReference: {fileID: 4420884058133594147}
+    - target: {fileID: 7629574046275930382, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
       propertyPath: index
       value: 1
       objectReference: {fileID: 0}
@@ -1080,6 +1084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuzzleTargetDummy
       objectReference: {fileID: 0}
+    - target: {fileID: 7629574046275930382, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
+      propertyPath: sdos
+      value: 
+      objectReference: {fileID: 4420884058133594147}
     - target: {fileID: 8000608654765740856, guid: 6e8d709af0fe32a408b5fe1a782d1f0c, type: 3}
       propertyPath: m_RootOrder
       value: 16
