@@ -136,7 +136,8 @@ GameObject:
   - component: {fileID: 2173886701006041415}
   - component: {fileID: 2173886701006041408}
   - component: {fileID: 2173886701006041409}
-  m_Layer: 0
+  - component: {fileID: -7048529346307695117}
+  m_Layer: 11
   m_Name: SwordEnemy
   m_TagString: SwordEnemy
   m_Icon: {fileID: 0}
@@ -256,6 +257,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &-7048529346307695117
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173886701006041410}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &2173886701353386181
 GameObject:
   m_ObjectHideFlags: 0

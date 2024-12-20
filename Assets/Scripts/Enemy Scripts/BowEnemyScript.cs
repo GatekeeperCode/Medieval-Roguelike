@@ -91,8 +91,8 @@ public class BowEnemyScript : EnemyBase
             if (roomVars.playerPresent && !hitStun && Vector2.Distance(transform.position, player.transform.position) < range)
             {
                 GameObject arrow = Instantiate(projectile, bowObject.transform.position, Quaternion.identity);
-                arrow.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 90);
-                arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * 50);
+                arrow.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0, 0, 90);
+                arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -50);
                 arrow.GetComponent<ArrowScript>().damage = dmg;
             }
         }

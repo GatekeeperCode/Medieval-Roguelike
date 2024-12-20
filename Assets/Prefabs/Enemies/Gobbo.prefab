@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9165514936342736488}
   - component: {fileID: 1821631849948006649}
   - component: {fileID: -8930007583987190219}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gobbo
   m_TagString: Gobbo
   m_Icon: {fileID: 0}

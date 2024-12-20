@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             _shield.SetActive(false);
         }
 
+        //I could probably do this better but this is how I did it.
         if(canUseMap && Input.GetKey(KeyCode.E))
         {
             GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
@@ -60,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
-            cam.GetComponent<Camera>().orthographicSize = 4.701583f;
+            cam.GetComponent<Camera>().orthographicSize = 4.9f;
         }    
     }
 

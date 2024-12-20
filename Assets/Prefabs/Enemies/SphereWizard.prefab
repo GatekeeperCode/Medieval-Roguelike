@@ -42,9 +42,10 @@ GameObject:
   - component: {fileID: 9209723377290399057}
   - component: {fileID: 298499995840356283}
   - component: {fileID: 8080593412683872442}
-  m_Layer: 0
+  - component: {fileID: -3120106422272913423}
+  m_Layer: 11
   m_Name: SphereWizard
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,3 +164,25 @@ MonoBehaviour:
   elementPrefab: {fileID: 6568789575686520819, guid: c916be1dd4da713469d5baee9e15c850, type: 3}
   elementRotation: {fileID: 3024637640866667400}
   scalingFactor: 25
+  elements: []
+--- !u!50 &-3120106422272913423
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8174970132939597451}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
