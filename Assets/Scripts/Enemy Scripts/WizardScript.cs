@@ -18,7 +18,6 @@ public class WizardScript : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
-        playerInRange = false;
         canFire = true;
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
@@ -59,7 +58,7 @@ public class WizardScript : EnemyBase
 
         if (roomVars.playerPresent)
         {
-            if (!playerInRange && canFire)
+            if (Vector2.Distance(player.transform.position, transform.position)>=10 && canFire)
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             }
@@ -92,22 +91,6 @@ public class WizardScript : EnemyBase
         {
             player.GetComponent<PlayerMovement>()._magicalStren += 1f;
             Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
-        {
-            playerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            playerInRange = false;
         }
     }
 

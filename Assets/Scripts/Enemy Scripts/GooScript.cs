@@ -8,6 +8,7 @@ public class GooScript : EnemyBase
 
     bool hitStun = false;
     float startHealth;
+    float statChanges;
     bool isMoving = false;
     public float gooDamage;
     /*
@@ -23,6 +24,7 @@ public class GooScript : EnemyBase
         _c = GetComponent<SpriteRenderer>().color;
         startHealth = health;
         lastPSCheck = 0;
+        statChanges = 0;
         //print("Health: " + health + ", Start Health: " + startHealth + ", Scale: " + transform.lossyScale.x);
     }
 
@@ -36,6 +38,7 @@ public class GooScript : EnemyBase
 
             if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
 
+            statChanges += scaleFun;
             health = scaleFun * health;
             gooDamage *= scaleFun;
         }
@@ -80,13 +83,13 @@ public class GooScript : EnemyBase
                 }
                 else if(transform.localScale.x == .75f)
                 {
-                    mini1.GetComponent<GooScript>().health = startHealth * 4/3 * mini1.transform.localScale.x;
-                    mini1.GetComponent<GooScript>().gooDamage = startHealth * 4 / 3 * mini1.transform.localScale.x;
+                    mini1.GetComponent<GooScript>().health = startHealth * 3/4 + statChanges;
+                    mini1.GetComponent<GooScript>().gooDamage = startHealth * 3/4 + statChanges;
                 }
                 else
                 {
-                    mini1.GetComponent<GooScript>().health = startHealth * 2 * mini1.transform.localScale.x;
-                    mini1.GetComponent<GooScript>().gooDamage = startHealth * 2 * mini1.transform.localScale.x;
+                    mini1.GetComponent<GooScript>().health = startHealth * 3 / 4 + statChanges;
+                    mini1.GetComponent<GooScript>().gooDamage = startHealth * 3 / 4 + statChanges;
                 }
                 mini2.GetComponent<GooScript>().health = mini1.GetComponent<GooScript>().health;
                 mini2.GetComponent<GooScript>().gooDamage = mini1.GetComponent<GooScript>().gooDamage;
