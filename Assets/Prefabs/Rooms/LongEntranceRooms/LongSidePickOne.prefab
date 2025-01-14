@@ -301,9 +301,9 @@ MonoBehaviour:
   option1Chosen: 0
   option2Chosen: 0
   option1Walls:
-  - {fileID: 2920623502187170295}
-  option2Walls:
   - {fileID: 8949970573330670166}
+  option2Walls:
+  - {fileID: 2920623502187170295}
 --- !u!1 &7616902666246068351
 GameObject:
   m_ObjectHideFlags: 0

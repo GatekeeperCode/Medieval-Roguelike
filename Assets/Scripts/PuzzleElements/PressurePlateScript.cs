@@ -16,7 +16,7 @@ public class PressurePlateScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" || collision.tag == "PlayerClone")
+        if(collision.tag == "Player" || collision.tag == "PlayerClone" || collision.tag == "PushBox")
         {
             if(doorOpen)
             {
@@ -31,7 +31,7 @@ public class PressurePlateScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (canClose && (collision.tag == "Player" || collision.tag == "PlayerClone"))
+        if (canClose && (collision.tag == "Player" || collision.tag == "PlayerClone" || collision.tag == "PushBox"))
         {
             if (!doorOpen)
             {

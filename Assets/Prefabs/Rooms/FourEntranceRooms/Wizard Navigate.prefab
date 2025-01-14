@@ -1843,6 +1843,10 @@ PrefabInstance:
       propertyPath: roomVars
       value: 
       objectReference: {fileID: 522723298751760293}
+    - target: {fileID: 8080593412683872442, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
+      propertyPath: resetPoint
+      value: 
+      objectReference: {fileID: 6624970999560720123}
     - target: {fileID: 8174970132939597451, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
       propertyPath: m_Name
       value: SphereWizard
