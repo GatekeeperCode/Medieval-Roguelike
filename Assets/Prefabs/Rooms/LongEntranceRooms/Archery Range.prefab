@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7831811898334469765}
   - component: {fileID: 2654901253672465191}
   - component: {fileID: 6324294474619815770}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FakeArcheryTarget (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 4356570736993370888}
   - component: {fileID: 5626088184992522679}
   - component: {fileID: 5536201167829696880}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FakeArcheryTarget (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7377905353783128972}
   - component: {fileID: 8341907905104991588}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Box of Arrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3445167455087088406}
   - component: {fileID: 8985399649692928956}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Box of Arrows (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 7468910126870450943}
   - component: {fileID: 2758863615781766088}
   - component: {fileID: 2062148213979446726}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FakeArcheryTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}

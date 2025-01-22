@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 7078930096063248955}
   - component: {fileID: 5391775077870874543}
   - component: {fileID: 6391587354136750554}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pillar (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3777167811520708580}
   - component: {fileID: 356734916650656669}
   - component: {fileID: 3235487159138225162}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pillar (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 2860891402687265333}
   - component: {fileID: 3507728488289204073}
   - component: {fileID: 619600750766433709}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pillar (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 5192017706080121536}
   - component: {fileID: 4890358860447059152}
   - component: {fileID: 796715938819527935}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pillar (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 535952849387341747}
   - component: {fileID: 1897225621350272931}
   - component: {fileID: 1486110536665620055}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pillar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1319,7 @@ GameObject:
   - component: {fileID: 4750022942847365102}
   - component: {fileID: 1685997376912724816}
   - component: {fileID: 7866473398654165428}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pillar (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1500,7 +1500,7 @@ GameObject:
   - component: {fileID: 3188874743794568021}
   - component: {fileID: 2193888429191586250}
   - component: {fileID: 6237695649766852673}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1763,7 +1763,7 @@ GameObject:
   - component: {fileID: 6405891632857536349}
   - component: {fileID: 4698662329277623799}
   - component: {fileID: 1941875217927140612}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pillar (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

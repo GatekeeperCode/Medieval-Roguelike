@@ -76,7 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2003835747395450770}
   - component: {fileID: 4601761593352339038}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pile of Boxes (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 5406054957643856561}
   - component: {fileID: 8548387901032542021}
   - component: {fileID: 7091771004867264173}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pile of Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5075111675256622924}
   - component: {fileID: 1621502177095392915}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pile of Boxes (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6172406934906079297}
   - component: {fileID: 8185660977847251957}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pile of Boxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3806739967970887207}
   - component: {fileID: 4418242054587300943}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pile of Boxes (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5020641891727986530}
   - component: {fileID: 7641618123896338586}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pile of Boxes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4940448861400260745}
   - component: {fileID: 3715790528263794289}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pile of Boxes (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -876,7 +876,7 @@ GameObject:
   - component: {fileID: 7352127629932091963}
   - component: {fileID: 2045824760830290623}
   - component: {fileID: 2329214654554634677}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pile of Gold (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

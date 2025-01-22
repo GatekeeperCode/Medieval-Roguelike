@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1793224994067409929}
   - component: {fileID: 6968890171904886010}
   - component: {fileID: 6740462350762765165}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CookingSurface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 8507036980057102806}
   - component: {fileID: 131838450672440792}
   - component: {fileID: 7474620746725979069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Food Prep Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 282792046965388943}
   - component: {fileID: 2398917071676365482}
   - component: {fileID: 4037229630777007732}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Food Prep Surface (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 4373756342133414367}
   - component: {fileID: 7117782400220859957}
   - component: {fileID: 4132708522106534219}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FoodStorage
   m_TagString: Untagged
   m_Icon: {fileID: 0}

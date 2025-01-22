@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 362469611883972162}
   - component: {fileID: 4592998472518874492}
   - component: {fileID: 1394829495204753398}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 4082028014909858908}
   - component: {fileID: 6684326925803661889}
   - component: {fileID: 937097191375257302}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 6755877824901841147}
   - component: {fileID: 6128812395383644411}
   - component: {fileID: 671917971722815836}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 513581268089792873}
   - component: {fileID: 4099146783515725297}
   - component: {fileID: 782259264086709940}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 2906880493377427932}
   - component: {fileID: 8777460442665582176}
   - component: {fileID: 1286105880339499365}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 1341478670814861782}
   - component: {fileID: 822634129905315711}
   - component: {fileID: 604575750513420994}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: 408299127040610597}
   - component: {fileID: 592105334189391133}
   - component: {fileID: 4615181879435270378}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 8272576279076287323}
   - component: {fileID: 5313951279645096757}
   - component: {fileID: 5400992572932811983}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 4740667393648458260}
   - component: {fileID: 6762206331375359624}
   - component: {fileID: 4000230712815190429}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,7 +1141,7 @@ GameObject:
   - component: {fileID: 1356314202579942476}
   - component: {fileID: 4163291767792431492}
   - component: {fileID: 361237237627644394}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 2755349733980546791}
   - component: {fileID: 7507437135191720666}
   - component: {fileID: 2445272236189288288}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1442,7 +1442,7 @@ GameObject:
   - component: {fileID: 5034717797691022527}
   - component: {fileID: 4941871587429035310}
   - component: {fileID: 1185792301729723023}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1623,7 +1623,7 @@ GameObject:
   - component: {fileID: 2696923671591316366}
   - component: {fileID: 8137146127764331606}
   - component: {fileID: 2367740510758350461}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1732,7 +1732,7 @@ GameObject:
   - component: {fileID: 8972046086133379252}
   - component: {fileID: 3014129995117842243}
   - component: {fileID: 3881294797245156178}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1841,7 +1841,7 @@ GameObject:
   - component: {fileID: 3835974802477786081}
   - component: {fileID: 8530415343985854804}
   - component: {fileID: 8741003102235720289}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1950,7 +1950,7 @@ GameObject:
   - component: {fileID: 8048031645208072682}
   - component: {fileID: 4775395242447293862}
   - component: {fileID: 7900816766494834466}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suit of Armor (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

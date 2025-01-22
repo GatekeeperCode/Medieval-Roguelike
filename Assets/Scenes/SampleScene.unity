@@ -426,8 +426,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1.5
+    width: 0.93
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -472,6 +472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 570890349}
   - component: {fileID: 570890348}
+  - component: {fileID: 570890350}
   m_Layer: 0
   m_Name: A*
   m_TagString: Untagged
@@ -548,6 +549,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &570890350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570890347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a10ce06bc00384190c9f6adfa63b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &683496042
 GameObject:
   m_ObjectHideFlags: 0
