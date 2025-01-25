@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class GobboScript : EnemyBase
 {
@@ -12,12 +13,40 @@ public class GobboScript : EnemyBase
     public int scalingFactor;
     float lastPSCheck;
 
+    //Pathfinding Variables
+    public float NextWaypointDistance = 3f;
+    Path path;
+    int currentWaypoint = 0;
+    Rigidbody2D rb;
+    Seeker seeker;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody2D>();
         _c = GetComponent<SpriteRenderer>().color;
+        seeker = GetComponent<Seeker>();
         lastPSCheck = 0;
+
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
+    void UpdatePath()
+    {
+        if(seeker.IsDone())
+        {
+            seeker.StartPath(transform.position, player.transform.position, OnPathComplete);
+        }
+    }
+
+    void OnPathComplete(Path p)
+    {
+        if(!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
     }
 
     void scaleStats(float playerScore)
@@ -36,7 +65,7 @@ public class GobboScript : EnemyBase
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
@@ -47,7 +76,23 @@ public class GobboScript : EnemyBase
 
         if(!hitStun && roomVars.playerPresent)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            if (path == null)
+                return;
+            if (currentWaypoint >= path.vectorPath.Count)
+                return;
+
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
+            Vector2 force = direction * speed * 100 * Time.deltaTime;
+
+            rb.AddForce(force);
+
+            //transform.position = Vector3.MoveTowards(transform.position, (Vector2)path.vectorPath[currentWaypoint], speed * Time.deltaTime);
+
+            float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distance < NextWaypointDistance)
+            {
+                currentWaypoint++;
+            }           
         }
 
         if (health<=0)
