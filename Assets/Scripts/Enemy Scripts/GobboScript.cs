@@ -24,9 +24,9 @@ public class GobboScript : EnemyBase
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        rb = GetComponent<Rigidbody2D>();
         _c = GetComponent<SpriteRenderer>().color;
         seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
         lastPSCheck = 0;
 
         InvokeRepeating("UpdatePath", 0f, .5f);
@@ -86,13 +86,13 @@ public class GobboScript : EnemyBase
 
             rb.AddForce(force);
 
-            //transform.position = Vector3.MoveTowards(transform.position, (Vector2)path.vectorPath[currentWaypoint], speed * Time.deltaTime);
-
             float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
             if (distance < NextWaypointDistance)
             {
                 currentWaypoint++;
-            }           
+            }
+
+            //transform.position = Vector3.MoveTowards(transform.position, (Vector2)path.vectorPath[currentWaypoint], speed * Time.deltaTime);
         }
 
         if (health<=0)

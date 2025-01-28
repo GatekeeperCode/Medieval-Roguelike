@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class SwordEnemyScript : EnemyBase
 {
@@ -19,6 +20,12 @@ public class SwordEnemyScript : EnemyBase
     public int scalingFactor;
     float lastPSCheck;
 
+    //Pathfinding Variables
+    public float NextWaypointDistance = 3f;
+    Path path;
+    int currentWaypoint = 0;
+    Seeker seeker;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +35,27 @@ public class SwordEnemyScript : EnemyBase
         sword = swordGo.transform;
         rotReset = sword.rotation;
         timeSinceLastSwing = 10;
+        seeker = GetComponent<Seeker>();
         lastPSCheck = 0;
+
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(transform.position, player.transform.position, OnPathComplete);
+        }
+    }
+
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
     }
 
     void scaleStats(float playerScore)
@@ -75,7 +102,18 @@ public class SwordEnemyScript : EnemyBase
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                if (path == null)
+                    return;
+                if (currentWaypoint >= path.vectorPath.Count)
+                    return;
+
+                transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * Time.deltaTime);
+
+                float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+                if (distance < NextWaypointDistance)
+                {
+                    currentWaypoint++;
+                }
             }
 
             Quaternion rotation = Quaternion.LookRotation(

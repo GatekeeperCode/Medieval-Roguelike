@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class SphereWizardScript : EnemyBase
 {
@@ -15,6 +16,13 @@ public class SphereWizardScript : EnemyBase
     float lastPSCheck;
     public List<GameObject> elements = new List<GameObject>();
 
+    //Pathfinding Variables
+    public float NextWaypointDistance = 3f;
+    Path path;
+    int currentWaypoint = 0;
+    Rigidbody2D rb;
+    Seeker seeker;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +30,28 @@ public class SphereWizardScript : EnemyBase
         _c = GetComponent<SpriteRenderer>().color;
         StartCoroutine("elementSpawn");
         hitStun = false;
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
         lastPSCheck = 0;
+
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(transform.position, player.transform.position, OnPathComplete);
+        }
+    }
+
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
     }
 
     void scaleStats(float playerScore)
@@ -53,7 +82,18 @@ public class SphereWizardScript : EnemyBase
         }
         else if(!hitStun)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            if (path == null)
+                return;
+            if (currentWaypoint >= path.vectorPath.Count)
+                return;
+
+            transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * Time.deltaTime);
+
+            float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distance < NextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
         }
 
         if (health <= 0)

@@ -22,10 +22,15 @@ public class PlayerMovement : MonoBehaviour
     float baseScore;
     float baseSpeed;
 
+    Camera cam;
+
     void Start()
     {
         activeWeaponString = "Sword";
+
         _rbody = GetComponent<Rigidbody2D>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
         _health = 20;
         baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health)/36;
         baseSpeed = _speed;
@@ -34,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = (_speed + _physicalStren + _rangeStren + _defense + _health)/baseScore;
+        score = (_speed + _physicalStren + _rangeStren + _defense + _health) / baseScore;
 
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -42,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         //_rbody.velocity = new Vector2(x, y) * _speed;
         _rbody.velocity = transform.up * y * _speed + transform.right * x * _speed;
 
-        if(Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))
         {
             _shield.SetActive(true);
         }
@@ -52,50 +57,47 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //I could probably do this better but this is how I did it.
-        if(canUseMap && Input.GetKey(KeyCode.E))
+        if (canUseMap && Input.GetKey(KeyCode.E))
         {
-            GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
-
-            cam.GetComponent<Camera>().orthographicSize = 25;
+            cam.orthographicSize = 25f;
         }
         else
         {
-            GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
-            cam.GetComponent<Camera>().orthographicSize = 4.9f;
+            cam.orthographicSize = 5f;
         }    
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.tag == "BEE")
+        if(collision.transform.CompareTag("BEE"))
         {
-            _health = _health - collision.gameObject.GetComponent<BeeEnemyScript>().beeDmg;
+            _health -= collision.gameObject.GetComponent<BeeEnemyScript>().beeDmg;
         }
-        else if(collision.transform.tag == "Gobbo")
+        else if(collision.transform.CompareTag("Gobbo"))
         {
-            _health = _health - collision.gameObject.GetComponent<GobboScript>().gobboDamage;
+            _health -= collision.gameObject.GetComponent<GobboScript>().gobboDamage;
         }
-        else if (collision.transform.tag == "Goo")
+        else if (collision.transform.CompareTag("Goo"))
         {
-            _health = _health - collision.gameObject.GetComponent<GooScript>().gooDamage;
+            _health -= collision.gameObject.GetComponent<GooScript>().gooDamage;
         }
-        else if (collision.transform.tag == "Minotaur")
+        else if (collision.transform.CompareTag("Minotaur"))
         {
-            _health = _health - collision.gameObject.GetComponent<MinotaurScript>().minoDamage;
+            _health -= collision.gameObject.GetComponent<MinotaurScript>().minoDamage;
         }
-        else if (collision.transform.tag == "Spear" || collision.transform.tag == "Sword")
+        else if (collision.transform.CompareTag("Spear") || collision.transform.tag == "Sword")
         {
-            _health = _health - collision.gameObject.GetComponent<MeleeDmgScript>().damage;
+            _health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
         }
-        else if (collision.gameObject.tag == "Arrow")
+        else if (collision.gameObject.CompareTag("Arrow"))
         {
             _health -= collision.gameObject.GetComponent<ArrowScript>().damage;
         }
-        else if (collision.gameObject.tag == "Fireball")
+        else if (collision.gameObject.CompareTag("Fireball"))
         {
             _health -= collision.gameObject.GetComponent<FireballScript>().damage;
         }
-        else if(collision.gameObject.tag == "ElementSphere")
+        else if(collision.gameObject.CompareTag("ElementSphere"))
         {
             _health -= collision.gameObject.GetComponent<ElementCircleScript>().damage;
         }

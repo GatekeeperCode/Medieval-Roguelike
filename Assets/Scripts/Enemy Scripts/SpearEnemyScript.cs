@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class SpearEnemyScript : EnemyBase
 {
@@ -8,6 +9,13 @@ public class SpearEnemyScript : EnemyBase
     GameObject spearObject;
     float lerpDuration = 0.5f;
     float stabSpeed = 2;
+
+    //Pathfinding Variables
+    public float NextWaypointDistance = 3f;
+    Path path;
+    int currentWaypoint = 0;
+    Rigidbody2D rb;
+    Seeker seeker;
 
     public GameObject spearGO;
     /*
@@ -25,7 +33,28 @@ public class SpearEnemyScript : EnemyBase
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         spearObject = spearGO.transform.GetChild(0).gameObject;
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
         lastPSCheck = 0;
+
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(transform.position, player.transform.position, OnPathComplete);
+        }
+    }
+
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
     }
 
     void scaleStats(float playerScore)
@@ -63,7 +92,18 @@ public class SpearEnemyScript : EnemyBase
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                if (path == null)
+                    return;
+                if (currentWaypoint >= path.vectorPath.Count)
+                    return;
+
+                transform.position = Vector3.MoveTowards(transform.position, (Vector2)path.vectorPath[currentWaypoint], speed * Time.deltaTime);
+
+                float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+                if (distance < NextWaypointDistance)
+                {
+                    currentWaypoint++;
+                }
             }
 
             Quaternion rotation = Quaternion.LookRotation(

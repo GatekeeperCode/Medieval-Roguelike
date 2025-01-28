@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class WizardScript : EnemyBase
 {
@@ -15,14 +16,41 @@ public class WizardScript : EnemyBase
     float lastPSCheck;
     float lastAttack;
 
+    //Pathfinding Variables
+    public float NextWaypointDistance = 3f;
+    Path path;
+    int currentWaypoint = 0;
+    Seeker seeker;
+
+
     // Start is called before the first frame update
     void Start()
     {
         canFire = true;
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
+        seeker = GetComponent<Seeker>();
         lastPSCheck = 0;
         lastAttack = 0;
+
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(transform.position, player.transform.position, OnPathComplete);
+        }
+    }
+
+    void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
     }
 
     void scaleStats(float playerScore)
@@ -60,7 +88,18 @@ public class WizardScript : EnemyBase
         {
             if (Vector2.Distance(player.transform.position, transform.position)>=10 && canFire)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                if (path == null)
+                    return;
+                if (currentWaypoint >= path.vectorPath.Count)
+                    return;
+
+                transform.position = Vector3.MoveTowards(transform.position, (Vector2)path.vectorPath[currentWaypoint], speed * Time.deltaTime);
+
+                float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+                if (distance < NextWaypointDistance)
+                {
+                    currentWaypoint++;
+                }
             }
             else
             {
