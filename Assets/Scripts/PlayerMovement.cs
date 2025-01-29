@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            cam.orthographicSize = 5f;
+            cam.orthographicSize = 4.9f;
         }    
     }
 

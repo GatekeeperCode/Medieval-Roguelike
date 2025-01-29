@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 2173886701006041408}
   - component: {fileID: 2173886701006041409}
   - component: {fileID: -7048529346307695117}
+  - component: {fileID: 7493563717663600064}
   m_Layer: 11
   m_Name: SwordEnemy
   m_TagString: SwordEnemy
@@ -231,6 +232,7 @@ MonoBehaviour:
   swordGo: {fileID: 2173886701353386181}
   SwingTime: 3
   scalingFactor: 35
+  NextWaypointDistance: 3
 --- !u!61 &2173886701006041409
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -278,6 +280,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7493563717663600064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173886701006041410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1 &2173886701353386181
 GameObject:
   m_ObjectHideFlags: 0
