@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 963956236440226537}
   - component: {fileID: -5233959236935663639}
   - component: {fileID: -519721127870917237}
+  - component: {fileID: -2399994909615169234}
   m_Layer: 11
   m_Name: Wizard Man
   m_TagString: Monster
@@ -167,6 +168,7 @@ MonoBehaviour:
   fireballObject: {fileID: 4375364342831269234, guid: a7a51d24f1ec5f84fbace53119704750, type: 3}
   fireballAim: {fileID: 1014905507860406148}
   attackDelay: 4
+  NextWaypointDistance: 3
 --- !u!50 &-5233959236935663639
 Rigidbody2D:
   serializedVersion: 4
@@ -214,6 +216,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2399994909615169234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5519029267125123121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1 &7727639246415396369
 GameObject:
   m_ObjectHideFlags: 0

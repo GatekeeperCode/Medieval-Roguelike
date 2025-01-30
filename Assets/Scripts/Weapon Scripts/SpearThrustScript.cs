@@ -10,7 +10,7 @@ public class SpearThrustScript : MonoBehaviour
     Camera mainCamera;
     GameObject spearObject;
     float lerpDuration = 0.5f;
-    float stabSpeed = 2;
+    float stabSpeed = 4;
 
     // Start is called before the first frame update
     void Start()

@@ -23,7 +23,7 @@ public class BowScript : MonoBehaviour
         bowObject = bowGO.transform.GetChild(2).gameObject;
         sr = bowObject.GetComponent<SpriteRenderer>();
         bowObject.SetActive(true);
-        _charge = 0;
+        _charge = 1;
     }
 
     private void OnEnable()
@@ -33,7 +33,7 @@ public class BowScript : MonoBehaviour
         bowObject = bowGO.transform.GetChild(2).gameObject;
         sr = bowObject.GetComponent<SpriteRenderer>();
         bowObject.SetActive(true);
-        _charge = 0;
+        _charge = 1;
     }
 
     // Update is called once per frame
@@ -70,10 +70,10 @@ public class BowScript : MonoBehaviour
         {
             GameObject arrow = Instantiate(projectile, bowObject.transform.GetChild(0).transform.position, Quaternion.identity);
             arrow.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0,0,90);
-            arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -10 * _charge);
+            arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -50 * _charge);
             arrow.GetComponent<ArrowScript>().damage = bowObject.GetComponent<RangedDmgScript>().damage;
 
-            _charge = 0;
+            _charge = 1;
             sr.color = Color.red;
         }
     }
