@@ -12,6 +12,7 @@ public class BowScript : MonoBehaviour
     Transform bow;
     Camera mainCamera;
     GameObject bowObject;
+    PlayerMovement pm;
     float _charge;
     SpriteRenderer sr;
 
@@ -20,6 +21,7 @@ public class BowScript : MonoBehaviour
     {
         bow = bowGO.transform;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         bowObject = bowGO.transform.GetChild(2).gameObject;
         sr = bowObject.GetComponent<SpriteRenderer>();
         bowObject.SetActive(true);
@@ -39,42 +41,45 @@ public class BowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PointToMouse(bow);
-
-        if(Input.GetMouseButton(0))
+        if(!pm.paused)
         {
-            if(_charge<10)
-            {
-                _charge += Time.deltaTime * _chargeFactor;
+            PointToMouse(bow);
 
-                if(_charge>=10)
+            if (Input.GetMouseButton(0) && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().paused)
+            {
+                if (_charge < 10)
                 {
-                    _charge = 10;
-                    sr.color = Color.black;
-                }
-                else if(_charge>7)
-                {
-                    sr.color = Color.green;
-                }
-                else if(_charge>4)
-                {
-                    sr.color = Color.yellow;
-                }
-                else
-                {
-                    sr.color = Color.red;
+                    _charge += Time.deltaTime * _chargeFactor;
+
+                    if (_charge >= 10)
+                    {
+                        _charge = 10;
+                        sr.color = Color.black;
+                    }
+                    else if (_charge > 7)
+                    {
+                        sr.color = Color.green;
+                    }
+                    else if (_charge > 4)
+                    {
+                        sr.color = Color.yellow;
+                    }
+                    else
+                    {
+                        sr.color = Color.red;
+                    }
                 }
             }
-        }
-        else if(Input.GetMouseButtonUp(0))
-        {
-            GameObject arrow = Instantiate(projectile, bowObject.transform.GetChild(0).transform.position, Quaternion.identity);
-            arrow.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0,0,90);
-            arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -50 * _charge);
-            arrow.GetComponent<ArrowScript>().damage = bowObject.GetComponent<RangedDmgScript>().damage;
+            else if (Input.GetMouseButtonUp(0))
+            {
+                GameObject arrow = Instantiate(projectile, bowObject.transform.GetChild(0).transform.position, Quaternion.identity);
+                arrow.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0, 0, 90);
+                arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -50 * _charge);
+                arrow.GetComponent<ArrowScript>().damage = bowObject.GetComponent<RangedDmgScript>().damage;
 
-            _charge = 1;
-            sr.color = Color.red;
+                _charge = 1;
+                sr.color = Color.red;
+            }
         }
     }
 

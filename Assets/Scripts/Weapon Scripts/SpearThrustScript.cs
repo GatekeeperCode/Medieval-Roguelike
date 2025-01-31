@@ -9,6 +9,7 @@ public class SpearThrustScript : MonoBehaviour
     Transform spear;
     Camera mainCamera;
     GameObject spearObject;
+    PlayerMovement pm;
     float lerpDuration = 0.5f;
     float stabSpeed = 4;
 
@@ -18,6 +19,7 @@ public class SpearThrustScript : MonoBehaviour
         attacking = false;
         spear = spearGO.transform;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         spearObject = spearGO.transform.GetChild(1).gameObject; 
         spearObject.SetActive(true);
     }
@@ -34,11 +36,14 @@ public class SpearThrustScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PointToMouse(spear);
-
-        if (Input.GetMouseButtonDown(0) && !attacking)
+        if(!pm.paused)
         {
-            StartCoroutine(thrust());
+            PointToMouse(spear);
+
+            if (Input.GetMouseButtonDown(0) && !attacking && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().paused)
+            {
+                StartCoroutine(thrust());
+            }
         }
     }
 

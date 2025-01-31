@@ -10,6 +10,7 @@ public class CrossbowScript : MonoBehaviour
     Transform crossbow;
     Camera mainCamera;
     GameObject crossbowObject;
+    PlayerMovement pm;
     bool canFire;
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class CrossbowScript : MonoBehaviour
     {
         crossbow = bowGO.transform;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         crossbowObject = bowGO.transform.GetChild(3).gameObject;
         crossbowObject.SetActive(true);
         canFire = true;
@@ -34,17 +36,20 @@ public class CrossbowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PointToMouse(crossbow);
-
-        if (Input.GetMouseButtonDown(0) && canFire)
+        if(!pm.paused)
         {
-            GameObject arrow = Instantiate(projectile, crossbowObject.transform.GetChild(0).transform.position, Quaternion.identity);
-            arrow.transform.rotation = crossbowObject.transform.rotation * Quaternion.Euler(0, 0, 90);
-            arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -150);
-            arrow.GetComponent<ArrowScript>().damage = crossbowObject.GetComponent<RangedDmgScript>().damage;
+            PointToMouse(crossbow);
 
-            canFire = false;
-            StartCoroutine(reloadCrossbow());
+            if (Input.GetMouseButtonDown(0) && canFire && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().paused)
+            {
+                GameObject arrow = Instantiate(projectile, crossbowObject.transform.GetChild(0).transform.position, Quaternion.identity);
+                arrow.transform.rotation = crossbowObject.transform.rotation * Quaternion.Euler(0, 0, 90);
+                arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -150);
+                arrow.GetComponent<ArrowScript>().damage = crossbowObject.GetComponent<RangedDmgScript>().damage;
+
+                canFire = false;
+                StartCoroutine(reloadCrossbow());
+            }
         }
     }
 

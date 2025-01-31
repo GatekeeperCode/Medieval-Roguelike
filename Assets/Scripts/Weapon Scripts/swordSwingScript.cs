@@ -10,6 +10,7 @@ public class swordSwingScript : MonoBehaviour
     bool rotating;
     Transform sword;
     GameObject swordObject;
+    PlayerMovement pm;
 
     float lerpDuration = 0.5f;
 
@@ -19,6 +20,7 @@ public class swordSwingScript : MonoBehaviour
         rotating = false;
         sword = swordGo.transform;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         swordObject = swordGo.transform.GetChild(0).gameObject;
         swordObject.SetActive(true);
     }
@@ -35,11 +37,14 @@ public class swordSwingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PointToMouse(swordGo.transform);
-
-        if (Input.GetMouseButtonDown(0) && !rotating)
+        if(!pm.paused)
         {
-            StartCoroutine(Rotate90());
+            PointToMouse(swordGo.transform);
+
+            if (Input.GetMouseButtonDown(0) && !rotating)
+            {
+                StartCoroutine(Rotate90());
+            }
         }
     }
 

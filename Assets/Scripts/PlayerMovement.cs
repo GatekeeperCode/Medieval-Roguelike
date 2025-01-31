@@ -17,10 +17,12 @@ public class PlayerMovement : MonoBehaviour
     public float score;
 
     public GameObject _shield;
+    public GameObject pauseMenu;
 
     Rigidbody2D _rbody;
     float baseScore;
     float baseSpeed;
+    public bool paused = false;
 
     Camera cam;
 
@@ -41,13 +43,16 @@ public class PlayerMovement : MonoBehaviour
     {
         score = (_speed + _physicalStren + _rangeStren + _defense + _health) / baseScore;
 
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        if(!paused)
+        {
+            float x = Input.GetAxis("Horizontal");
+            float y = Input.GetAxis("Vertical");
 
-        //_rbody.velocity = new Vector2(x, y) * _speed;
-        _rbody.velocity = transform.up * y * _speed + transform.right * x * _speed;
+            //_rbody.velocity = new Vector2(x, y) * _speed;
+            _rbody.velocity = transform.up * y * _speed + transform.right * x * _speed;
+        }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && !paused)
         {
             _shield.SetActive(true);
         }
@@ -57,14 +62,42 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //I could probably do this better but this is how I did it.
-        if (canUseMap && Input.GetKey(KeyCode.E))
+        if (canUseMap && Input.GetKey(KeyCode.E) && !paused)
         {
             cam.orthographicSize = 25f;
         }
         else
         {
             cam.orthographicSize = 4.9f;
-        }    
+        }
+        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(paused)
+            {
+                unpause();
+            }
+            else
+            {
+                pause();
+            }
+        }
+    }
+
+    //Pauses game and opens pause menu
+    private void pause()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        paused = true;
+    }
+
+    //Unpauses game and closes pause menu
+    private void unpause()
+    {
+        Time.timeScale = 1.0f;
+        pauseMenu.SetActive(false);
+        paused = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
