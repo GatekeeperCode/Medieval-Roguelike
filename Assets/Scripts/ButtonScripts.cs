@@ -15,11 +15,17 @@ public class ButtonScripts : MonoBehaviour
         pmove = GameObject.FindGameObjectWithTag("Player");
     }
 
-    
+    public void onNewGamePressed()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
+
     public void onMenuButtonPressed()
     {
         //change scene to main menu
         //print("Menu scene transition not enabled yet.");
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 

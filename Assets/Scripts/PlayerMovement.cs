@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject _shield;
     public GameObject pauseMenu;
+    public GameObject deathMenu;
+    public Text scoreText;
 
     Rigidbody2D _rbody;
     float baseScore;
@@ -82,6 +85,18 @@ public class PlayerMovement : MonoBehaviour
                 pause();
             }
         }
+
+        if(_health<=0)
+        {
+            handleDeath();
+        }
+    }
+
+    private void handleDeath()
+    {
+        Time.timeScale = 0;
+        deathMenu.SetActive(true);
+        scoreText.text = "Score: " + score;
     }
 
     //Pauses game and opens pause menu
