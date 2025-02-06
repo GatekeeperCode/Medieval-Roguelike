@@ -10,6 +10,8 @@ public class FinalBossScript : EnemyBase
     public GameObject gameOverMenu;
     public float bossDmg;
     public GameObject[] retreatSpot;
+    public GameObject chargingCircle;
+    public GameObject attackingCircle;
 
     int nextCower;
     GameObject target;
@@ -81,60 +83,78 @@ public class FinalBossScript : EnemyBase
 
         if(roomVars.playerPresent && !hitStun)
         {
-            if (attackNum == 1) //Charges at player
+            if(!nextAttackStarted)
             {
-                target = player;
-
-                if (path == null)
-                    return;
-                if (currentWaypoint >= path.vectorPath.Count)
-                    return;
-
-                transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * 2 * Time.deltaTime);
-
-                float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
-                if (distance < NextWaypointDistance)
+                if (attackNum == 1) //Charges at player
                 {
-                    currentWaypoint++;
-                }
+                    target = player;
 
-                if(!nextAttackStarted)
-                {
+                    if (path == null)
+                        return;
+                    if (currentWaypoint >= path.vectorPath.Count)
+                        return;
+
+                    transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * 2 * Time.deltaTime);
+
+                    float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+                    if (distance < NextWaypointDistance)
+                    {
+                        currentWaypoint++;
+                    }
+
+                    nextAttackStarted = true;
                     StartCoroutine("nextAttack");
                 }
-            }
-            else if (attackNum == 2) //Charges short AOE burst
-            {
-                if(!nextAttackStarted)
+                else if (attackNum == 2) //Charges short AOE burst
                 {
-                    nextAttackStarted = true;
-                    StartCoroutine("chargeAttack");
+                    if (!nextAttackStarted)
+                    {
+                        nextAttackStarted = true;
+                        StartCoroutine("chargeAttack");
+                    }
+                }
+                else if (attackNum == 3)//Ranged Attack at player
+                {
+                    if (!nextAttackStarted)
+                    {
+                        nextAttackStarted = true;
+                        StartCoroutine("rangeAttack");
+                    }
+                }
+                else //Runs and hides from player to spots in throne room.
+                {
+                    target = retreatSpot[nextCower];
+
+                    if (path == null)
+                        return;
+                    if (currentWaypoint >= path.vectorPath.Count)
+                        return;
+
+                    transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * Time.deltaTime);
+
+                    float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+                    if (distance < NextWaypointDistance)
+                    {
+                        currentWaypoint++;
+                    }
                 }
             }
-            else if (attackNum == 3)//Ranged Attack at player
+        }
+        else
+        {
+            target = player;
+
+            if (path == null)
+                return;
+            if (currentWaypoint >= path.vectorPath.Count)
+                return;
+
+            transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * .5f * Time.deltaTime);
+
+            float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distance < NextWaypointDistance)
             {
-                if(!nextAttackStarted)
-                {
-                    nextAttackStarted = true;
-                    StartCoroutine("rangeAttack");
-                }
-            }
-            else //Runs and hides from player to spots in throne room.
-            {
-                target = retreatSpot[nextCower];
-
-                if (path == null)
-                    return;
-                if (currentWaypoint >= path.vectorPath.Count)
-                    return;
-
-                transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * Time.deltaTime);
-
-                float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
-                if (distance < NextWaypointDistance)
-                {
-                    currentWaypoint++;
-                }
+                currentWaypoint++;
             }
         }
 
@@ -160,7 +180,6 @@ public class FinalBossScript : EnemyBase
 
     public IEnumerator nextAttack()
     {
-        nextAttackStarted = true;
         yield return new WaitForSeconds(Random.Range(0, 8));
         attackNum = Random.Range(1, 4);
         nextAttackStarted = false;
@@ -173,17 +192,24 @@ public class FinalBossScript : EnemyBase
 
     public IEnumerator chargeAttack()
     {
+        chargingCircle.SetActive(true);
         yield return new WaitForSeconds(1.5f);
-        print("Charged Attack Happens Now");
-        attackNum = Random.Range(1, 4);
-        nextAttackStarted = false;
+        chargingCircle.SetActive(false);
+        attackingCircle.SetActive(true);
+        StartCoroutine("endChargeAttack");
+    }
+
+    public IEnumerator endChargeAttack()
+    {
+        yield return new WaitForSeconds(.5f);
+        attackingCircle.SetActive(false);
+        StartCoroutine("nextAttack");
     }
 
     public IEnumerator rangeAttack()
     {
         yield return new WaitForSeconds(1f);
         print("Ranged Attack Happens Now");
-        attackNum = Random.Range(1, 4);
-        nextAttackStarted = false;
+        StartCoroutine("nextAttack");
     }
 }
