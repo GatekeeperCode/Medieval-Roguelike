@@ -71,7 +71,6 @@ public class DoorwayBlockSpawn : MonoBehaviour
     {
         if(collision.gameObject.tag != "floor")
         {
-            print("Hello");
             if (!wallSpawn)
             {
                 spawnWall();

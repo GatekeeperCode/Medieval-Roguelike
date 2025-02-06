@@ -23,6 +23,7 @@ TagManager:
   - PlayerClone
   - ElementSphere
   - Fireball
+  - King
   layers:
   - Default
   - TransparentFX

@@ -105,13 +105,19 @@ public class FinalBossScript : EnemyBase
             }
             else if (attackNum == 2) //Charges short AOE burst
             {
-                nextAttackStarted = true;
-                StartCoroutine("chargeAttack");
+                if(!nextAttackStarted)
+                {
+                    nextAttackStarted = true;
+                    StartCoroutine("chargeAttack");
+                }
             }
             else if (attackNum == 3)//Ranged Attack at player
             {
-                nextAttackStarted = true;
-                StartCoroutine("rangeAttack");
+                if(!nextAttackStarted)
+                {
+                    nextAttackStarted = true;
+                    StartCoroutine("rangeAttack");
+                }
             }
             else //Runs and hides from player to spots in throne room.
             {

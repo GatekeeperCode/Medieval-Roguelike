@@ -149,6 +149,10 @@ public class PlayerMovement : MonoBehaviour
         {
             _health -= collision.gameObject.GetComponent<ElementCircleScript>().damage;
         }
+        else if(collision.gameObject.CompareTag("King"))
+        {
+            _health -= collision.gameObject.GetComponent<FinalBossScript>().bossDmg;
+        }
     }
 
     public IEnumerator waterSphereSlow()
