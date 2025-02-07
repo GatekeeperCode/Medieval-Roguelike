@@ -7,11 +7,14 @@ public class FinalBossScript : EnemyBase
 {
     bool hitStun = false;
     bool nextAttackStarted = false;
+    bool canMove = true;
     public GameObject gameOverMenu;
     public float bossDmg;
     public GameObject[] retreatSpot;
     public GameObject chargingCircle;
     public GameObject attackingCircle;
+    public GameObject attackBox;
+    public GameObject rangeScope;
 
     int nextCower;
     GameObject target;
@@ -80,8 +83,9 @@ public class FinalBossScript : EnemyBase
     void Update()
     {
         scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+        //attackNum = 3;
 
-        if(roomVars.playerPresent && !hitStun)
+        if (canMove && roomVars.playerPresent && !hitStun)
         {
             if(!nextAttackStarted)
             {
@@ -140,7 +144,7 @@ public class FinalBossScript : EnemyBase
                 }
             }
         }
-        else
+        else if(!canMove)
         {
             target = player;
 
@@ -183,6 +187,7 @@ public class FinalBossScript : EnemyBase
         yield return new WaitForSeconds(Random.Range(0, 8));
         attackNum = Random.Range(1, 4);
         nextAttackStarted = false;
+        canMove = true;
     }
 
     private void WaypointPicker()
@@ -203,13 +208,42 @@ public class FinalBossScript : EnemyBase
     {
         yield return new WaitForSeconds(.5f);
         attackingCircle.SetActive(false);
+        canMove = false;
         StartCoroutine("nextAttack");
     }
 
     public IEnumerator rangeAttack()
     {
+        Vector3 dir = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+        GameObject[] attackBoxes = new GameObject[5];
+
+        for(int i=0; i<5; i++)
+        {
+            attackBoxes[i] = Instantiate(attackBox, transform.position + (dir*3.2f*i), rangeScope.transform.rotation);
+        }
+
         yield return new WaitForSeconds(1f);
-        print("Ranged Attack Happens Now");
+        
+        for(int i=0; i<5; i++)
+        {
+            attackBoxes[i].GetComponent<BoxCollider2D>().enabled = true;
+            Color tmp = attackBoxes[i].GetComponent<SpriteRenderer>().color;
+            tmp.a = 226f;
+            attackBoxes[i].GetComponent<SpriteRenderer>().color = tmp;
+        }
+
+
+        StartCoroutine("endRangeAttack", attackBoxes);
+    }
+
+    public IEnumerator endRangeAttack(GameObject[] attackBoxes)
+    {
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < 5; i++)
+        {
+            Destroy(attackBoxes[i]);
+        }
+        canMove = false;
         StartCoroutine("nextAttack");
     }
 }
