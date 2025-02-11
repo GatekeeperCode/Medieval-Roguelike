@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     float baseScore;
     float baseSpeed;
     public bool paused = false;
+    List<string> itemsHeld = new List<string>();
 
     Camera cam;
 
@@ -152,6 +153,60 @@ public class PlayerMovement : MonoBehaviour
         else if(collision.gameObject.CompareTag("King"))
         {
             _health -= collision.gameObject.GetComponent<FinalBossScript>().bossDmg;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            itemScript i = collision.gameObject.GetComponent<itemScript>();
+            itemsHeld.Add(i.itemName);
+            print(itemsHeld[0]);
+
+            itemBoost(i.boostedStat.ToString(), i.boost);
+            itemBoost(i.SecondStat.ToString(), i.boost/2);
+            itemBoost(i.hiddenStat.ToString(), i.boost * Random.Range(.1f, 2f));
+            Destroy(collision.gameObject);
+        }
+    }
+
+    void itemBoost(string stat, float boost)
+    {
+        if(stat == "none")
+        {
+            return;
+        }
+        else
+        {
+            if(stat == "speed")
+            {
+                _speed += boost;
+            }
+            else if(stat == "physicalStren")
+            {
+                _physicalStren += boost;
+            }
+            else if(stat == "rangeStren")
+            {
+                _rangeStren += boost;
+            }
+            else if(stat == "magicalStren")
+            {
+                _magicalStren += boost;
+            }
+            else if(stat == "defense")
+            {
+                _defense += boost;
+            }
+            else if(stat == "health")
+            {
+                _health += boost;
+            }
+            else if(stat == "gold")
+            {
+                _gold += (int)boost;
+            }
         }
     }
 
