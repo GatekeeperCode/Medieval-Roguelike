@@ -24,6 +24,7 @@ TagManager:
   - ElementSphere
   - Fireball
   - King
+  - Item
   layers:
   - Default
   - TransparentFX
