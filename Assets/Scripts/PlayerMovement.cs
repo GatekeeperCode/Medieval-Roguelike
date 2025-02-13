@@ -118,41 +118,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.CompareTag("BEE"))
+        switch (collision.gameObject.tag)
         {
-            _health -= collision.gameObject.GetComponent<BeeEnemyScript>().beeDmg;
-        }
-        else if(collision.transform.CompareTag("Gobbo"))
-        {
-            _health -= collision.gameObject.GetComponent<GobboScript>().gobboDamage;
-        }
-        else if (collision.transform.CompareTag("Goo"))
-        {
-            _health -= collision.gameObject.GetComponent<GooScript>().gooDamage;
-        }
-        else if (collision.transform.CompareTag("Minotaur"))
-        {
-            _health -= collision.gameObject.GetComponent<MinotaurScript>().minoDamage;
-        }
-        else if (collision.transform.CompareTag("Spear") || collision.transform.tag == "Sword")
-        {
-            _health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
-        }
-        else if (collision.gameObject.CompareTag("Arrow"))
-        {
-            _health -= collision.gameObject.GetComponent<ArrowScript>().damage;
-        }
-        else if (collision.gameObject.CompareTag("Fireball"))
-        {
-            _health -= collision.gameObject.GetComponent<FireballScript>().damage;
-        }
-        else if(collision.gameObject.CompareTag("ElementSphere"))
-        {
-            _health -= collision.gameObject.GetComponent<ElementCircleScript>().damage;
-        }
-        else if(collision.gameObject.CompareTag("King"))
-        {
-            _health -= collision.gameObject.GetComponent<FinalBossScript>().bossDmg;
+            case "BEE":
+                _health -= collision.gameObject.GetComponent<BeeEnemyScript>().beeDmg;
+                break;
+            case "Gobbo":
+                _health -= collision.gameObject.GetComponent<GobboScript>().gobboDamage;
+                break;
+            case "Goo":
+                _health -= collision.gameObject.GetComponent<GooScript>().gooDamage;
+                break;
+            case "Minotaur":
+                _health -= collision.gameObject.GetComponent<MinotaurScript>().minoDamage;
+                break;
+            case "Arrow":
+                _health -= collision.gameObject.GetComponent<ArrowScript>().damage;
+                break;
+            case "Fireball":
+                _health -= collision.gameObject.GetComponent<FireballScript>().damage;
+                break;
+            case "ElementSphere":
+                _health -= collision.gameObject.GetComponent<ElementCircleScript>().damage;
+                break;
+            case "King":
+                _health -= collision.gameObject.GetComponent<FinalBossScript>().bossDmg;
+                break;
+            default:
+                _health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
+                break;
         }
     }
 
