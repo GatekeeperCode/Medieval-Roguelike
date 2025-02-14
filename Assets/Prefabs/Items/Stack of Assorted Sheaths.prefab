@@ -115,5 +115,5 @@ MonoBehaviour:
   boostedStat: 6
   SecondStat: 1
   hiddenStat: 7
-  itemName: Stack of Assorted Sheaths
+  itemID: 44
   boost: 2

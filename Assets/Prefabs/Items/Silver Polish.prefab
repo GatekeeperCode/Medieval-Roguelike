@@ -115,5 +115,5 @@ MonoBehaviour:
   boostedStat: 4
   SecondStat: 3
   hiddenStat: 5
-  itemName: Silver Polish
+  itemID: 34
   boost: 1

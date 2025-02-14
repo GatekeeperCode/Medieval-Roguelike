@@ -115,5 +115,5 @@ MonoBehaviour:
   boostedStat: 6
   SecondStat: 4
   hiddenStat: 7
-  itemName: Stack of Padded Armor
+  itemID: 47
   boost: 2

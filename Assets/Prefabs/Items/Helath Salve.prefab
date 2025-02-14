@@ -115,5 +115,5 @@ MonoBehaviour:
   boostedStat: 4
   SecondStat: 5
   hiddenStat: 7
-  itemName: Health Salve
+  itemID: 33
   boost: 1

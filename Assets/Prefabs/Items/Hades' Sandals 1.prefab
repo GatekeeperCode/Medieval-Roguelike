@@ -115,5 +115,5 @@ MonoBehaviour:
   boostedStat: 0
   SecondStat: 6
   hiddenStat: 7
-  itemName: Hades' Sandals
+  itemID: 5
   boost: 1

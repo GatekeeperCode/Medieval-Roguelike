@@ -20,7 +20,7 @@ public class itemScript : MonoBehaviour
     public Stats SecondStat;
     public Stats hiddenStat;
 
-    public string itemName;
+    public int itemID;
 
     public int boost;
 

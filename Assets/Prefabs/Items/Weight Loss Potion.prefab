@@ -115,5 +115,5 @@ MonoBehaviour:
   boostedStat: 1
   SecondStat: 6
   hiddenStat: 7
-  itemName: '"Weight Loss" Potion'
+  itemID: 12
   boost: 1

@@ -115,5 +115,5 @@ MonoBehaviour:
   boostedStat: 0
   SecondStat: 3
   hiddenStat: 7
-  itemName: Hermes Sandals
+  itemID: 6
   boost: 1

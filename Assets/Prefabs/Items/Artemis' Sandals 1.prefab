@@ -115,5 +115,5 @@ MonoBehaviour:
   boostedStat: 0
   SecondStat: 2
   hiddenStat: 7
-  itemName: Artemis' Sandals
+  itemID: 3
   boost: 1

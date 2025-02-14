@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     float baseScore;
     float baseSpeed;
     public bool paused = false;
-    List<string> itemsHeld = new List<string>();
+    int[] itemsHeld;
 
     Camera cam;
 
@@ -40,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
         _health = 20;
         baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health)/36;
         baseSpeed = _speed;
+
+        for(int i=0; i<itemsHeld.Length; i++)
+        {
+            itemsHeld[i] = 0;
+        }
     }
 
     // Update is called once per frame
@@ -155,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Item"))
         {
             itemScript i = collision.gameObject.GetComponent<itemScript>();
-            itemsHeld.Add(i.itemName);
+            itemsHeld[i.itemID] += 1;
             print(itemsHeld[0]);
 
             itemBoost(i.boostedStat.ToString(), i.boost);
@@ -167,40 +172,31 @@ public class PlayerMovement : MonoBehaviour
 
     void itemBoost(string stat, float boost)
     {
-        if(stat == "none")
+        switch (stat)
         {
-            return;
-        }
-        else
-        {
-            if(stat == "speed")
-            {
+            case "speed":
                 _speed += boost;
-            }
-            else if(stat == "physicalStren")
-            {
+                break;
+            case "physicalStren":
                 _physicalStren += boost;
-            }
-            else if(stat == "rangeStren")
-            {
+                break;
+            case "rangeStren":
                 _rangeStren += boost;
-            }
-            else if(stat == "magicalStren")
-            {
+                break;
+            case "magicalStren":
                 _magicalStren += boost;
-            }
-            else if(stat == "defense")
-            {
+                break;
+            case "defense":
                 _defense += boost;
-            }
-            else if(stat == "health")
-            {
+                break;
+            case "health":
                 _health += boost;
-            }
-            else if(stat == "gold")
-            {
+                break;
+            case "gold":
                 _gold += (int)boost;
-            }
+                break;
+            default:
+                break;
         }
     }
 
