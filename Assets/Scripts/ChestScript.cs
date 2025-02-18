@@ -23,7 +23,8 @@ public class ChestScript : MonoBehaviour
 
         if (rand<.05f) //Special Items
         {
-            spawnedItem = _specialItems[Random.Range(0, _specialItems.Length)];
+            //spawnedItem = _specialItems[Random.Range(0, _specialItems.Length)];
+            spawnedItem = _speedItems[Random.Range(0, _speedItems.Length)]; //Temp Code until I have made special items
         }
         else if(rand >= 0.95f && rand < 1f) //Speed Items
         {

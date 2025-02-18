@@ -770,6 +770,11 @@ MonoBehaviour:
   canUseMap: 0
   score: 0
   _shield: {fileID: 1164314410451192480}
+  pauseMenu: {fileID: 0}
+  deathMenu: {fileID: 0}
+  scoreText: {fileID: 0}
+  paused: 0
+  itemsHeld: 
 --- !u!114 &8808691385100688884
 MonoBehaviour:
   m_ObjectHideFlags: 0

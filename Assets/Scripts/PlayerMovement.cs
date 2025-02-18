@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     float baseScore;
     float baseSpeed;
     public bool paused = false;
-    int[] itemsHeld;
+    public int[] itemsHeld;
 
     Camera cam;
 
@@ -40,11 +40,6 @@ public class PlayerMovement : MonoBehaviour
         _health = 20;
         baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health)/36;
         baseSpeed = _speed;
-
-        for(int i=0; i<itemsHeld.Length; i++)
-        {
-            itemsHeld[i] = 0;
-        }
     }
 
     // Update is called once per frame
@@ -68,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _shield.SetActive(false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            updateInventoryScreen();
         }
 
         //I could probably do this better but this is how I did it.
@@ -96,6 +96,18 @@ public class PlayerMovement : MonoBehaviour
         {
             handleDeath();
         }
+    }
+
+    private void updateInventoryScreen()
+    {
+        string inventory = "";
+
+        for(int i = 0; i<itemsHeld.Length; i++)
+        {
+            inventory += "ID: " + i + " Count: " + itemsHeld[i] + "\n";
+        }
+
+        print(inventory);
     }
 
     private void handleDeath()
@@ -149,7 +161,10 @@ public class PlayerMovement : MonoBehaviour
             case "King":
                 _health -= collision.gameObject.GetComponent<FinalBossScript>().bossDmg;
                 break;
-            default:
+            case "Sword":
+                _health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
+                break;
+            case "Spear":
                 _health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
                 break;
         }
