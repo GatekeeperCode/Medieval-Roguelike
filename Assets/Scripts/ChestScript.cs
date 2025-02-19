@@ -58,7 +58,8 @@ public class ChestScript : MonoBehaviour
         //Mystery Stat Generation
         if(Random.Range(0f, 1f)<0.2f)
         {
-            spawnedItem.GetComponent<itemScript>().hiddenStat = (itemScript.Stats)Random.Range(0, 7);
+            int hold = Random.Range(0, 7);
+            spawnedItem.GetComponent<itemScript>().hiddenStat = (itemScript.Stats)hold;
         }    
 
         Instantiate(spawnedItem, transform.position, Quaternion.identity);

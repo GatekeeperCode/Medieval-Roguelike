@@ -176,12 +176,12 @@ public class PlayerMovement : MonoBehaviour
         {
             itemScript i = collision.gameObject.GetComponent<itemScript>();
             itemsHeld[i.itemID] += 1;
-            print(itemsHeld[0]);
 
             itemBoost(i.boostedStat.ToString(), i.boost);
             itemBoost(i.SecondStat.ToString(), i.boost/2);
             itemBoost(i.hiddenStat.ToString(), i.boost * Random.Range(.1f, 2f));
             Destroy(collision.gameObject);
+            updateInventoryScreen();
         }
     }
 
