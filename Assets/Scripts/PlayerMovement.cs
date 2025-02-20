@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
             _shield.SetActive(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
             updateInventoryScreen();
         }
@@ -100,12 +100,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void updateInventoryScreen()
     {
-        string inventory = "";
+        string inventory = "Speed: " + _speed + "\nMelee Strength: " + _physicalStren;
+        inventory += "\nRanged Strength: " + _rangeStren + "\nMagical Strength: " + _magicalStren;
+        inventory += "\nDefense: " + _defense + "\nGold: " + _gold;
 
-        for(int i = 0; i<itemsHeld.Length; i++)
-        {
-            inventory += "ID: " + i + " Count: " + itemsHeld[i] + "\n";
-        }
+        //Handle any Special Items Here
+        inventory += "\n\n\nSpecial Items:";
 
         print(inventory);
     }
@@ -135,37 +135,39 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        float dmgReduction = Random.Range(0f, _defense);
+
         switch (collision.gameObject.tag)
         {
             case "BEE":
-                _health -= collision.gameObject.GetComponent<BeeEnemyScript>().beeDmg;
+                _health -= (collision.gameObject.GetComponent<BeeEnemyScript>().beeDmg - dmgReduction);
                 break;
             case "Gobbo":
-                _health -= collision.gameObject.GetComponent<GobboScript>().gobboDamage;
+                _health -= (collision.gameObject.GetComponent<GobboScript>().gobboDamage - dmgReduction);
                 break;
             case "Goo":
-                _health -= collision.gameObject.GetComponent<GooScript>().gooDamage;
+                _health -= (collision.gameObject.GetComponent<GooScript>().gooDamage - dmgReduction);
                 break;
             case "Minotaur":
-                _health -= collision.gameObject.GetComponent<MinotaurScript>().minoDamage;
+                _health -= (collision.gameObject.GetComponent<MinotaurScript>().minoDamage - dmgReduction);
                 break;
             case "Arrow":
-                _health -= collision.gameObject.GetComponent<ArrowScript>().damage;
+                _health -= (collision.gameObject.GetComponent<ArrowScript>().damage - dmgReduction);
                 break;
             case "Fireball":
-                _health -= collision.gameObject.GetComponent<FireballScript>().damage;
+                _health -= (collision.gameObject.GetComponent<FireballScript>().damage - dmgReduction);
                 break;
             case "ElementSphere":
-                _health -= collision.gameObject.GetComponent<ElementCircleScript>().damage;
+                _health -= (collision.gameObject.GetComponent<ElementCircleScript>().damage - dmgReduction);
                 break;
             case "King":
-                _health -= collision.gameObject.GetComponent<FinalBossScript>().bossDmg;
+                _health -= (collision.gameObject.GetComponent<FinalBossScript>().bossDmg - dmgReduction);
                 break;
             case "Sword":
-                _health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
+                _health -= (collision.gameObject.GetComponent<MeleeDmgScript>().damage - dmgReduction);
                 break;
             case "Spear":
-                _health -= collision.gameObject.GetComponent<MeleeDmgScript>().damage;
+                _health -= (collision.gameObject.GetComponent<MeleeDmgScript>().damage - dmgReduction);
                 break;
         }
     }
