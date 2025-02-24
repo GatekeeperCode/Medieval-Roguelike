@@ -54,14 +54,21 @@ public class ChestScript : MonoBehaviour
         {
             spawnedItem = _goldItems[Random.Range(0, _goldItems.Length)];
         }
+        else
+        {
+            spawnedItem = _physicalStrenItems[Random.Range(0, _physicalStrenItems.Length)];
+        }
+
+        GameObject go = Instantiate(spawnedItem, transform.position, Quaternion.identity);
 
         //Mystery Stat Generation
-        if(Random.Range(0f, 1f)<0.2f)
+        //if(Random.Range(0f, 1f)<0.2f)
+        if (true)
         {
             int hold = Random.Range(0, 7);
-            spawnedItem.GetComponent<itemScript>().hiddenStat = (itemScript.Stats)hold;
+            go.GetComponent<itemScript>().hiddenStat = (itemScript.Stats)hold;
         }    
 
-        Instantiate(spawnedItem, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            cam.orthographicSize = 4.9f;
+            cam.orthographicSize = 5f;
         }
         
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -228,5 +228,17 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         _speed = baseSpeed;
+    }
+
+    private void OnMouseEnter()
+    {
+        //print("Hover");
+        //TooltipManager._instance.SetAndShowTooltip("Player");
+    }
+
+    private void OnMouseExit()
+    {
+        //print("Gone");
+        //TooltipManager._instance.HideTooltip();
     }
 }
