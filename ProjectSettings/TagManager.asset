@@ -25,6 +25,7 @@ TagManager:
   - Fireball
   - King
   - Item
+  - SpawnRoom
   layers:
   - Default
   - TransparentFX

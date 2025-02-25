@@ -40,6 +40,20 @@ public class PlayerMovement : MonoBehaviour
         _health = 20;
         baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health)/36;
         baseSpeed = _speed;
+
+        //Spawning in a "SpawnRoom"
+        StartCoroutine("SpawnPoint");
+    }
+
+    public IEnumerator SpawnPoint()
+    {
+        yield return new WaitForSeconds(.5f);
+        GameObject[] spawnrooms = GameObject.FindGameObjectsWithTag("SpawnRoom");
+        GameObject spawnRoom = spawnrooms[Random.Range(0, spawnrooms.Length)];
+
+        transform.position = spawnRoom.transform.position;
+        cam.transform.position = new Vector3(spawnRoom.transform.position.x, spawnRoom.transform.position.y, cam.transform.position.z);
+        spawnRoom.GetComponent<roomVarScript>().playerPresent = true;
     }
 
     // Update is called once per frame

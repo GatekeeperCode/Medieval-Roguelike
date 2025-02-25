@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 8072943429864116147}
   m_Layer: 0
   m_Name: Armor Hallway
-  m_TagString: Untagged
+  m_TagString: SpawnRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: -4779291099208353946}
   m_Layer: 0
   m_Name: ShortSideEntrance
-  m_TagString: Untagged
+  m_TagString: SpawnRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
