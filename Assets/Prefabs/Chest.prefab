@@ -151,4 +151,5 @@ MonoBehaviour:
   - {fileID: 6374898280840991466, guid: 945c0ed3faa7b9246ba199d9426f402a, type: 3}
   - {fileID: 3907863403773322564, guid: bc9c8e311896f7b4eb05c8428c48ef8a, type: 3}
   - {fileID: 7953002149789129367, guid: 67bcdfb53bbf5ba448bfce03047c4910, type: 3}
-  _specialItems: []
+  _specialItems:
+  - {fileID: 7044699987660665053, guid: 8ed92e56938c19d41855b85495fd83e5, type: 3}

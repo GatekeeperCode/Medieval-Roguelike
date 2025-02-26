@@ -29,6 +29,13 @@ public abstract class EnemyBase : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = Color.red;
                 StartCoroutine(hitReg());
             }
+
+            if(collision.gameObject.tag == "WaveBurst")
+            {
+                health -= collision.GetComponentInParent<WaveBurstScript>().powerScale;
+                GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(hitReg());
+            }
         }
     }
 

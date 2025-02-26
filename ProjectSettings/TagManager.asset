@@ -26,6 +26,7 @@ TagManager:
   - King
   - Item
   - SpawnRoom
+  - WaveBurst
   layers:
   - Default
   - TransparentFX
