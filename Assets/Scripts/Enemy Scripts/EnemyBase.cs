@@ -36,6 +36,13 @@ public abstract class EnemyBase : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = Color.red;
                 StartCoroutine(hitReg());
             }
+
+            if(collision.gameObject.tag == "Cluster")
+            {
+                health -= collision.transform.parent.GetComponentInParent<ClusterScript>().powerScale;
+                GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(hitReg());
+            }
         }
     }
 
