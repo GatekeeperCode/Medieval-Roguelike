@@ -18,29 +18,26 @@ public class RoomSpawnScript : MonoBehaviour
 
     public void spawnRoom(Vector2 centerPos, Vector2 dir)
     {
-        int rand = Random.Range(0, 3);
+        int rand = Random.Range(0, 1);
 
-        if (rand == 0)
+        if (rand == 1)
         {
             rand = Random.Range(0, 2);
 
-            if (rand == 0)
+            switch (rand)
             {
-                rand = Random.Range(0, _basicRoomFight.Length);
-
-                Instantiate(_basicRoomFight[rand], centerPos, Quaternion.identity);
-            }
-            else if (rand == 1)
-            {
-                rand = Random.Range(0, _basicRoomPuzzle.Length);
-
-                Instantiate(_basicRoomPuzzle[rand], centerPos, Quaternion.identity);
-            }
-            else
-            {
-                rand = Random.Range(0, _basicRoomNavigate.Length);
-
-                Instantiate(_basicRoomNavigate[rand], centerPos, Quaternion.identity);
+                case 1:
+                    rand = Random.Range(0, _basicRoomPuzzle.Length);
+                    Instantiate(_basicRoomPuzzle[rand], centerPos, Quaternion.identity);
+                    break;
+                case 2:
+                    rand = Random.Range(0, _basicRoomNavigate.Length);
+                    Instantiate(_basicRoomNavigate[rand], centerPos, Quaternion.identity);
+                    break;
+                default:
+                    rand = Random.Range(0, _basicRoomFight.Length);
+                    Instantiate(_basicRoomFight[rand], centerPos, Quaternion.identity);
+                    break;
             }
         }
         else
@@ -49,34 +46,20 @@ public class RoomSpawnScript : MonoBehaviour
             {
                 rand = Random.Range(0, 2);
 
-                if (rand == 0)
+                switch(rand)
                 {
-                    rand = Random.Range(0, _topRoomFight.Length);
-
-                    Instantiate(_topRoomFight[rand], centerPos, Quaternion.identity);
-                }
-                else if (rand == 1)
-                {
-                    if (_topRoomPuzzle.Length != 0)
-                    {
+                    case 1:
+                        rand = Random.Range(0, _topRoomNavigate.Length);
+                        Instantiate(_topRoomNavigate[rand], centerPos, Quaternion.identity);
+                        break;
+                    case 2:
                         rand = Random.Range(0, _topRoomPuzzle.Length);
-
                         Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
-                    }
-                    else
-                    {
-                        Instantiate(_topRoomNavigate[0], centerPos, Quaternion.identity);
-                    }
-
-                    //rand = Random.Range(0, _topRoomPuzzle.Length);
-
-                    //Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
-                }
-                else
-                {
-                    rand = Random.Range(0, _topRoomNavigate.Length);
-
-                    Instantiate(_topRoomNavigate[rand], centerPos, Quaternion.identity);
+                        break;
+                    default:
+                        rand = Random.Range(0, _topRoomFight.Length);
+                        Instantiate(_topRoomFight[rand], centerPos, Quaternion.identity);
+                        break;
                 }
             }
             else if(dir == Vector2.up)
@@ -85,36 +68,21 @@ public class RoomSpawnScript : MonoBehaviour
 
                 rand = Random.Range(0, 2);
 
-                if (rand == 0)
+                switch (rand)
                 {
-                    rand = Random.Range(0, _topRoomFight.Length);
-
-                    room = Instantiate(_topRoomFight[rand], centerPos, Quaternion.identity);
-                }
-                else if (rand == 1)
-                {
-                    if (_topRoomPuzzle.Length != 0)
-                    {
+                    case 1:
+                        rand = Random.Range(0, _topRoomFight.Length);
+                        room = Instantiate(_topRoomFight[rand], centerPos, Quaternion.identity);
+                        break;
+                    case 2:
                         rand = Random.Range(0, _topRoomPuzzle.Length);
-
                         room = Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
-                    }
-                    else
-                    {
-                        room = Instantiate(_topRoomNavigate[0], centerPos, Quaternion.identity);
-                    }
-
-                    //rand = Random.Range(0, _topRoomPuzzle.Length);
-
-                    //room = Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
+                        break;
+                    default:
+                        rand = Random.Range(0, _topRoomNavigate.Length);
+                        room = Instantiate(_topRoomNavigate[rand], centerPos, Quaternion.identity);
+                        break;
                 }
-                else
-                {
-                    rand = Random.Range(0, _topRoomNavigate.Length);
-
-                    room = Instantiate(_topRoomNavigate[rand], centerPos, Quaternion.identity);
-                }
-
 
                 room.transform.eulerAngles = new Vector3(
                     room.transform.eulerAngles.x,
@@ -127,30 +95,20 @@ public class RoomSpawnScript : MonoBehaviour
             {
                 rand = Random.Range(0, 2);
 
-                if (rand == 0)
+                switch (rand)
                 {
-                    rand = Random.Range(0, _sideRoomFight.Length);
-
-                    Instantiate(_sideRoomFight[rand], centerPos, Quaternion.identity);
-                }
-                else if (rand == 1)
-                {
-                    if (_sideRoomPuzzle.Length != 0)
-                    {
+                    case 1:
                         rand = Random.Range(0, _sideRoomPuzzle.Length);
-
                         Instantiate(_sideRoomPuzzle[rand], centerPos, Quaternion.identity);
-                    }
-                    else
-                    {
-                        Instantiate(_sideRoomNavigate[0], centerPos, Quaternion.identity);
-                    }
-                }
-                else
-                {
-                    rand = Random.Range(0, _sideRoomNavigate.Length);
-
-                    Instantiate(_sideRoomNavigate[rand], centerPos, Quaternion.identity);
+                        break;
+                    case 2:
+                        rand = Random.Range(0, _sideRoomNavigate.Length);
+                        Instantiate(_sideRoomNavigate[rand], centerPos, Quaternion.identity);
+                        break;
+                    default:
+                        rand = Random.Range(0, _sideRoomFight.Length);
+                        Instantiate(_sideRoomFight[rand], centerPos, Quaternion.identity);
+                        break;
                 }
             }
             else
@@ -159,30 +117,20 @@ public class RoomSpawnScript : MonoBehaviour
 
                 rand = Random.Range(0, 2);
 
-                if (rand == 0)
+                switch (rand)
                 {
-                    rand = Random.Range(0, _sideRoomFight.Length);
-
-                    room = Instantiate(_sideRoomFight[rand], centerPos, Quaternion.identity);
-                }
-                else if (rand == 1)
-                {
-                    if(_sideRoomPuzzle.Length != 0)
-                    {
+                    case 1:
+                        rand = Random.Range(0, _sideRoomNavigate.Length);
+                        room = Instantiate(_sideRoomNavigate[rand], centerPos, Quaternion.identity);
+                        break;
+                    case 2:
                         rand = Random.Range(0, _sideRoomPuzzle.Length);
-
                         room = Instantiate(_sideRoomPuzzle[rand], centerPos, Quaternion.identity);
-                    }
-                    else
-                    {
-                        room = Instantiate(_sideRoomNavigate[0], centerPos, Quaternion.identity);
-                    }
-                }
-                else
-                {
-                    rand = Random.Range(0, _sideRoomNavigate.Length);
-
-                    room = Instantiate(_sideRoomNavigate[rand], centerPos, Quaternion.identity);
+                        break;
+                    default:
+                        rand = Random.Range(0, _sideRoomFight.Length);
+                        room = Instantiate(_sideRoomFight[rand], centerPos, Quaternion.identity);
+                        break;
                 }
 
                 room.transform.eulerAngles = new Vector3(
