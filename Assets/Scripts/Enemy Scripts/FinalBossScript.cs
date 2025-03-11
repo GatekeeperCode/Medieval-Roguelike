@@ -8,6 +8,7 @@ public class FinalBossScript : EnemyBase
     bool hitStun = false;
     bool nextAttackStarted = false;
     bool canMove = true;
+    bool pathStarted = false;
     public GameObject gameOverMenu;
     public float bossDmg;
     public GameObject[] retreatSpot;
@@ -43,7 +44,6 @@ public class FinalBossScript : EnemyBase
         attackNum = Random.Range(1, 4);
         nextCower = 0;
 
-        InvokeRepeating("UpdatePath", 0f, .5f);
         InvokeRepeating("WaypointPicker", 0f, 6);
     }
 
@@ -87,7 +87,13 @@ public class FinalBossScript : EnemyBase
 
         if (canMove && roomVars.playerPresent && !hitStun)
         {
-            if(!nextAttackStarted)
+            if(!pathStarted)
+            {
+                InvokeRepeating("UpdatePath", 0f, .5f);
+                pathStarted = true;
+            }
+
+            if (!nextAttackStarted)
             {
                 if (attackNum == 1) //Charges at player
                 {

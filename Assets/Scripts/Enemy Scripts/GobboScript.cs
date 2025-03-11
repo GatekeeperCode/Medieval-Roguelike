@@ -6,6 +6,7 @@ using Pathfinding;
 public class GobboScript : EnemyBase
 {
     bool hitStun = false;
+    bool pathStarted = false;
     public float gobboDamage;
     /*
      * Higher Scaling factor means slowing scaling in game.
@@ -28,8 +29,6 @@ public class GobboScript : EnemyBase
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         lastPSCheck = 0;
-
-        InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
     void UpdatePath()
@@ -76,6 +75,12 @@ public class GobboScript : EnemyBase
 
         if(!hitStun && roomVars.playerPresent)
         {
+            if(!pathStarted)
+            {
+                InvokeRepeating("UpdatePath", 0f, .5f);
+                pathStarted = true;
+            }
+
             if (path == null)
                 return;
             if (currentWaypoint >= path.vectorPath.Count)

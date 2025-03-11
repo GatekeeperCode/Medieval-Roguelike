@@ -9,6 +9,7 @@ public class SpearEnemyScript : EnemyBase
     GameObject spearObject;
     float lerpDuration = 0.5f;
     float stabSpeed = 2;
+    bool pathStarted = false;
 
     //Pathfinding Variables
     public float NextWaypointDistance = 3f;
@@ -36,8 +37,6 @@ public class SpearEnemyScript : EnemyBase
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         lastPSCheck = 0;
-
-        InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
     void UpdatePath()
@@ -83,7 +82,13 @@ public class SpearEnemyScript : EnemyBase
         }
         else if (!hitStun)
         {
-            if(Vector2.Distance(transform.position, player.transform.position) < 1)
+            if(!pathStarted)
+            {
+                InvokeRepeating("UpdatePath", 0f, .5f);
+                pathStarted = true;
+            }
+
+            if (Vector2.Distance(transform.position, player.transform.position) < 1)
             {
                 if(!attacking)
                 {

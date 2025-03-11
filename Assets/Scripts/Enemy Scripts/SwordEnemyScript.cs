@@ -9,6 +9,7 @@ public class SwordEnemyScript : EnemyBase
     float lerpDuration = 0.5f;
     Transform sword;
     bool hitStun = false;
+    bool pathStarted = false;
     float timeSinceLastSwing;
     Quaternion rotReset;
 
@@ -37,8 +38,6 @@ public class SwordEnemyScript : EnemyBase
         timeSinceLastSwing = 10;
         seeker = GetComponent<Seeker>();
         lastPSCheck = 0;
-
-        InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
     void UpdatePath()
@@ -84,6 +83,12 @@ public class SwordEnemyScript : EnemyBase
         }
         else if (!hitStun)
         {
+            if(!pathStarted)
+            {
+                InvokeRepeating("UpdatePath", 0f, .5f);
+                pathStarted = true;
+            }
+
             if (Vector2.Distance(transform.position, player.transform.position) < 1)
             {
                 if (!rotating && timeSinceLastSwing>=SwingTime)

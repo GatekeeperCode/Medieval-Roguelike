@@ -21,6 +21,7 @@ public class WizardScript : EnemyBase
     Path path;
     int currentWaypoint = 0;
     Seeker seeker;
+    bool pathStarted = false;
 
 
     // Start is called before the first frame update
@@ -32,8 +33,6 @@ public class WizardScript : EnemyBase
         seeker = GetComponent<Seeker>();
         lastPSCheck = 0;
         lastAttack = 0;
-
-        InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
     void UpdatePath()
@@ -86,6 +85,12 @@ public class WizardScript : EnemyBase
 
         if (roomVars.playerPresent)
         {
+            if(!pathStarted)
+            {
+                InvokeRepeating("UpdatePath", 0f, .5f);
+                pathStarted = true;
+            }
+
             if (Vector2.Distance(player.transform.position, transform.position)>=10 && canFire)
             {
                 if (path == null)

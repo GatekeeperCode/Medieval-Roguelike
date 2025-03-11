@@ -9,6 +9,7 @@ public class SphereWizardScript : EnemyBase
     public GameObject elementPrefab;
     public GameObject elementRotation;
     bool hitStun;
+    bool pathStarted = false;
     /*
      * Higher Scaling factor means slowing scaling in game.
      */
@@ -33,8 +34,6 @@ public class SphereWizardScript : EnemyBase
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         lastPSCheck = 0;
-
-        InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
     void UpdatePath()
@@ -82,6 +81,12 @@ public class SphereWizardScript : EnemyBase
         }
         else if(!hitStun)
         {
+            if(!pathStarted)
+            {
+                InvokeRepeating("UpdatePath", 0f, .5f);
+                pathStarted = true;
+            }
+
             if (path == null)
                 return;
             if (currentWaypoint >= path.vectorPath.Count)

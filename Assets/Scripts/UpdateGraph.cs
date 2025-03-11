@@ -12,7 +12,7 @@ public class UpdateGraph : MonoBehaviour
 
     private IEnumerator updteGph()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         AstarPath.active.Scan();
     }
 }
