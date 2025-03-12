@@ -18,9 +18,9 @@ public class RoomSpawnScript : MonoBehaviour
 
     public void spawnRoom(Vector2 centerPos, Vector2 dir)
     {
-        int rand = Random.Range(0, 2);
+        float dist = transform.position.x + transform.position.y;
+        int rand = Random.Range(0, (int)dist);
 
-        //if (25 >= Vector2.Distance(transform.position, new Vector2(0,0))/5)
         if(rand == 1)
         {
             rand = Random.Range(0, 2);
