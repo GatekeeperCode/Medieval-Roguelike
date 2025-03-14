@@ -70,8 +70,6 @@ public class WizardScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
-
         //Aiming at Player
         Vector3 targ = player.transform.position;
         targ.z = 0f;
@@ -85,7 +83,9 @@ public class WizardScript : EnemyBase
 
         if (roomVars.playerPresent)
         {
-            if(!pathStarted)
+            scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+
+            if (!pathStarted)
             {
                 InvokeRepeating("UpdatePath", 0f, .5f);
                 pathStarted = true;

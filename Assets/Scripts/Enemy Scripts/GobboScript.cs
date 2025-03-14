@@ -66,8 +66,6 @@ public class GobboScript : EnemyBase
     // Update is called once per frame
     void FixedUpdate()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
-
         if (!roomVars.playerPresent)
         {
             transform.position = resetPoint.transform.position;
@@ -75,7 +73,9 @@ public class GobboScript : EnemyBase
 
         if(!hitStun && roomVars.playerPresent)
         {
-            if(!pathStarted)
+            scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+
+            if (!pathStarted)
             {
                 InvokeRepeating("UpdatePath", 0f, .5f);
                 pathStarted = true;

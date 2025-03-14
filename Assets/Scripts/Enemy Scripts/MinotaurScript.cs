@@ -45,16 +45,16 @@ public class MinotaurScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
         if (!roomVars.playerPresent)
         {
             transform.position = resetPoint.transform.position;
         }
-
-        if (roomVars.playerPresent)
+        else
         {
-            if(!isCharging)
+            scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+
+            if (!isCharging)
             {
                 //Stop Movement for prior charges
                 _rbody.velocity = Vector2.zero;

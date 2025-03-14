@@ -29,7 +29,6 @@ public class SphereWizardScript : EnemyBase
     {
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
-        StartCoroutine("elementSpawn");
         hitStun = false;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -71,8 +70,6 @@ public class SphereWizardScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
-
         elementRotation.transform.Rotate(0, 0, 50 * Time.deltaTime);
 
         if (!roomVars.playerPresent)
@@ -81,9 +78,12 @@ public class SphereWizardScript : EnemyBase
         }
         else if(!hitStun)
         {
-            if(!pathStarted)
+            scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+
+            if (!pathStarted)
             {
                 InvokeRepeating("UpdatePath", 0f, .5f);
+                StartCoroutine("elementSpawn");
                 pathStarted = true;
             }
 

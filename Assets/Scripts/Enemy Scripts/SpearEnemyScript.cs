@@ -15,7 +15,6 @@ public class SpearEnemyScript : EnemyBase
     public float NextWaypointDistance = 3f;
     Path path;
     int currentWaypoint = 0;
-    Rigidbody2D rb;
     Seeker seeker;
 
     public GameObject spearGO;
@@ -35,7 +34,6 @@ public class SpearEnemyScript : EnemyBase
         _c = GetComponent<SpriteRenderer>().color;
         spearObject = spearGO.transform.GetChild(0).gameObject;
         seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
         lastPSCheck = 0;
     }
 
@@ -74,7 +72,6 @@ public class SpearEnemyScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
         if (!roomVars.playerPresent)
         {
@@ -82,7 +79,9 @@ public class SpearEnemyScript : EnemyBase
         }
         else if (!hitStun)
         {
-            if(!pathStarted)
+            scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+
+            if (!pathStarted)
             {
                 InvokeRepeating("UpdatePath", 0f, .5f);
                 pathStarted = true;

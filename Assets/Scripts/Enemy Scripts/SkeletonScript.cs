@@ -43,10 +43,10 @@ public class SkeletonScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
-
         if (roomVars.playerPresent)
         {
+            scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+
             Vector3 targ = player.transform.position;
             targ.z = 0f;
 

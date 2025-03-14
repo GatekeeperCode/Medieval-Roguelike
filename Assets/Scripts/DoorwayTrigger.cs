@@ -22,15 +22,15 @@ public class DoorwayTrigger : MonoBehaviour
         wallSpawn = false;
         startTime = Time.time;
 
-        if(_dir == Vector2.left * 13.27575f)
+        if(_dir.x == -13.27575f)
         {
             faceDirection = Vector2.left;
         }
-        else if(_dir == Vector2.right * 13.27575f)
+        else if(_dir.x == 13.27575f)
         {
             faceDirection = Vector2.right;
         }
-        else if(_dir == Vector2.up * 4.75f)
+        else if(_dir.y == 4.75f)
         {
             faceDirection = Vector2.up;
         }
@@ -97,7 +97,7 @@ public class DoorwayTrigger : MonoBehaviour
     /// <returns>True if another room is present where the next room will go.</returns>
     bool isInContact(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, 7f, _backgroundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, direction, 4f, _backgroundLayer);
 
         return (hit.collider != null);
     }

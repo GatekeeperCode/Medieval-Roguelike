@@ -47,17 +47,20 @@ public class GooScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
-
         if (!hitStun)
         {
-            if(!roomVars.playerPresent)
+            if(roomVars.playerPresent)
+            {
+                scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+
+                if (!isMoving)
+                {
+                    StartCoroutine(creeping());
+                }
+            }
+            else            
             {
                 transform.position = resetPoint.transform.position;
-            }
-            else if (!isMoving)
-            {
-                StartCoroutine(creeping());
             }
         }
 

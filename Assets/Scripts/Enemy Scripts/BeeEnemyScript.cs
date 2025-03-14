@@ -44,16 +44,19 @@ public class BeeEnemyScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+        if(roomVars.playerPresent)
+        {
+            scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
 
-        if (!roomVars.playerPresent)
+            if (!isMoving)
+            {
+                StartCoroutine(buzzz());
+            }
+        }
+        else
         {
             transform.position = BeeHive.transform.position;
             isMoving = false;
-        }
-        else if(!isMoving)
-        {
-            StartCoroutine(buzzz());
         }
 
         if (health <= 0)

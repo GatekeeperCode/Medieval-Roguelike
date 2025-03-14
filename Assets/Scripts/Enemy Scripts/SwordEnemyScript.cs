@@ -75,15 +75,15 @@ public class SwordEnemyScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
-
         if (!roomVars.playerPresent)
         {
             transform.position = resetPoint.transform.position;
         }
         else if (!hitStun)
         {
-            if(!pathStarted)
+            scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
+
+            if (!pathStarted)
             {
                 InvokeRepeating("UpdatePath", 0f, .5f);
                 pathStarted = true;
