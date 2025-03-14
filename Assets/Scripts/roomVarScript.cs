@@ -8,7 +8,6 @@ public class roomVarScript : MonoBehaviour
     public bool playerPresent = false;
 
     public GameObject[] monsters;
-
     bool check = false;
 
     private void Update()

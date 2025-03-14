@@ -24,9 +24,10 @@ public class CameraShiftScript : MonoBehaviour
             camObject.transform.position = new Vector3(transform.position.x + _dir.x, transform.position.y + _dir.y, camObject.transform.position.z);
         }
     }
-
-    private void OnDestroy()
-    {
-        print("Ow, I was destroyed for some reason");
-    }
+    
+    //Test Code in case stuff dissappears
+    //private void OnDestroy()
+    //{
+    //    print("Ow, I was destroyed for some reason + " + gameObject.transform.parent);
+    //}
 }

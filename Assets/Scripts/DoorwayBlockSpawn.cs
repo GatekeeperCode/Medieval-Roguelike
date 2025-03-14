@@ -28,8 +28,11 @@ public class DoorwayBlockSpawn : MonoBehaviour
     {
         if (roomClear && !wallsGone)
         {
-            Destroy(spawnedWall);
-            wallsGone = true;
+            if(spawnedWall != gameObject)
+            {
+                Destroy(spawnedWall);
+                wallsGone = true;
+            }          
         }
 
         if(!roomClear && !manualOverride)
