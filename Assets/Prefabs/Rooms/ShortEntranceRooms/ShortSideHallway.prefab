@@ -721,6 +721,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlipped: 0
   playerPresent: 0
+  monsters:
+  - {fileID: 8302528344438823952}
+  - {fileID: 107499212492423607}
+  - {fileID: 6359925548416071608}
 --- !u!1 &5073075247132791330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,11 +1475,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: SphereWizard (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8174970132939597451, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
 --- !u!4 &2821791382974807641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1015753980526407530, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
+  m_PrefabInstance: {fileID: 2968341177214931251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6359925548416071608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8174970132939597451, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
   m_PrefabInstance: {fileID: 2968341177214931251}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4588893601812538401
@@ -1496,6 +1509,10 @@ PrefabInstance:
     - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_Name
       value: Wizard Man
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_RootOrder
@@ -1543,6 +1560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+--- !u!1 &8302528344438823952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+  m_PrefabInstance: {fileID: 4588893601812538401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5469123954570501402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
@@ -1966,11 +1988,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: SphereWizard
       objectReference: {fileID: 0}
+    - target: {fileID: 8174970132939597451, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
 --- !u!4 &9085470387176933462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1015753980526407530, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
+  m_PrefabInstance: {fileID: 8074600034126276412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &107499212492423607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8174970132939597451, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
   m_PrefabInstance: {fileID: 8074600034126276412}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8837709573058160242

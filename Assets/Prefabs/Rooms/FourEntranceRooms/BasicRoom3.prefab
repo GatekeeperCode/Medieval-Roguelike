@@ -162,6 +162,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlipped: 0
   playerPresent: 0
+  monsters:
+  - {fileID: 2893610173331921469}
+  - {fileID: 5074171965966988758}
+  - {fileID: 5596936368449328610}
+  - {fileID: 7661617623502762177}
 --- !u!1 &2928603966881435307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,11 +1796,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minotaur (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8398685332625673852, guid: e83f79e5adf869c4fa521161fb5e318e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e83f79e5adf869c4fa521161fb5e318e, type: 3}
 --- !u!4 &5074171965966988749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8398685332625673831, guid: e83f79e5adf869c4fa521161fb5e318e, type: 3}
+  m_PrefabInstance: {fileID: 3667349888579599274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5074171965966988758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8398685332625673852, guid: e83f79e5adf869c4fa521161fb5e318e, type: 3}
   m_PrefabInstance: {fileID: 3667349888579599274}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3682971415162748493
@@ -1879,6 +1893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2173886701006041414, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -1928,6 +1946,11 @@ PrefabInstance:
 --- !u!4 &5596936368449328614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2173886701006041414, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+  m_PrefabInstance: {fileID: 6018917514305217696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5596936368449328610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
   m_PrefabInstance: {fileID: 6018917514305217696}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6676081569683739713
@@ -1993,11 +2016,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minotaur
       objectReference: {fileID: 0}
+    - target: {fileID: 8398685332625673852, guid: e83f79e5adf869c4fa521161fb5e318e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e83f79e5adf869c4fa521161fb5e318e, type: 3}
 --- !u!4 &2893610173331921446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8398685332625673831, guid: e83f79e5adf869c4fa521161fb5e318e, type: 3}
+  m_PrefabInstance: {fileID: 6676081569683739713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2893610173331921469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8398685332625673852, guid: e83f79e5adf869c4fa521161fb5e318e, type: 3}
   m_PrefabInstance: {fileID: 6676081569683739713}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8392663296958267779
@@ -2018,6 +2050,10 @@ PrefabInstance:
     - target: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
       propertyPath: m_Name
       value: SwordEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2173886701006041414, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
       propertyPath: m_RootOrder
@@ -2065,6 +2101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+--- !u!1 &7661617623502762177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+  m_PrefabInstance: {fileID: 8392663296958267779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7661617623502762181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2173886701006041414, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}

@@ -66,6 +66,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlipped: 0
   playerPresent: 0
+  monsters:
+  - {fileID: 6260694307237972125}
+  - {fileID: 402026893212315213}
+  - {fileID: 8159010149008889671}
+  - {fileID: 7109282399077638139}
+  - {fileID: 9063689959972040436}
 --- !u!1 &529606897248278736
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,11 +991,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: SphereWizard
       objectReference: {fileID: 0}
+    - target: {fileID: 8174970132939597451, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
 --- !u!4 &190078243130681109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1015753980526407530, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
+  m_PrefabInstance: {fileID: 917579813775116415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9063689959972040436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8174970132939597451, guid: 183aae1874eb01e4aaec05eeb929af98, type: 3}
   m_PrefabInstance: {fileID: 917579813775116415}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1906697945336574124
@@ -1010,6 +1025,10 @@ PrefabInstance:
     - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_Name
       value: Wizard Man
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_RootOrder
@@ -1060,6 +1079,11 @@ PrefabInstance:
 --- !u!4 &7943450916438968727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+  m_PrefabInstance: {fileID: 1906697945336574124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6260694307237972125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
   m_PrefabInstance: {fileID: 1906697945336574124}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2828975278198540247
@@ -1143,6 +1167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wizard Man (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1194,6 +1222,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
   m_PrefabInstance: {fileID: 3332304512501131210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7109282399077638139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+  m_PrefabInstance: {fileID: 3332304512501131210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4444251700714368886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1212,6 +1245,10 @@ PrefabInstance:
     - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_Name
       value: Wizard Man (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_RootOrder
@@ -1264,6 +1301,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
   m_PrefabInstance: {fileID: 4444251700714368886}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8159010149008889671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+  m_PrefabInstance: {fileID: 4444251700714368886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5261276065609340540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1282,6 +1324,10 @@ PrefabInstance:
     - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_Name
       value: Wizard Man (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
       propertyPath: m_RootOrder
@@ -1329,6 +1375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+--- !u!1 &402026893212315213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5519029267125123121, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}
+  m_PrefabInstance: {fileID: 5261276065609340540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4416610238668517191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8379295825466521915, guid: 8b68fbe7192f5364ab5675326375c5c7, type: 3}

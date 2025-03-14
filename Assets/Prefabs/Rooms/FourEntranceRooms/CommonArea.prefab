@@ -738,6 +738,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlipped: 0
   playerPresent: 0
+  monsters:
+  - {fileID: 5404118622484895780}
+  - {fileID: 5424594287074630366}
+  - {fileID: 1101208863425266625}
+  - {fileID: 7283785062449354390}
 --- !u!1 &3981688593824474605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,8 +1456,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8244790721723962429, guid: 1a953cec9059a954489e1d37e41d60e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a953cec9059a954489e1d37e41d60e2, type: 3}
+--- !u!1 &7283785062449354390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8244790721723962429, guid: 1a953cec9059a954489e1d37e41d60e2, type: 3}
+  m_PrefabInstance: {fileID: 1692881317699257003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7283785062449354386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8244790721723962425, guid: 1a953cec9059a954489e1d37e41d60e2, type: 3}
@@ -2105,6 +2119,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpearEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5631390987409864580, guid: 8c51b2b70d2394348a9d6ac008c7d588, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5631390987409864581, guid: 8c51b2b70d2394348a9d6ac008c7d588, type: 3}
       propertyPath: roomVars
       value: 
@@ -2118,6 +2136,11 @@ PrefabInstance:
 --- !u!4 &1101208863425266629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5631390987409864576, guid: 8c51b2b70d2394348a9d6ac008c7d588, type: 3}
+  m_PrefabInstance: {fileID: 4714987215495574597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1101208863425266625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5631390987409864580, guid: 8c51b2b70d2394348a9d6ac008c7d588, type: 3}
   m_PrefabInstance: {fileID: 4714987215495574597}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6112646034198899046
@@ -2138,6 +2161,10 @@ PrefabInstance:
     - target: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
       propertyPath: m_Name
       value: SwordEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2173886701006041414, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
       propertyPath: m_RootOrder
@@ -2185,6 +2212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+--- !u!1 &5404118622484895780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+  m_PrefabInstance: {fileID: 6112646034198899046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5404118622484895776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2173886701006041414, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
@@ -2208,6 +2240,10 @@ PrefabInstance:
     - target: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
       propertyPath: m_Name
       value: SwordEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2173886701006041414, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
       propertyPath: m_RootOrder
@@ -2258,5 +2294,10 @@ PrefabInstance:
 --- !u!4 &5424594287074630362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2173886701006041414, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
+  m_PrefabInstance: {fileID: 6152820531870264220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5424594287074630366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2173886701006041410, guid: 43cde84fac54c834088ed7a472e319d5, type: 3}
   m_PrefabInstance: {fileID: 6152820531870264220}
   m_PrefabAsset: {fileID: 0}
