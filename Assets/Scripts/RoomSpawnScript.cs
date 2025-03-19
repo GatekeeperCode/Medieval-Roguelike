@@ -18,26 +18,25 @@ public class RoomSpawnScript : MonoBehaviour
 
     public void spawnRoom(Vector2 centerPos, Vector2 dir)
     {
-        float dist = transform.position.x + transform.position.y;
-        int rand = Random.Range(0, (int)dist);
+        float rand = Random.Range(0f, 1f);
 
-        if(rand == 1)
+        if(rand <= .5f)
         {
-            rand = Random.Range(0, 2);
+            int randy = Random.Range(0, 2);
 
-            switch (rand)
+            switch (randy)
             {
                 case 1:
-                    rand = Random.Range(0, _basicRoomPuzzle.Length);
-                    Instantiate(_basicRoomPuzzle[rand], centerPos, Quaternion.identity);
+                    randy = Random.Range(0, _basicRoomPuzzle.Length);
+                    Instantiate(_basicRoomPuzzle[randy], centerPos, Quaternion.identity);
                     break;
                 case 2:
-                    rand = Random.Range(0, _basicRoomNavigate.Length);
-                    Instantiate(_basicRoomNavigate[rand], centerPos, Quaternion.identity);
+                    randy = Random.Range(0, _basicRoomNavigate.Length);
+                    Instantiate(_basicRoomNavigate[randy], centerPos, Quaternion.identity);
                     break;
                 default:
-                    rand = Random.Range(0, _basicRoomFight.Length);
-                    Instantiate(_basicRoomFight[rand], centerPos, Quaternion.identity);
+                    randy = Random.Range(0, _basicRoomFight.Length);
+                    Instantiate(_basicRoomFight[randy], centerPos, Quaternion.identity);
                     break;
             }
         }
@@ -45,21 +44,21 @@ public class RoomSpawnScript : MonoBehaviour
         {
             if(dir == Vector2.down)
             {
-                rand = Random.Range(0, 2);
+                int randy = Random.Range(0, 2);
 
-                switch(rand)
+                switch(randy)
                 {
                     case 1:
-                        rand = Random.Range(0, _topRoomNavigate.Length);
-                        Instantiate(_topRoomNavigate[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _topRoomNavigate.Length);
+                        Instantiate(_topRoomNavigate[randy], centerPos, Quaternion.identity);
                         break;
                     case 2:
-                        rand = Random.Range(0, _topRoomPuzzle.Length);
-                        Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _topRoomPuzzle.Length);
+                        Instantiate(_topRoomPuzzle[randy], centerPos, Quaternion.identity);
                         break;
                     default:
-                        rand = Random.Range(0, _topRoomFight.Length);
-                        Instantiate(_topRoomFight[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _topRoomFight.Length);
+                        Instantiate(_topRoomFight[randy], centerPos, Quaternion.identity);
                         break;
                 }
             }
@@ -67,21 +66,21 @@ public class RoomSpawnScript : MonoBehaviour
             {
                 GameObject room;
 
-                rand = Random.Range(0, 2);
+                int randy = Random.Range(0, 2);
 
-                switch (rand)
+                switch (randy)
                 {
                     case 1:
-                        rand = Random.Range(0, _topRoomFight.Length);
-                        room = Instantiate(_topRoomFight[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _topRoomFight.Length);
+                        room = Instantiate(_topRoomFight[randy], centerPos, Quaternion.identity);
                         break;
                     case 2:
-                        rand = Random.Range(0, _topRoomPuzzle.Length);
-                        room = Instantiate(_topRoomPuzzle[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _topRoomPuzzle.Length);
+                        room = Instantiate(_topRoomPuzzle[randy], centerPos, Quaternion.identity);
                         break;
                     default:
-                        rand = Random.Range(0, _topRoomNavigate.Length);
-                        room = Instantiate(_topRoomNavigate[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _topRoomNavigate.Length);
+                        room = Instantiate(_topRoomNavigate[randy], centerPos, Quaternion.identity);
                         break;
                 }
 
@@ -94,21 +93,21 @@ public class RoomSpawnScript : MonoBehaviour
             }
             else if(dir == Vector2.left)
             {
-                rand = Random.Range(0, 2);
+                int randy  = Random.Range(0, 2);
 
-                switch (rand)
+                switch (randy)
                 {
                     case 1:
-                        rand = Random.Range(0, _sideRoomPuzzle.Length);
-                        Instantiate(_sideRoomPuzzle[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _sideRoomPuzzle.Length);
+                        Instantiate(_sideRoomPuzzle[randy], centerPos, Quaternion.identity);
                         break;
                     case 2:
-                        rand = Random.Range(0, _sideRoomNavigate.Length);
-                        Instantiate(_sideRoomNavigate[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _sideRoomNavigate.Length);
+                        Instantiate(_sideRoomNavigate[randy], centerPos, Quaternion.identity);
                         break;
                     default:
-                        rand = Random.Range(0, _sideRoomFight.Length);
-                        Instantiate(_sideRoomFight[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _sideRoomFight.Length);
+                        Instantiate(_sideRoomFight[randy], centerPos, Quaternion.identity);
                         break;
                 }
             }
@@ -116,21 +115,21 @@ public class RoomSpawnScript : MonoBehaviour
             {
                 GameObject room;
 
-                rand = Random.Range(0, 2);
+                int randy = Random.Range(0, 2);
 
-                switch (rand)
+                switch (randy)
                 {
                     case 1:
-                        rand = Random.Range(0, _sideRoomNavigate.Length);
-                        room = Instantiate(_sideRoomNavigate[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _sideRoomNavigate.Length);
+                        room = Instantiate(_sideRoomNavigate[randy], centerPos, Quaternion.identity);
                         break;
                     case 2:
-                        rand = Random.Range(0, _sideRoomPuzzle.Length);
-                        room = Instantiate(_sideRoomPuzzle[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _sideRoomPuzzle.Length);
+                        room = Instantiate(_sideRoomPuzzle[randy], centerPos, Quaternion.identity);
                         break;
                     default:
-                        rand = Random.Range(0, _sideRoomFight.Length);
-                        room = Instantiate(_sideRoomFight[rand], centerPos, Quaternion.identity);
+                        randy = Random.Range(0, _sideRoomFight.Length);
+                        room = Instantiate(_sideRoomFight[randy], centerPos, Quaternion.identity);
                         break;
                 }
 
