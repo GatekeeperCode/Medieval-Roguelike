@@ -12,6 +12,9 @@ public class ChestScript : MonoBehaviour
     public GameObject[] _healthItems;
     public GameObject[] _goldItems;
     public GameObject[] _specialItems;
+    public GameObject[] _weapons;
+
+    bool weapon = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,10 +48,15 @@ public class ChestScript : MonoBehaviour
         {
             spawnedItem = _defenseItems[Random.Range(0, _defenseItems.Length)];
         }
-        else if(rand>=0.1f && rand<0.3f)//health items
+        else if(rand>=0.1f && rand<0.2f)//health items
         {
             spawnedItem = _healthItems[Random.Range(0, _healthItems.Length)];
         }
+        else if (rand >= 0.2f && rand < 0.3f)//weapons
+        {
+            spawnedItem = _weapons[Random.Range(0, _weapons.Length)];
+            weapon = true;
+        }    
         else if(rand>=0.05f && rand<0.1f)//gold items
         {
             spawnedItem = _goldItems[Random.Range(0, _goldItems.Length)];
@@ -61,8 +69,7 @@ public class ChestScript : MonoBehaviour
         GameObject go = Instantiate(spawnedItem, transform.position, Quaternion.identity);
 
         //Mystery Stat Generation
-        //if(Random.Range(0f, 1f)<0.2f)
-        if (true)
+        if(Random.Range(0f, 1f)<0.2f && !weapon)
         {
             int hold = Random.Range(0, 7);
             go.GetComponent<itemScript>().hiddenStat = (itemScript.Stats)hold;

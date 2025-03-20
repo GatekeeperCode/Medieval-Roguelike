@@ -6,16 +6,16 @@ public class WeaponSwapScript : MonoBehaviour
 {
     public string swapToTag;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnMouseEnter()
     {
-        
+        print("Hover");
+        TooltipManager._instance.SetAndShowTooltip(swapToTag);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseExit()
     {
-        
+        print("Gone");
+        TooltipManager._instance.HideTooltip();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,39 +23,37 @@ public class WeaponSwapScript : MonoBehaviour
         if(collision.tag == "Player")
         {
             string oldWeapon = collision.GetComponent<PlayerMovement>().activeWeaponString;
-            
-            if(oldWeapon == "Sword")
+
+            switch(oldWeapon)
             {
-                collision.GetComponent<swordSwingScript>().enabled = false;
-            }
-            else if (oldWeapon == "Spear")
-            {
-                collision.GetComponent<SpearThrustScript>().enabled = false;
-            }
-            else if (oldWeapon == "Crossbow")
-            {
-                collision.GetComponent<CrossbowScript>().enabled = false;
-            }
-            else
-            {
-                collision.GetComponent<BowScript>().enabled = false;
+                case "Sword":
+                    collision.GetComponent<swordSwingScript>().enabled = false;
+                    break;
+                case "Spear":
+                    collision.GetComponent<SpearThrustScript>().enabled = false;
+                    break;
+                case "Crossbow":
+                    collision.GetComponent<CrossbowScript>().enabled = false;
+                    break;
+                default:
+                    collision.GetComponent<BowScript>().enabled = false;
+                    break;
             }
 
-            if (swapToTag == "Sword")
+            switch (swapToTag)
             {
-                collision.GetComponent<swordSwingScript>().enabled = true;
-            }
-            else if (swapToTag == "Spear")
-            {
-                collision.GetComponent<SpearThrustScript>().enabled = true;
-            }
-            else if (swapToTag == "Crossbow")
-            {
-                collision.GetComponent<CrossbowScript>().enabled = true;
-            }
-            else
-            {
-                collision.GetComponent<BowScript>().enabled = true;
+                case "Sword":
+                    collision.GetComponent<swordSwingScript>().enabled = true;
+                    break;
+                case "Spear":
+                    collision.GetComponent<SpearThrustScript>().enabled = true;
+                    break;
+                case "Crossbow":
+                    collision.GetComponent<CrossbowScript>().enabled = true;
+                    break;
+                default:
+                    collision.GetComponent<BowScript>().enabled = true;
+                    break;
             }
 
             collision.GetComponent<PlayerMovement>().activeWeaponString = swapToTag;
