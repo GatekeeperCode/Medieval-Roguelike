@@ -63,7 +63,6 @@ public class GobboScript : EnemyBase
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (!roomVars.playerPresent)
@@ -87,7 +86,9 @@ public class GobboScript : EnemyBase
                 return;
 
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
+
             Vector2 force = direction * speed * 100 * Time.deltaTime;
+            print(force);
 
             rb.AddForce(force);
 

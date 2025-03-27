@@ -22,11 +22,11 @@ public class DoorwayTrigger : MonoBehaviour
         wallSpawn = false;
         startTime = Time.time;
 
-        if(_dir.x == -13.27575f)
+        if(_dir.x == -8.75f)
         {
             faceDirection = Vector2.left;
         }
-        else if(_dir.x == 13.27575f)
+        else if(_dir.x == 8.75f)
         {
             faceDirection = Vector2.right;
         }

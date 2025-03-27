@@ -142,7 +142,7 @@ MonoBehaviour:
   fireRate: 2
   range: 5
   scalingFactor: 50
-  NextWaypointDistance: 3
+  NextWaypointDistance: 1
 --- !u!61 &8244790721723962426
 BoxCollider2D:
   m_ObjectHideFlags: 0

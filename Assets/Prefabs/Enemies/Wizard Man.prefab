@@ -168,7 +168,7 @@ MonoBehaviour:
   fireballObject: {fileID: 4375364342831269234, guid: a7a51d24f1ec5f84fbace53119704750, type: 3}
   fireballAim: {fileID: 1014905507860406148}
   attackDelay: 4
-  NextWaypointDistance: 3
+  NextWaypointDistance: 1
 --- !u!50 &-5233959236935663639
 Rigidbody2D:
   serializedVersion: 4

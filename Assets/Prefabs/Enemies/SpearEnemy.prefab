@@ -162,7 +162,7 @@ MonoBehaviour:
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
   _c: {r: 0, g: 0, b: 0, a: 0}
-  NextWaypointDistance: 3
+  NextWaypointDistance: 1
   spearGO: {fileID: 5631390986329243070}
   scalingFactor: 40
 --- !u!50 &-6267613476660767748

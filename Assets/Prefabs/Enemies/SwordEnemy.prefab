@@ -232,7 +232,7 @@ MonoBehaviour:
   swordGo: {fileID: 2173886701353386181}
   SwingTime: 3
   scalingFactor: 35
-  NextWaypointDistance: 3
+  NextWaypointDistance: 1
 --- !u!61 &2173886701006041409
 BoxCollider2D:
   m_ObjectHideFlags: 0

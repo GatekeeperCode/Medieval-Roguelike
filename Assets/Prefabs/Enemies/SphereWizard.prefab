@@ -166,7 +166,7 @@ MonoBehaviour:
   elementRotation: {fileID: 3024637640866667400}
   scalingFactor: 25
   elements: []
-  NextWaypointDistance: 3
+  NextWaypointDistance: 1
 --- !u!50 &-3120106422272913423
 Rigidbody2D:
   serializedVersion: 4
