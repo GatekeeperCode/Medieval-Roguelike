@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float _rangeStren;
     public float _magicalStren;
     public float _defense;
-    public float _health;
+    public float _health = 50f;
     public int _gold;
     public string activeWeaponString;
     public bool canUseMap;
@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         _rbody = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        _health = 20;
         baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health)/36;
         baseSpeed = _speed;
 

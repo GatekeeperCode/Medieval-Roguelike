@@ -44,8 +44,7 @@ public class GooScript : EnemyBase
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!hitStun)
         {

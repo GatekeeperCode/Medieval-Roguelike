@@ -6,6 +6,7 @@ public class SelectiveDoorOpenScript : MonoBehaviour
 {
     public bool[] targets;
     public GameObject[] walls;
+    public GameObject[] targetObjects;
     public bool hasOpenedDoor;
 
     // Update is called once per frame
@@ -18,6 +19,15 @@ public class SelectiveDoorOpenScript : MonoBehaviour
                 if (targets[i])
                 {
                     walls[i].SetActive(false);
+
+                    if(i==0)
+                    {
+                        targetObjects[1].SetActive(false);
+                    }
+                    else
+                    {
+                        targetObjects[0].SetActive(false);
+                    }
                     hasOpenedDoor = true;
                 }
             }

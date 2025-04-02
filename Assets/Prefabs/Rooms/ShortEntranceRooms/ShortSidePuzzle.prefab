@@ -1682,6 +1682,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 910914470071202421}
     m_Modifications:
+    - target: {fileID: 1872325868187159428, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
+      propertyPath: yVal
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4631675105984988703, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_Name
       value: PushBox
@@ -1696,11 +1700,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5103866353335593581, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5103866353335593581, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.23
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5103866353335593581, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_LocalPosition.z
