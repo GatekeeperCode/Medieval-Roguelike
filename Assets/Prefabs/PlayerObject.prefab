@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 680217853577959665}
   - component: {fileID: 8154289004429279997}
   - component: {fileID: 9072737532780968683}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: ClusterCircle
   m_TagString: Cluster
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 1576519775142296441}
   - component: {fileID: 1588727759135280035}
   - component: {fileID: 4905011877837361580}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: WaveBurstItem
   m_TagString: WaveBurst
   m_Icon: {fileID: 0}
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 7787389585726859955}
   - component: {fileID: 4334739745320613266}
   - component: {fileID: 7736242277156068780}
-  m_Layer: 3
+  m_Layer: 13
   m_Name: ClusterCircle
   m_TagString: Cluster
   m_Icon: {fileID: 0}
