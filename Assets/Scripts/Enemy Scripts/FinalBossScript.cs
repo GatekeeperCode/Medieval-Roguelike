@@ -80,7 +80,7 @@ public class FinalBossScript : EnemyBase
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
         //attackNum = 3;
@@ -176,6 +176,7 @@ public class FinalBossScript : EnemyBase
         if(health<=0)
         {
             Time.timeScale = 0;
+            player.GetComponent<PlayerMovement>().paused = true;
             gameOverMenu.SetActive(true);
         }
     }
