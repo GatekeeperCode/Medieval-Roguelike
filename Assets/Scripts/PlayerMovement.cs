@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public string activeWeaponString;
     public bool canUseMap;
     public float score;
+    public Text healthDisplay;
 
     public GameObject _shield;
     public GameObject pauseMenu;
@@ -59,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         score = (_speed + _physicalStren + _rangeStren + _defense + _health) / baseScore;
+
+        healthDisplay.text = "Health: " + _health + "\nGold: " + _gold;
 
         if(!paused)
         {
