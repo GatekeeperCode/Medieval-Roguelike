@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     public bool canUseMap;
     public float score;
     public Text healthDisplay;
+    public Text speedDisplay;
+    public Text physDisplay;
+    public Text rngDisplay;
+    public Text magDisplay;
+    public Text defDisplay;
 
     public GameObject _shield;
     public GameObject pauseMenu;
@@ -62,6 +67,11 @@ public class PlayerMovement : MonoBehaviour
         score = (_speed + _physicalStren + _rangeStren + _defense + _health) / baseScore;
 
         healthDisplay.text = "Health: " + _health + "\nGold: " + _gold;
+        speedDisplay.text = "Speed: " + _speed;
+        physDisplay.text = "Phys Stren: " + _physicalStren;
+        rngDisplay.text = "Range Stren: " + _rangeStren;
+        magDisplay.text = "Mag Stren: " + _magicalStren;
+        defDisplay.text = "Defense: " + _defense;
 
         if(!paused)
         {
