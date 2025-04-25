@@ -17,11 +17,13 @@ public class PlayerMovement : MonoBehaviour
     public bool canUseMap;
     public float score;
     public Text healthDisplay;
+    public Text goldDisplay;
     public Text speedDisplay;
     public Text physDisplay;
     public Text rngDisplay;
     public Text magDisplay;
     public Text defDisplay;
+    public GameObject statDisplay;
 
     public GameObject _shield;
     public GameObject pauseMenu;
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         activeWeaponString = "Sword";
+        statDisplay.SetActive(false);
 
         _rbody = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -66,7 +69,8 @@ public class PlayerMovement : MonoBehaviour
     {
         score = (_speed + _physicalStren + _rangeStren + _defense + _health) / baseScore;
 
-        healthDisplay.text = "Health: " + _health + "\nGold: " + _gold;
+        healthDisplay.text = "Health: " + _health;
+        goldDisplay.text = "Gold: " + _gold;
         speedDisplay.text = "Speed: " + _speed;
         physDisplay.text = "Phys Stren: " + _physicalStren;
         rngDisplay.text = "Range Stren: " + _rangeStren;
@@ -91,9 +95,19 @@ public class PlayerMovement : MonoBehaviour
             _shield.SetActive(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if(Input.GetKeyDown(KeyCode.Minus))
         {
             updateInventoryScreen();
+        }
+
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            statDisplay.SetActive(true);
+        }
+
+        if(Input.GetKeyUp(KeyCode.Tab))
+        {
+            statDisplay.SetActive(false);
         }
 
         //I could probably do this better but this is how I did it.
@@ -126,12 +140,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void updateInventoryScreen()
     {
-        string inventory = "Speed: " + _speed + "\nMelee Strength: " + _physicalStren;
-        inventory += "\nRanged Strength: " + _rangeStren + "\nMagical Strength: " + _magicalStren;
-        inventory += "\nDefense: " + _defense + "\nGold: " + _gold;
+        string inventory = "";
 
         //Handle any Special Items Here
-        inventory += "\n\n\nSpecial Items:";
+        inventory += "Cluster Items: " + itemsHeld[80] + "\nWave Items: " + itemsHeld[79];
 
         print(inventory);
     }

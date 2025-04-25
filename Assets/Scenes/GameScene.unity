@@ -836,7 +836,7 @@ RectTransform:
   - {fileID: 183380316}
   - {fileID: 1165393580}
   m_Father: {fileID: 1515454953}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2550,6 +2550,7 @@ RectTransform:
   - {fileID: 1112033139}
   - {fileID: 585826277}
   - {fileID: 1161806300}
+  - {fileID: 1583383024}
   - {fileID: 524940111}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -2850,6 +2851,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581801882}
   m_CullTransparentMesh: 1
+--- !u!1 &1583383023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583383024}
+  - component: {fileID: 1583383026}
+  - component: {fileID: 1583383025}
+  m_Layer: 5
+  m_Name: Health
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1583383024
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583383023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1515454953}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -151.5, y: 119.66667}
+  m_SizeDelta: {x: 160, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1583383025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583383023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.10162465, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 15
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Health:'
+--- !u!222 &1583383026
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583383023}
+  m_CullTransparentMesh: 1
 --- !u!1 &1619195814
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,7 +3154,7 @@ GameObject:
   - component: {fileID: 1685410358}
   - component: {fileID: 1685410357}
   m_Layer: 5
-  m_Name: Health/Gold
+  m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3096,8 +3176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -152, y: 108}
-  m_SizeDelta: {x: 160, y: 40}
+  m_AnchoredPosition: {x: -152, y: 98}
+  m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1685410357
 MonoBehaviour:
@@ -3112,7 +3192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.9583559, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3132,9 +3212,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Health:
-
-    Gold:'
+  m_Text: 'Gold:'
 --- !u!222 &1685410358
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4008,9 +4086,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2110442024}
     - target: {fileID: 5396071585597789811, guid: 847659cd67db48642b1b8fef0abc60a3, type: 3}
+      propertyPath: goldDisplay
+      value: 
+      objectReference: {fileID: 1685410357}
+    - target: {fileID: 5396071585597789811, guid: 847659cd67db48642b1b8fef0abc60a3, type: 3}
       propertyPath: physDisplay
       value: 
       objectReference: {fileID: 990597057}
+    - target: {fileID: 5396071585597789811, guid: 847659cd67db48642b1b8fef0abc60a3, type: 3}
+      propertyPath: statDisplay
+      value: 
+      objectReference: {fileID: 524940110}
     - target: {fileID: 5396071585597789811, guid: 847659cd67db48642b1b8fef0abc60a3, type: 3}
       propertyPath: speedDisplay
       value: 
@@ -4018,7 +4104,7 @@ PrefabInstance:
     - target: {fileID: 5396071585597789811, guid: 847659cd67db48642b1b8fef0abc60a3, type: 3}
       propertyPath: healthDisplay
       value: 
-      objectReference: {fileID: 1685410357}
+      objectReference: {fileID: 1583383025}
     - target: {fileID: 9139420398599029301, guid: 847659cd67db48642b1b8fef0abc60a3, type: 3}
       propertyPath: m_RootOrder
       value: 6
