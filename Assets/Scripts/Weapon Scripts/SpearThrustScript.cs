@@ -12,6 +12,7 @@ public class SpearThrustScript : MonoBehaviour
     PlayerMovement pm;
     float lerpDuration = 0.5f;
     float stabSpeed = 4;
+    BoxCollider2D bc;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,8 @@ public class SpearThrustScript : MonoBehaviour
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         spearObject = spearGO.transform.GetChild(1).gameObject; 
         spearObject.SetActive(true);
+        bc = gameObject.GetComponent<BoxCollider2D>();
+        bc.enabled = false;
     }
 
     private void OnEnable()
@@ -66,6 +69,7 @@ public class SpearThrustScript : MonoBehaviour
     IEnumerator thrust()
     {
         attacking = true;
+        bc.enabled = true;
         float timeElapsed = 0;
         Vector3 spearStartLoc = spearObject.transform.localPosition;
 
@@ -84,6 +88,7 @@ public class SpearThrustScript : MonoBehaviour
             yield return null;
         }
         spearObject.transform.localPosition = spearStartLoc;
+        bc.enabled = false;
         attacking = false;
     }
 }

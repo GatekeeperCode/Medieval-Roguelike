@@ -11,6 +11,7 @@ public class swordSwingScript : MonoBehaviour
     Transform sword;
     GameObject swordObject;
     PlayerMovement pm;
+    BoxCollider2D bc;
 
     float lerpDuration = 0.5f;
 
@@ -23,6 +24,9 @@ public class swordSwingScript : MonoBehaviour
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         swordObject = swordGo.transform.GetChild(0).gameObject;
         swordObject.SetActive(true);
+        bc = gameObject.GetComponent<BoxCollider2D>();
+        bc.enabled = false;
+
     }
 
     private void OnEnable()
@@ -67,6 +71,7 @@ public class swordSwingScript : MonoBehaviour
     IEnumerator Rotate90()
     {
         rotating = true;
+        bc.enabled = true;
         float timeElapsed = 0;
         Quaternion startRotation = swordGo.transform.rotation;
         Quaternion targetRotation = swordGo.transform.rotation * Quaternion.Euler(0, 0, 165);
@@ -78,6 +83,7 @@ public class swordSwingScript : MonoBehaviour
             yield return null;
         }
         sword.rotation = targetRotation;
+        bc.enabled = false;
         rotating = false;
     }
 }
