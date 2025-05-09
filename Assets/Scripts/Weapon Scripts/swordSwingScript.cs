@@ -24,7 +24,7 @@ public class swordSwingScript : MonoBehaviour
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         swordObject = swordGo.transform.GetChild(0).gameObject;
         swordObject.SetActive(true);
-        bc = gameObject.GetComponent<BoxCollider2D>();
+        bc = swordObject.GetComponent<BoxCollider2D>();
         bc.enabled = false;
 
     }

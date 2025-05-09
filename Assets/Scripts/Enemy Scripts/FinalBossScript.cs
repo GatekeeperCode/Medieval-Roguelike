@@ -7,7 +7,7 @@ public class FinalBossScript : EnemyBase
 {
     bool hitStun = false;
     bool nextAttackStarted = false;
-    bool canMove = true;
+    public bool canMove = true;
     bool pathStarted = false;
     public GameObject gameOverMenu;
     public float bossDmg;
@@ -31,7 +31,7 @@ public class FinalBossScript : EnemyBase
     Path path;
     int currentWaypoint = 0;
     Seeker seeker;
-    int attackNum;
+    public int attackNum;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class FinalBossScript : EnemyBase
         _c = GetComponent<SpriteRenderer>().color;
         seeker = GetComponent<Seeker>();
         lastPSCheck = 0;
-        attackNum = Random.Range(1, 4);
+        attackNum = 1;
         nextCower = 0;
 
         InvokeRepeating("WaypointPicker", 0f, 6);
@@ -89,6 +89,7 @@ public class FinalBossScript : EnemyBase
         {
             if(!pathStarted)
             {
+                print("Should run once");
                 InvokeRepeating("UpdatePath", 0f, .5f);
                 pathStarted = true;
             }
@@ -97,6 +98,8 @@ public class FinalBossScript : EnemyBase
             {
                 if (attackNum == 1) //Charges at player
                 {
+                    print("Boss Should Do Something");
+                    
                     target = player;
 
                     if (path == null)
@@ -117,22 +120,17 @@ public class FinalBossScript : EnemyBase
                 }
                 else if (attackNum == 2) //Charges short AOE burst
                 {
-                    if (!nextAttackStarted)
-                    {
-                        nextAttackStarted = true;
-                        StartCoroutine("chargeAttack");
-                    }
+                    nextAttackStarted = true;
+                    StartCoroutine("chargeAttack");
                 }
                 else if (attackNum == 3)//Ranged Attack at player
                 {
-                    if (!nextAttackStarted)
-                    {
-                        nextAttackStarted = true;
-                        StartCoroutine("rangeAttack");
-                    }
+                    nextAttackStarted = true;
+                    StartCoroutine("rangeAttack");
                 }
                 else //Runs and hides from player to spots in throne room.
                 {
+                    nextAttackStarted = true;
                     target = retreatSpot[nextCower];
 
                     if (path == null)
@@ -147,6 +145,8 @@ public class FinalBossScript : EnemyBase
                     {
                         currentWaypoint++;
                     }
+
+                    StartCoroutine("nextAttack");
                 }
             }
         }

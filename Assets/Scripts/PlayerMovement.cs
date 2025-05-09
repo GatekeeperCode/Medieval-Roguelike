@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public Text rngDisplay;
     public Text magDisplay;
     public Text defDisplay;
+    public Text specialItemsDisplay;
     public GameObject statDisplay;
 
     public GameObject _shield;
@@ -76,8 +77,9 @@ public class PlayerMovement : MonoBehaviour
         rngDisplay.text = "Range Stren: " + _rangeStren;
         magDisplay.text = "Mag Stren: " + _magicalStren;
         defDisplay.text = "Defense: " + _defense;
+        specialItemsDisplay.text = "Cluster Items: " + itemsHeld[80] + "\nWave Items: " + itemsHeld[79];
 
-        if(!paused)
+        if (!paused)
         {
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
@@ -93,11 +95,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _shield.SetActive(false);
-        }
-
-        if(Input.GetKeyDown(KeyCode.Minus))
-        {
-            updateInventoryScreen();
         }
 
         if (Input.GetKey(KeyCode.Tab))
@@ -136,16 +133,6 @@ public class PlayerMovement : MonoBehaviour
         {
             handleDeath();
         }
-    }
-
-    private void updateInventoryScreen()
-    {
-        string inventory = "";
-
-        //Handle any Special Items Here
-        inventory += "Cluster Items: " + itemsHeld[80] + "\nWave Items: " + itemsHeld[79];
-
-        print(inventory);
     }
 
     private void handleDeath()
@@ -221,7 +208,6 @@ public class PlayerMovement : MonoBehaviour
             itemBoost(i.SecondStat.ToString(), i.boost/2);
             itemBoost(i.hiddenStat.ToString(), i.boost * Random.Range(.1f, 2f));
             Destroy(collision.gameObject);
-            updateInventoryScreen();
         }
     }
 

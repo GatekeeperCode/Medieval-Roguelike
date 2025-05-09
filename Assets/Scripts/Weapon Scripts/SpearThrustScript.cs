@@ -23,7 +23,7 @@ public class SpearThrustScript : MonoBehaviour
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         spearObject = spearGO.transform.GetChild(1).gameObject; 
         spearObject.SetActive(true);
-        bc = gameObject.GetComponent<BoxCollider2D>();
+        bc = spearObject.GetComponent<BoxCollider2D>();
         bc.enabled = false;
     }
 
