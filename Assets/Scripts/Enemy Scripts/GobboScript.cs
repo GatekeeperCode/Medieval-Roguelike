@@ -9,13 +9,19 @@ public class GobboScript : EnemyBase
     bool pathStarted = false;
     public float gobboDamage;
     /*
-     * Higher Scaling factor means slowing scaling in game.
+     * Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)
      */
-    public int scalingFactor;
+    [Tooltip("Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)")]
+    public float scalingRise;
+    /*
+     * Higher Scaling Angle means longer power scale. (C in the Desmos Graph)
+     */
+    [Tooltip("Higher Scaling Angle means longer power scale. (C in the Desmos Graph)")]
+    public float scalingLength;
     float lastPSCheck;
 
     //Pathfinding Variables
-    public float NextWaypointDistance = 3f;
+    public float NextWaypointDistance;
     Path path;
     int currentWaypoint = 0;
     Rigidbody2D rb;
@@ -52,13 +58,23 @@ public class GobboScript : EnemyBase
     {
         if (playerScore > 0)
         {
+            print(playerScore);
             lastPSCheck += playerScore;
 
-            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+            //Check How much to scale
+            float cosAmt = Mathf.Cos(playerScore / scalingLength);
+            float sinAmt = Mathf.Sign(playerScore / scalingLength);
+            int floorSin = (int)(playerScore / (scalingLength * Mathf.PI));
 
-            if(scaleFun > scalingFactor) { scaleFun = 1.5f; }
+            //Scaling Math, Thanks Jaxaar
+            float scaleFun = scalingRise * (-(cosAmt * sinAmt) / Mathf.Abs(sinAmt) + (2 * floorSin)) + scalingRise;
+            //float scaleFun = Mathf.Pow(2, playerScore) / scalingRise;
 
-            health = scaleFun * health;
+            //if(scaleFun > scalingRise) { scaleFun = 1.5f; }
+
+            //Stats Scaling
+            health = scaleFun + health;
+            speed = scaleFun + speed;
             gobboDamage *= scaleFun;
         }
     }
@@ -88,7 +104,7 @@ public class GobboScript : EnemyBase
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
 
             Vector2 force = direction * speed * 100 * Time.deltaTime;
-            print(force);
+            //print(force);
 
             rb.AddForce(force);
 

@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         _rbody = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health)/36;
+        baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health + _magicalStren);
         baseSpeed = _speed;
 
         //Spawning in a "SpawnRoom"
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = (_speed + _physicalStren + _rangeStren + _defense + _health) / baseScore;
+        score = (_speed + _physicalStren + _rangeStren + _defense + _health + _magicalStren) - baseScore;
 
         healthDisplay.text = "Health: " + _health;
         goldDisplay.text = "Gold: " + _gold;

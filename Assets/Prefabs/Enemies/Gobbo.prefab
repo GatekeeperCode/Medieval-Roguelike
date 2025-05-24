@@ -152,8 +152,9 @@ MonoBehaviour:
   roomVars: {fileID: 0}
   _c: {r: 0, g: 0, b: 0, a: 0}
   gobboDamage: 2
-  scalingFactor: 75
-  NextWaypointDistance: 1
+  scalingRise: 1
+  scalingLength: 2
+  NextWaypointDistance: 0.5
 --- !u!114 &1876450875140561356
 MonoBehaviour:
   m_ObjectHideFlags: 0

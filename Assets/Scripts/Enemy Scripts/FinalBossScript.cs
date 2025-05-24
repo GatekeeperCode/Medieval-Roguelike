@@ -17,6 +17,9 @@ public class FinalBossScript : EnemyBase
     public GameObject attackBox;
     public GameObject rangeScope;
 
+    bool playerTarget = false;
+    bool cowerTarget = false;
+
     int nextCower;
     GameObject target;
 
@@ -83,13 +86,12 @@ public class FinalBossScript : EnemyBase
     void FixedUpdate()
     {
         scaleStats(player.GetComponent<PlayerMovement>().score - lastPSCheck);
-        //attackNum = 3;
+        attackNum = 0;
 
         if (canMove && roomVars.playerPresent && !hitStun)
         {
             if(!pathStarted)
             {
-                print("Should run once");
                 InvokeRepeating("UpdatePath", 0f, .5f);
                 pathStarted = true;
             }
@@ -97,24 +99,8 @@ public class FinalBossScript : EnemyBase
             if (!nextAttackStarted)
             {
                 if (attackNum == 1) //Charges at player
-                {
-                    print("Boss Should Do Something");
-                    
-                    target = player;
-
-                    if (path == null)
-                        return;
-                    if (currentWaypoint >= path.vectorPath.Count)
-                        return;
-
-                    transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * 2 * Time.deltaTime);
-
-                    float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
-                    if (distance < NextWaypointDistance)
-                    {
-                        currentWaypoint++;
-                    }
-
+                {                    
+                    playerTarget = true;
                     nextAttackStarted = true;
                     StartCoroutine("nextAttack");
                 }
@@ -131,26 +117,12 @@ public class FinalBossScript : EnemyBase
                 else //Runs and hides from player to spots in throne room.
                 {
                     nextAttackStarted = true;
-                    target = retreatSpot[nextCower];
-
-                    if (path == null)
-                        return;
-                    if (currentWaypoint >= path.vectorPath.Count)
-                        return;
-
-                    transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * Time.deltaTime);
-
-                    float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
-                    if (distance < NextWaypointDistance)
-                    {
-                        currentWaypoint++;
-                    }
-
+                    cowerTarget = true;
                     StartCoroutine("nextAttack");
                 }
             }
         }
-        else if(!canMove)
+        if(!canMove)
         {
             target = player;
 
@@ -159,8 +131,6 @@ public class FinalBossScript : EnemyBase
             if (currentWaypoint >= path.vectorPath.Count)
                 return;
 
-            transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * .5f * Time.deltaTime);
-
             float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
             if (distance < NextWaypointDistance)
             {
@@ -168,10 +138,41 @@ public class FinalBossScript : EnemyBase
             }
         }
 
-        
+        if(cowerTarget)
+        {
+            WaypointPicker();
+            target = retreatSpot[nextCower];
 
+            if (path == null)
+                return;
+            if (currentWaypoint >= path.vectorPath.Count)
+                return;
 
+            transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * Time.deltaTime);
 
+            float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distance < NextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+        }
+        if(playerTarget)
+        {
+            target = player;
+
+            if (path == null)
+                return;
+            if (currentWaypoint >= path.vectorPath.Count)
+                return;
+
+            transform.position = Vector2.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * 1.5f * Time.deltaTime);
+
+            float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distance < NextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+        }
 
         if(health<=0)
         {
@@ -192,8 +193,11 @@ public class FinalBossScript : EnemyBase
     public IEnumerator nextAttack()
     {
         yield return new WaitForSeconds(Random.Range(0, 8));
-        attackNum = Random.Range(1, 4);
+        attackNum = Random.Range(0, 4);
+        print("New attack: " + attackNum);
         nextAttackStarted = false;
+        playerTarget = false;
+        cowerTarget = false;
         canMove = true;
     }
 
@@ -205,7 +209,9 @@ public class FinalBossScript : EnemyBase
     public IEnumerator chargeAttack()
     {
         chargingCircle.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        playerTarget = true;
+        yield return new WaitForSeconds(3f);
+        playerTarget = false;
         chargingCircle.SetActive(false);
         attackingCircle.SetActive(true);
         StartCoroutine("endChargeAttack");
@@ -229,7 +235,7 @@ public class FinalBossScript : EnemyBase
             attackBoxes[i] = Instantiate(attackBox, transform.position + (dir*3.2f*i), rangeScope.transform.rotation);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         
         for(int i=0; i<5; i++)
         {
