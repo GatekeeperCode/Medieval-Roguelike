@@ -163,4 +163,5 @@ MonoBehaviour:
   fireRate: 5
   skeleDmg: 0
   range: 0
-  scalingFactor: 40
+  scalingRise: 1
+  scalingLength: 2

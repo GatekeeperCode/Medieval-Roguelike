@@ -3599,7 +3599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3305063795511760638, guid: da97d427cbdc05c47b0240e47c55f2c1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5049340834552126666, guid: da97d427cbdc05c47b0240e47c55f2c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3624,6 +3624,22 @@ PrefabInstance:
     - target: {fileID: 5959934863024277062, guid: da97d427cbdc05c47b0240e47c55f2c1, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319021504318621187, guid: da97d427cbdc05c47b0240e47c55f2c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319021505427958260, guid: da97d427cbdc05c47b0240e47c55f2c1, type: 3}
+      propertyPath: range
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319021505427958263, guid: da97d427cbdc05c47b0240e47c55f2c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319021505427958267, guid: da97d427cbdc05c47b0240e47c55f2c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6319021505613974936, guid: da97d427cbdc05c47b0240e47c55f2c1, type: 3}
       propertyPath: m_Name
@@ -4267,9 +4283,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1153537421}
     - target: {fileID: 1179205826, guid: 03a93fd8bed33784bb86e38223821fa2, type: 3}
+      propertyPath: scalingRise
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179205826, guid: 03a93fd8bed33784bb86e38223821fa2, type: 3}
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 585826276}
+    - target: {fileID: 1179205826, guid: 03a93fd8bed33784bb86e38223821fa2, type: 3}
+      propertyPath: scalingLength
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1179205826, guid: 03a93fd8bed33784bb86e38223821fa2, type: 3}
       propertyPath: NextWaypointDistance
       value: 0.5

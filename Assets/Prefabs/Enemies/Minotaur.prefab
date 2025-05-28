@@ -99,13 +99,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   health: 10
-  speed: 5
+  speed: 7
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
   _c: {r: 0, g: 0, b: 0, a: 0}
-  chargeBueildupTime: 5
+  chargeBueildupTime: 3
   minoDamage: 8
-  scalingFactor: 25
+  scalingRise: 3
+  scalingLength: 2
 --- !u!61 &8398685332625673826
 BoxCollider2D:
   m_ObjectHideFlags: 0

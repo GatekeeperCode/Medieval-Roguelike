@@ -9,9 +9,15 @@ public class BeeEnemyScript : EnemyBase
     public float moveMax;
     public float beeDmg;
     /*
-     * Higher Scaling factor means slowing scaling in game.
+     * Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)
      */
-    public int scalingFactor;
+    [Tooltip("Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)")]
+    public float scalingRise;
+    /*
+     * Higher Scaling Angle means longer power scale. (C in the Desmos Graph)
+     */
+    [Tooltip("Higher Scaling Angle means longer power scale. (C in the Desmos Graph)")]
+    public float scalingLength;
     float lastPSCheck;
 
     bool isMoving = false;
@@ -32,9 +38,13 @@ public class BeeEnemyScript : EnemyBase
         {
             lastPSCheck += playerScore;
 
-            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+            //Check How much to scale
+            float cosAmt = Mathf.Cos(playerScore / scalingLength);
+            float sinAmt = Mathf.Sin(playerScore / scalingLength);
+            int floor = (int)(playerScore / (scalingLength * Mathf.PI));
 
-            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+            //Scaling Math, Thanks Jaxaar
+            float scaleFun = scalingRise * (-(cosAmt * sinAmt) / Mathf.Abs(sinAmt) + (2 * floor)) + scalingRise;
 
             health = scaleFun * health;
             beeDmg *= scaleFun;
@@ -83,11 +93,10 @@ public class BeeEnemyScript : EnemyBase
         }
     }
 
-    private Vector3 RandomVector(float min, float max)
+    private Vector2 RandomVector(float min, float max)
     {
         var x = Random.Range(min, max);
         var y = Random.Range(min, max);
-        var z = Random.Range(min, max);
-        return new Vector3(x, y, z);
+        return new Vector3(x, y);
     }
 }

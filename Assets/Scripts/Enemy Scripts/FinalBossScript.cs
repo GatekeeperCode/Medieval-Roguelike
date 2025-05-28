@@ -24,9 +24,15 @@ public class FinalBossScript : EnemyBase
     GameObject target;
 
     /*
-     * Higher Scaling factor means slowing scaling in game.
+     * Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)
      */
-    public int scalingFactor;
+    [Tooltip("Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)")]
+    public float scalingRise;
+    /*
+     * Higher Scaling Angle means longer power scale. (C in the Desmos Graph)
+     */
+    [Tooltip("Higher Scaling Angle means longer power scale. (C in the Desmos Graph)")]
+    public float scalingLength;
     float lastPSCheck;
 
     //Pathfinding Variables
@@ -73,9 +79,13 @@ public class FinalBossScript : EnemyBase
         {
             lastPSCheck += playerScore;
 
-            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+            //Check How much to scale
+            float cosAmt = Mathf.Cos(playerScore / scalingLength);
+            float sinAmt = Mathf.Sin(playerScore / scalingLength);
+            int floor = (int)(playerScore / (scalingLength * Mathf.PI));
 
-            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+            //Scaling Math, Thanks Jaxaar
+            float scaleFun = scalingRise * (-(cosAmt * sinAmt) / Mathf.Abs(sinAmt) + (2 * floor)) + scalingRise;
 
             health = scaleFun * health;
             bossDmg *= scaleFun;

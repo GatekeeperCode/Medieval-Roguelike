@@ -7,11 +7,18 @@ public class SkeletonScript : EnemyBase
     public GameObject arrowPrefab;
     public float fireRate;
     public float skeleDmg;
+    [Tooltip("Range of 20 just about covers entire room when monster is placed on one far side.")]
     public float range;
     /*
-     * Higher Scaling factor means slowing scaling in game.
+     * Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)
      */
-    public int scalingFactor;
+    [Tooltip("Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)")]
+    public float scalingRise;
+    /*
+     * Higher Scaling Angle means longer power scale. (C in the Desmos Graph)
+     */
+    [Tooltip("Higher Scaling Angle means longer power scale. (C in the Desmos Graph)")]
+    public float scalingLength;
     float lastPSCheck;
 
     bool hitStun = false;
@@ -32,9 +39,14 @@ public class SkeletonScript : EnemyBase
         {
             lastPSCheck += playerScore;
 
-            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+            //Check How much to scale
+            float cosAmt = Mathf.Cos(playerScore / scalingLength);
+            float sinAmt = Mathf.Sin(playerScore / scalingLength);
+            int floor = (int)(playerScore / (scalingLength * Mathf.PI));
 
-            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+            //Scaling Math, Thanks Jaxaar
+            float scaleFun = scalingRise * (-(cosAmt * sinAmt) / Mathf.Abs(sinAmt) + (2 * floor)) + scalingRise;
+
             health = scaleFun * health;
             skeleDmg *= scaleFun;
         }
@@ -71,6 +83,7 @@ public class SkeletonScript : EnemyBase
         {
             yield return new WaitForSeconds(Random.Range(fireRate-2f, fireRate+2f));
 
+            print(Vector2.Distance(transform.position, player.transform.position));
             if (roomVars.playerPresent && !hitStun && Vector2.Distance(transform.position, player.transform.position) < range)
             {
                 GameObject arrow = Instantiate(arrowPrefab, transform.GetChild(0).transform.position, Quaternion.identity);

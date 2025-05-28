@@ -58,16 +58,16 @@ public class GobboScript : EnemyBase
     {
         if (playerScore > 0)
         {
-            print(playerScore);
+            //print(playerScore);
             lastPSCheck += playerScore;
 
             //Check How much to scale
             float cosAmt = Mathf.Cos(playerScore / scalingLength);
-            float sinAmt = Mathf.Sign(playerScore / scalingLength);
-            int floorSin = (int)(playerScore / (scalingLength * Mathf.PI));
+            float sinAmt = Mathf.Sin(playerScore / scalingLength);
+            int floor = (int)(playerScore / (scalingLength * Mathf.PI));
 
             //Scaling Math, Thanks Jaxaar
-            float scaleFun = scalingRise * (-(cosAmt * sinAmt) / Mathf.Abs(sinAmt) + (2 * floorSin)) + scalingRise;
+            float scaleFun = scalingRise * (-(cosAmt * sinAmt) / Mathf.Abs(sinAmt) + (2 * floor)) + scalingRise;
             //float scaleFun = Mathf.Pow(2, playerScore) / scalingRise;
 
             //if(scaleFun > scalingRise) { scaleFun = 1.5f; }

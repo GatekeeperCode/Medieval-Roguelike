@@ -133,7 +133,8 @@ MonoBehaviour:
   moveMin: -3
   moveMax: 3
   beeDmg: 1
-  scalingFactor: 100
+  scalingRise: 0.5
+  scalingLength: 2
 --- !u!50 &5497741532283444392
 Rigidbody2D:
   serializedVersion: 4
