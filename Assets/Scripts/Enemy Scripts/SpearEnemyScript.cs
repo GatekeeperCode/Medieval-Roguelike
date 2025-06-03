@@ -19,9 +19,15 @@ public class SpearEnemyScript : EnemyBase
 
     public GameObject spearGO;
     /*
-     * Higher Scaling factor means slowing scaling in game.
+     * Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)
      */
-    public int scalingFactor;
+    [Tooltip("Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)")]
+    public float scalingRise;
+    /*
+     * Higher Scaling Angle means longer power scale. (C in the Desmos Graph)
+     */
+    [Tooltip("Higher Scaling Angle means longer power scale. (C in the Desmos Graph)")]
+    public float scalingLength;
 
     bool hitStun = false;
     float lastPSCheck;
@@ -60,9 +66,14 @@ public class SpearEnemyScript : EnemyBase
         {
             lastPSCheck += playerScore;
 
-            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+            //Check How much to scale
+            float cosAmt = Mathf.Cos(playerScore / scalingLength);
+            float sinAmt = Mathf.Sin(playerScore / scalingLength);
+            int floor = (int)(playerScore / (scalingLength * Mathf.PI));
 
-            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+            //Scaling Math, Thanks Jaxaar
+            float scaleFun = scalingRise * (-(cosAmt * sinAmt) / Mathf.Abs(sinAmt) + (2 * floor)) + scalingRise;
+
 
             health = scaleFun * health;
             spearObject.transform.GetComponent<MeleeDmgScript>().damage = spearObject.GetComponent<MeleeDmgScript>().damage * scaleFun;
@@ -133,13 +144,27 @@ public class SpearEnemyScript : EnemyBase
 
         while (timeElapsed < lerpDuration)
         {
-            if (timeElapsed < lerpDuration / 2)
+            if ((player.transform.position.x - transform.position.x) > 0)
             {
-                spearObject.transform.position = new Vector2(spearObject.transform.position.x + (spearObject.transform.up.x * stabSpeed * Time.deltaTime), spearObject.transform.position.y + (spearObject.transform.up.y * stabSpeed * Time.deltaTime));
+                if (timeElapsed < lerpDuration / 2)
+                {
+                    spearObject.transform.position = new Vector2(spearObject.transform.position.x + (spearObject.transform.up.x * stabSpeed * Time.deltaTime), spearObject.transform.position.y + (spearObject.transform.up.y * stabSpeed * Time.deltaTime));
+                }
+                else
+                {
+                    spearObject.transform.position = new Vector2(spearObject.transform.position.x + (-spearObject.transform.up.x * stabSpeed * Time.deltaTime), spearObject.transform.position.y + (-spearObject.transform.up.y * stabSpeed * Time.deltaTime));
+                }
             }
             else
             {
-                spearObject.transform.position = new Vector2(spearObject.transform.position.x + (-spearObject.transform.up.x * stabSpeed * Time.deltaTime), spearObject.transform.position.y + (-spearObject.transform.up.y * stabSpeed * Time.deltaTime));
+                if (timeElapsed < lerpDuration / 2)
+                {
+                    spearObject.transform.position = new Vector2(spearObject.transform.position.x + (-spearObject.transform.up.x * stabSpeed * Time.deltaTime), spearObject.transform.position.y + (-spearObject.transform.up.y * stabSpeed * Time.deltaTime));
+                }
+                else
+                {
+                    spearObject.transform.position = new Vector2(spearObject.transform.position.x + (spearObject.transform.up.x * stabSpeed * Time.deltaTime), spearObject.transform.position.y + (spearObject.transform.up.y * stabSpeed * Time.deltaTime));
+                }
             }
 
             timeElapsed += Time.deltaTime;
