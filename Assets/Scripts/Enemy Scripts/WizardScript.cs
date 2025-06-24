@@ -5,7 +5,16 @@ using Pathfinding;
 
 public class WizardScript : EnemyBase
 {
-    public int scalingFactor;
+    /*
+     * Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)
+     */
+    [Tooltip("Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)")]
+    public float scalingRise;
+    /*
+     * Higher Scaling Angle means longer power scale. (C in the Desmos Graph)
+     */
+    [Tooltip("Higher Scaling Angle means longer power scale. (C in the Desmos Graph)")]
+    public float scalingLength;
     public float damage;
     public GameObject fireballObject;
     public GameObject fireballAim;
@@ -58,9 +67,14 @@ public class WizardScript : EnemyBase
         {
             lastPSCheck += playerScore;
 
-            float scaleFun = Mathf.Pow(2, playerScore) / scalingFactor;
+            //Check How much to scale
+            float cosAmt = Mathf.Cos(playerScore / scalingLength);
+            float sinAmt = Mathf.Sin(playerScore / scalingLength);
+            int floor = (int)(playerScore / (scalingLength * Mathf.PI));
 
-            if (scaleFun > scalingFactor) { scaleFun = 1.5f; }
+            //Scaling Math, Thanks Jaxaar
+            float scaleFun = scalingRise * (-(cosAmt * sinAmt) / Mathf.Abs(sinAmt) + (2 * floor)) + scalingRise;
+
 
             health = scaleFun * health;
             damage *= scaleFun;
