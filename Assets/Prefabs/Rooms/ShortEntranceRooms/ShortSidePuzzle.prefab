@@ -1686,6 +1686,10 @@ PrefabInstance:
       propertyPath: yVal
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1872325868187159428, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 5147791582553668436}
     - target: {fileID: 4631675105984988703, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_Name
       value: PushBox

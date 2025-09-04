@@ -28,6 +28,7 @@ TagManager:
   - SpawnRoom
   - WaveBurst
   - Cluster
+  - swingRadius
   layers:
   - Default
   - TransparentFX

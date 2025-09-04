@@ -29,6 +29,12 @@ public class ButtonScripts : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void onResetButtonPressed()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
+
     public void onOptionPressed()
     {
         mainScreen.SetActive(false);

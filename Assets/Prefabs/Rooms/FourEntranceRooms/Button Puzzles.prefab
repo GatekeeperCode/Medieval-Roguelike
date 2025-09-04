@@ -1578,6 +1578,10 @@ PrefabInstance:
       propertyPath: xVal
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 1872325868187159428, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 4342516742165045818}
     - target: {fileID: 4631675105984988703, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_Name
       value: PushBox (4)
@@ -2838,6 +2842,10 @@ PrefabInstance:
       propertyPath: xVal
       value: -7
       objectReference: {fileID: 0}
+    - target: {fileID: 1872325868187159428, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 4342516742165045818}
     - target: {fileID: 4631675105984988703, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_Name
       value: PushBox
@@ -3102,6 +3110,10 @@ PrefabInstance:
       propertyPath: yVal
       value: -3.75
       objectReference: {fileID: 0}
+    - target: {fileID: 1872325868187159428, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 4342516742165045818}
     - target: {fileID: 4631675105984988703, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_Name
       value: PushBox (1)
@@ -3168,6 +3180,10 @@ PrefabInstance:
       propertyPath: xVal
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1872325868187159428, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 4342516742165045818}
     - target: {fileID: 4631675105984988703, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_Name
       value: PushBox (5)
@@ -3301,6 +3317,10 @@ PrefabInstance:
       propertyPath: yVal
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1872325868187159428, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 4342516742165045818}
     - target: {fileID: 4631675105984988703, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_Name
       value: PushBox (2)
@@ -3505,6 +3525,10 @@ PrefabInstance:
       propertyPath: xVal
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1872325868187159428, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 4342516742165045818}
     - target: {fileID: 4631675105984988703, guid: 64b0acfd5b2dea9428e18fca612b2a9b, type: 3}
       propertyPath: m_Name
       value: PushBox (3)

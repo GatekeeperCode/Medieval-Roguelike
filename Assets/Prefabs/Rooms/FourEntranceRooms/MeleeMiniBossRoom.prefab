@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 2053985575530432334}
   m_Layer: 0
   m_Name: MeleeMiniBossRoom
-  m_TagString: SpawnRoom
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,7 @@ Transform:
   - {fileID: 1530114999685170393}
   - {fileID: 2679154559299053977}
   - {fileID: 1793288301817438974}
+  - {fileID: 1210365892349583581}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1050,6 +1051,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dir: {x: -8.25, y: 0}
   roomVars: {fileID: 2053985575530432334}
+--- !u!1 &5004058844514016885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1210365892349583581}
+  m_Layer: 0
+  m_Name: ResetPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1210365892349583581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004058844514016885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02479744, y: -0.046387244, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1227182641994546593}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5656353839697624263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,11 +2018,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeMiniBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 6629332424455186086, guid: 6dfe113720f7b1344956403b4837678e, type: 3}
+      propertyPath: swordGo
+      value: 
+      objectReference: {fileID: 4005194085250799475}
+    - target: {fileID: 6629332424455186086, guid: 6dfe113720f7b1344956403b4837678e, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 2053985575530432334}
+    - target: {fileID: 6629332424455186086, guid: 6dfe113720f7b1344956403b4837678e, type: 3}
+      propertyPath: resetPoint
+      value: 
+      objectReference: {fileID: 5004058844514016885}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dfe113720f7b1344956403b4837678e, type: 3}
 --- !u!4 &1793288301817438974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3904316858472561173, guid: 6dfe113720f7b1344956403b4837678e, type: 3}
+  m_PrefabInstance: {fileID: 3372599407108315371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4005194085250799475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1826402640800305048, guid: 6dfe113720f7b1344956403b4837678e, type: 3}
   m_PrefabInstance: {fileID: 3372599407108315371}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3845902953546286463

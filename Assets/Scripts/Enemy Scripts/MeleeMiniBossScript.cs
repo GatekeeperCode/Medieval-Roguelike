@@ -12,6 +12,7 @@ public class MeleeMiniBossScript : EnemyBase
     bool pathStarted = false;
     float timeSinceLastSwing;
     Quaternion rotReset;
+    bool pickNextBehaivoir = true;
 
     public GameObject swordGo;
     public float SwingTime;
@@ -33,6 +34,11 @@ public class MeleeMiniBossScript : EnemyBase
     int currentWaypoint = 0;
     Seeker seeker;
 
+    public GameObject rangeProjecticle;
+
+    //Sword Rotation Vars
+    private Animation animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +50,7 @@ public class MeleeMiniBossScript : EnemyBase
         timeSinceLastSwing = 10;
         seeker = GetComponent<Seeker>();
         lastPSCheck = 0;
+        animator = GetComponent<Animation>();
     }
 
     void UpdatePath()
@@ -112,6 +119,44 @@ public class MeleeMiniBossScript : EnemyBase
             }
 
             //Handles Behaivoir
+            if(pickNextBehaivoir)
+            {
+                int rand = Random.Range(0, 10);
+                pickNextBehaivoir = false;
+
+                switch (rand)
+                {
+                    //Brall Attack
+                    case 5:
+                    case 8:
+                    case 9:
+                        StartCoroutine("rangedAttack");
+                        break;
+
+                    //Circle Sweep Attack
+                    case 6:
+                    case 7:
+                        StartCoroutine("sweepclose");
+                        break;
+
+                    //rand = 1-4 : Sword Enemy Action
+                    default:
+                        if (!rotating && timeSinceLastSwing >= SwingTime)
+                        {
+                            StartCoroutine(swing());
+                            timeSinceLastSwing = 0;
+                        }
+                        else
+                        {
+                            if (timeSinceLastSwing > SwingTime / 3)
+                            {
+                                sword.rotation = rotReset;
+                            }
+                            timeSinceLastSwing += Time.deltaTime;
+                        }
+                        break;
+                }
+            }
 
 
             //Always moves towards player. An unyielding boss
@@ -138,6 +183,30 @@ public class MeleeMiniBossScript : EnemyBase
         }
     }
 
+    IEnumerator behaivoirWait()
+    {
+        yield return new WaitForSeconds(1f);
+        pickNextBehaivoir = true;
+    }
+
+    IEnumerator rangedAttack()
+    {
+        GameObject attack = Instantiate(rangeProjecticle, swordGo.transform.GetChild(0).transform.GetChild(0).transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(.5f);
+        attack.transform.position = Vector2.MoveTowards(attack.transform.position, player.transform.position, .5f);
+        StartCoroutine(behaivoirWait());
+    }
+
+    IEnumerator sweepclose()
+    {
+        GameObject sr = GameObject.FindGameObjectWithTag("swingRadius");
+        sr.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        sr.SetActive(false);
+        animator.Play("MeleeMiniBossCircleSwing");
+        StartCoroutine(behaivoirWait());
+    }
+
     IEnumerator swing()
     {
         rotating = true;
@@ -161,9 +230,11 @@ public class MeleeMiniBossScript : EnemyBase
         {
             sword.rotation = Quaternion.Slerp(startRotation, targetRotation, timeElapsed / lerpDuration);
             timeElapsed += Time.deltaTime;
-            yield return null;
         }
         sword.rotation = targetRotation;
         rotating = false;
+
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(behaivoirWait());
     }
 }

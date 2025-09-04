@@ -20,13 +20,16 @@ public class SelectiveDoorOpenScript : MonoBehaviour
                 {
                     walls[i].SetActive(false);
 
-                    if(i==0)
+                    if(targetObjects.Length>0)
                     {
-                        targetObjects[1].SetActive(false);
-                    }
-                    else
-                    {
-                        targetObjects[0].SetActive(false);
+                        if (i == 0)
+                        {
+                            targetObjects[1].SetActive(false);
+                        }
+                        else
+                        {
+                            targetObjects[0].SetActive(false);
+                        }
                     }
                     hasOpenedDoor = true;
                 }

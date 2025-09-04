@@ -19,7 +19,7 @@ public class PushBoxResetScript : MonoBehaviour
     {
         if(!roomVars.playerPresent)
         {
-            transform.position = new Vector2(xVal, yVal);
+            transform.localPosition = new Vector2(xVal, yVal);
         }
     }
 }

@@ -157,6 +157,7 @@ MonoBehaviour:
   walls:
   - {fileID: 2038822979011154213}
   - {fileID: 5660526793240349526}
+  targetObjects: []
   hasOpenedDoor: 0
 --- !u!1 &2353751322242804339
 GameObject:
