@@ -129,7 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlipped: 0
   playerPresent: 0
-  monsters: []
+  monsters:
+  - {fileID: 8476973145635507834}
 --- !u!1 &2960108696673652035
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2960108696673652061
 Transform:
   m_ObjectHideFlags: 0
@@ -226,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2960108697633255354
 Transform:
   m_ObjectHideFlags: 0
@@ -305,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2960108697641434512
 Transform:
   m_ObjectHideFlags: 0
@@ -384,7 +385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2960108698199016567
 Transform:
   m_ObjectHideFlags: 0
@@ -2032,6 +2033,11 @@ PrefabInstance:
       objectReference: {fileID: 5004058844514016885}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dfe113720f7b1344956403b4837678e, type: 3}
+--- !u!1 &8476973145635507834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6586975575641101969, guid: 6dfe113720f7b1344956403b4837678e, type: 3}
+  m_PrefabInstance: {fileID: 3372599407108315371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1793288301817438974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3904316858472561173, guid: 6dfe113720f7b1344956403b4837678e, type: 3}

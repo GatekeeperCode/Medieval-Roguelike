@@ -16,23 +16,31 @@ public class RoomSpawnScript : MonoBehaviour
     public GameObject[] _topRoomPuzzle;
     public GameObject[] _topRoomNavigate;
 
+    public GameObject[] _rareRooms;
+
     public void spawnRoom(Vector2 centerPos, Vector2 dir)
     {
         float rand = Random.Range(0f, 1f);
 
         if(rand <= .5f)
         {
-            int randy = Random.Range(0, 2);
+            int randy = Random.Range(0, 6);
 
             switch (randy)
             {
                 case 1:
+                case 3:
                     randy = Random.Range(0, _basicRoomPuzzle.Length);
                     Instantiate(_basicRoomPuzzle[randy], centerPos, Quaternion.identity);
                     break;
                 case 2:
+                case 4:
                     randy = Random.Range(0, _basicRoomNavigate.Length);
                     Instantiate(_basicRoomNavigate[randy], centerPos, Quaternion.identity);
+                    break;
+                case 5:
+                    randy = Random.Range(0, _rareRooms.Length);
+                    Instantiate(_rareRooms[randy], centerPos, Quaternion.identity);
                     break;
                 default:
                     randy = Random.Range(0, _basicRoomFight.Length);
