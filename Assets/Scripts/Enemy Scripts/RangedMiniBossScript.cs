@@ -124,7 +124,15 @@ public class RangedMiniBossScript : EnemyBase
                     currentWaypoint++;
                 }
 
-                //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                /**
+                 * Plans for mini boss behaivoir
+                 * 
+                 * If player gets too close, short range attack
+                 * Most Likley, move around between waypoints to shoot at player.
+                 * Medium Likleness, shoots in 3 directions 3 times.
+                 * Low, Large arrow attack, making it harder to dodge.
+                 **/
+
             }
         }
         else
@@ -134,8 +142,10 @@ public class RangedMiniBossScript : EnemyBase
 
         if (health <= 0)
         {
-            player.GetComponent<PlayerMovement>()._rangeStren += .5f;
-            player.GetComponent<PlayerMovement>()._defense += .5f;
+            player.GetComponent<PlayerMovement>()._rangeStren += 1.5f;
+            player.GetComponent<PlayerMovement>()._defense += 1.5f;
+            player.GetComponent<PlayerMovement>()._gold += 3;
+            player.GetComponent<PlayerMovement>()._health += 5;
             Destroy(gameObject);
         }
     }

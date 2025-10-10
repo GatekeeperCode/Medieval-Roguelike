@@ -191,6 +191,15 @@ public class MeleeMiniBossScript : EnemyBase
 
             swordGo.transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
         }
+
+        if (health <= 0)
+        {
+            player.GetComponent<PlayerMovement>()._physicalStren += 1.5f;
+            player.GetComponent<PlayerMovement>()._speed += 1.5f;
+            player.GetComponent<PlayerMovement>()._gold += 3;
+            player.GetComponent<PlayerMovement>()._health += 5;
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator swingWait()

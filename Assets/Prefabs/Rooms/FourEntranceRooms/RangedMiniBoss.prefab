@@ -253,6 +253,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dir: {x: -8.25, y: 0}
   roomVars: {fileID: 5146475034844112027}
+--- !u!1 &3529659691425294939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22735350176943391}
+  m_Layer: 0
+  m_Name: Reset Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &22735350176943391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529659691425294939}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5399005772473704052}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4103497225111189987
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +666,7 @@ Transform:
   - {fileID: 8721374457251405009}
   - {fileID: 4653014937799984189}
   - {fileID: 6267294407020737034}
+  - {fileID: 22735350176943391}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1567,6 +1598,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5399005772473704052}
     m_Modifications:
+    - target: {fileID: 903631849878276842, guid: 6cee0055bc4dc874990d941393c966be, type: 3}
+      propertyPath: roomVars
+      value: 
+      objectReference: {fileID: 5146475034844112027}
+    - target: {fileID: 903631849878276842, guid: 6cee0055bc4dc874990d941393c966be, type: 3}
+      propertyPath: resetPoint
+      value: 
+      objectReference: {fileID: 3529659691425294939}
     - target: {fileID: 2254896083146606361, guid: 6cee0055bc4dc874990d941393c966be, type: 3}
       propertyPath: m_Name
       value: Ranged Mini Boss

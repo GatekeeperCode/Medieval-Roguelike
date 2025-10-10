@@ -233,8 +233,8 @@ MonoBehaviour:
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
   _c: {r: 0, g: 0, b: 0, a: 0}
-  bowGO: {fileID: 0}
-  projectile: {fileID: 0}
+  bowGO: {fileID: 2254896082527161655}
+  projectile: {fileID: 6607178418764228449, guid: b82c9cf33ccc06c43a98fc03a423cd89, type: 3}
   dmg: 2
   fireRate: 2.5
   range: 7
