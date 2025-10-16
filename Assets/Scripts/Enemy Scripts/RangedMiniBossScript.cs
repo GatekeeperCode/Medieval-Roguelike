@@ -6,11 +6,16 @@ using Pathfinding;
 public class RangedMiniBossScript : EnemyBase
 {
     public GameObject bowGO;
+    public GameObject swordGO;
     public GameObject projectile;
 
     public float dmg;
     public float fireRate;
     public float range;
+
+    //Sword Rotation Vars
+    private Animation animator;
+
     /*
      * Higher Scaling factor means Higher scaling in game. (A/B in the Desmos Graph)
      */
@@ -25,6 +30,7 @@ public class RangedMiniBossScript : EnemyBase
 
     GameObject bowObject;
     bool hitStun = false;
+    bool swinging = false;
 
     //Pathfinding Variables
     public float NextWaypointDistance = 3f;
@@ -43,6 +49,7 @@ public class RangedMiniBossScript : EnemyBase
         _c = GetComponent<SpriteRenderer>().color;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animation>();
 
         lastPSCheck = 0;
 
@@ -128,10 +135,46 @@ public class RangedMiniBossScript : EnemyBase
                  * Plans for mini boss behaivoir
                  * 
                  * If player gets too close, short range attack
+                 * 
                  * Most Likley, move around between waypoints to shoot at player.
                  * Medium Likleness, shoots in 3 directions 3 times.
                  * Low, Large arrow attack, making it harder to dodge.
                  **/
+
+                if(Vector2.Distance(player.transform.position, transform.position) < 4)
+                {
+                    bowGO.SetActive(false);
+                    swordGO.SetActive(true);
+                    
+                    if(!swinging)
+                    {
+                        StartCoroutine("closeAttack");
+                    }
+                }
+                else
+                {
+                    bowGO.SetActive(true);
+                    swordGO.SetActive(false);
+
+                    //Other Behavoirs
+                    if(!swinging)
+                    {
+                        int behaivoir = Random.Range(0, 10);
+
+                        switch (behaivoir)
+                        {
+                            case 0:
+                            case 1:
+                            case 2:
+                            case 3:
+                                int targetWaypoint = Random.Range(0, 5);
+                                //Move towared target waypoint and attack if possible
+
+                                break;
+                        }
+
+                    }    
+                }
 
             }
         }
@@ -148,6 +191,14 @@ public class RangedMiniBossScript : EnemyBase
             player.GetComponent<PlayerMovement>()._health += 5;
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator closeAttack()
+    {
+        swinging = true;
+        animator.Play("RangedMiniBossCloseAttack");
+        yield return new WaitForSeconds(1.6f);
+        swinging = false;
     }
 
     IEnumerator fireArrow()
