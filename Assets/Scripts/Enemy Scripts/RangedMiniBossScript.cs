@@ -38,6 +38,9 @@ public class RangedMiniBossScript : EnemyBase
     int currentWaypoint = 0;
     Rigidbody2D rb;
     Seeker seeker;
+    public GameObject[] movementWaypoints;
+    Transform movementTarget;
+    bool moving = true;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,7 @@ public class RangedMiniBossScript : EnemyBase
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animation>();
+        movementTarget = movementWaypoints[0].transform;
 
         lastPSCheck = 0;
 
@@ -61,7 +65,7 @@ public class RangedMiniBossScript : EnemyBase
     {
         if (seeker.IsDone())
         {
-            seeker.StartPath(transform.position, player.transform.position, OnPathComplete);
+            seeker.StartPath(transform.position, movementTarget.position, OnPathComplete);
         }
     }
 
@@ -134,7 +138,7 @@ public class RangedMiniBossScript : EnemyBase
                 /**
                  * Plans for mini boss behaivoir
                  * 
-                 * If player gets too close, short range attack
+                 * If player gets too close, short range attack (implemented, not tested)
                  * 
                  * Most Likley, move around between waypoints to shoot at player.
                  * Medium Likleness, shoots in 3 directions 3 times.
@@ -143,6 +147,7 @@ public class RangedMiniBossScript : EnemyBase
 
                 if(Vector2.Distance(player.transform.position, transform.position) < 4)
                 {
+                    moving = false;
                     bowGO.SetActive(false);
                     swordGO.SetActive(true);
                     
@@ -167,9 +172,10 @@ public class RangedMiniBossScript : EnemyBase
                             case 1:
                             case 2:
                             case 3:
+                                moving = true;
                                 int targetWaypoint = Random.Range(0, 5);
+                                movementTarget = movementWaypoints[targetWaypoint].transform;
                                 //Move towared target waypoint and attack if possible
-
                                 break;
                         }
 
@@ -177,11 +183,35 @@ public class RangedMiniBossScript : EnemyBase
                 }
 
             }
+
+            if(moving)
+            {
+                if (path == null)
+                    return;
+                if (currentWaypoint >= path.vectorPath.Count)
+                    return;
+
+                //Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
+                //Vector2 force = direction * speed * 100 * Time.deltaTime;
+
+                //rb.AddForce(force);
+
+                transform.position = Vector3.MoveTowards(transform.position, path.vectorPath[currentWaypoint], speed * Time.deltaTime);
+
+                float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+                if (distance < NextWaypointDistance)
+                {
+                    currentWaypoint++;
+                }
+            }
         }
         else
         {
             transform.position = resetPoint.transform.position;
         }
+
+
+
 
         if (health <= 0)
         {
@@ -199,6 +229,7 @@ public class RangedMiniBossScript : EnemyBase
         animator.Play("RangedMiniBossCloseAttack");
         yield return new WaitForSeconds(1.6f);
         swinging = false;
+        moving = true;
     }
 
     IEnumerator fireArrow()
