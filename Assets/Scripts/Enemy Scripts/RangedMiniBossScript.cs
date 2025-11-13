@@ -177,6 +177,29 @@ public class RangedMiniBossScript : EnemyBase
                                 movementTarget = movementWaypoints[targetWaypoint].transform;
                                 //Move towared target waypoint and attack if possible
                                 break;
+                            case 4:
+                            case 5:
+                            case 6:
+                                //Firing three arrows
+                                moving = false;
+
+                                GameObject arrow1 = Instantiate(projectile, bowObject.transform.position, Quaternion.identity);
+                                arrow1.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0, 0, 90);
+                                arrow1.GetComponent<Rigidbody2D>().AddForce(arrow1.transform.up * -50);
+                                arrow1.GetComponent<ArrowScript>().damage = dmg;
+
+                                GameObject arrow2 = Instantiate(projectile, bowObject.transform.position, Quaternion.identity);
+                                arrow2.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0, 0, 120);
+                                arrow2.GetComponent<Rigidbody2D>().AddForce(arrow2.transform.up * -50);
+                                arrow2.GetComponent<ArrowScript>().damage = dmg;
+
+                                GameObject arrow3 = Instantiate(projectile, bowObject.transform.position, Quaternion.identity);
+                                arrow3.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0, 0, 60);
+                                arrow3.GetComponent<Rigidbody2D>().AddForce(arrow3.transform.up * -50);
+                                arrow3.GetComponent<ArrowScript>().damage = dmg;
+
+                                StartCoroutine("ActivityWait");
+                                break;
                         }
 
                     }    
@@ -229,6 +252,12 @@ public class RangedMiniBossScript : EnemyBase
         animator.Play("RangedMiniBossCloseAttack");
         yield return new WaitForSeconds(1.6f);
         swinging = false;
+        moving = true;
+    }
+
+    IEnumerator ActivityWait()
+    {
+        yield return new WaitForSeconds(1);
         moving = true;
     }
 
