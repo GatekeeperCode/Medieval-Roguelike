@@ -200,6 +200,15 @@ public class RangedMiniBossScript : EnemyBase
 
                                 StartCoroutine("ActivityWait");
                                 break;
+                            case 7:
+                            case 8:
+                            case 9:
+                                GameObject arrow = Instantiate(projectile, bowObject.transform.position, Quaternion.identity);
+                                arrow.transform.rotation = bowObject.transform.rotation * Quaternion.Euler(0, 0, 90);
+                                arrow.transform.localScale = new Vector2(3, 3);
+                                arrow.GetComponent<Rigidbody2D>().AddForce(arrow.transform.up * -50);
+                                arrow.GetComponent<ArrowScript>().damage = dmg;
+                                break;
                         }
 
                     }    
