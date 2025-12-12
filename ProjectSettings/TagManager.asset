@@ -29,6 +29,8 @@ TagManager:
   - WaveBurst
   - Cluster
   - swingRadius
+  - ToolTip
+  - Canvas
   layers:
   - Default
   - TransparentFX

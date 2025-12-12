@@ -13,4 +13,14 @@ public class MeleeDmgScript : MonoBehaviour
         PlayerMovement pmScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         damage = pmScript._physicalStren * weaponModifier;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag=="Player")
+        {
+            GameObject go = collision.gameObject;
+            Vector3 dir = (-(go.transform.position - transform.position)).normalized;
+            go.transform.position += (dir * 2f);
+        }
+    }
 }

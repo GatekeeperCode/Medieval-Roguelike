@@ -23,11 +23,16 @@ public class itemScript : MonoBehaviour
     public int itemID;
     public int boost;
 
+    public GameObject tooltip;
+    GameObject tip;
+
     string msg;
 
     // Start is called before the first frame update
     void Start()
     {
+        tip = Instantiate(tooltip);
+
         gameObject.layer = 1;
         boost = Random.Range(1, 3);
 
@@ -46,12 +51,12 @@ public class itemScript : MonoBehaviour
     private void OnMouseEnter()
     {
         print("Hover");
-        TooltipManager._instance.SetAndShowTooltip(msg);
+        tip.GetComponent<TooltipManager>().SetAndShowTooltip(msg);
     }
 
     private void OnMouseExit()
     {
         print("Gone");
-        TooltipManager._instance.HideTooltip();
+        tip.GetComponent<TooltipManager>().HideTooltip();
     }
 }
