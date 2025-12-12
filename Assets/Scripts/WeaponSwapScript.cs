@@ -9,13 +9,13 @@ public class WeaponSwapScript : MonoBehaviour
     private void OnMouseEnter()
     {
         print("Hover");
-        TooltipManager._instance.SetAndShowTooltip(swapToTag);
+        //TooltipManager._instance.SetAndShowTooltip(swapToTag);
     }
 
     private void OnMouseExit()
     {
         print("Gone");
-        TooltipManager._instance.HideTooltip();
+        //TooltipManager._instance.HideTooltip();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

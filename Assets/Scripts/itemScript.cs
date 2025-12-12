@@ -25,13 +25,17 @@ public class itemScript : MonoBehaviour
 
     public GameObject tooltip;
     GameObject tip;
+    GameObject player;
 
     string msg;
+    Vector3 position;
 
     // Start is called before the first frame update
     void Start()
     {
-        tip = Instantiate(tooltip);
+        player = GameObject.FindGameObjectWithTag("Player");
+        position = new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z);
+        tip = Instantiate(tooltip, position, Quaternion.identity);
 
         gameObject.layer = 1;
         boost = Random.Range(1, 3);
@@ -48,15 +52,27 @@ public class itemScript : MonoBehaviour
         }
     }
 
-    private void OnMouseEnter()
+    private void Update()
     {
-        print("Hover");
-        tip.GetComponent<TooltipManager>().SetAndShowTooltip(msg);
+        if(Vector3.Distance(transform.position, player.transform.position)<3)
+        {
+            tip.GetComponent<TooltipManager>().SetAndShowTooltip(msg);
+        }
+        else
+        {
+            tip.GetComponent<TooltipManager>().HideTooltip();
+        }
     }
 
-    private void OnMouseExit()
-    {
-        print("Gone");
-        tip.GetComponent<TooltipManager>().HideTooltip();
-    }
+    //private void OnMouseEnter()
+    //{
+    //    print("Hover");
+    //    tip.GetComponent<TooltipManager>().SetAndShowTooltip(msg);
+    //}
+
+    //private void OnMouseExit()
+    //{
+    //    print("Gone");
+    //    tip.GetComponent<TooltipManager>().HideTooltip();
+    //}
 }

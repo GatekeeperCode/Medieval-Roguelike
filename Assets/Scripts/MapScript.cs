@@ -9,7 +9,7 @@ public class MapScript : MonoBehaviour
         if(collision.tag == "Player")
         {
             collision.GetComponent<PlayerMovement>().canUseMap = true;
-            TooltipManager._instance.SetAndShowTooltip("Press E to use map.");
+            //TooltipManager._instance.SetAndShowTooltip("Press E to use map.");
         }
     }
 
@@ -18,7 +18,7 @@ public class MapScript : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.GetComponent<PlayerMovement>().canUseMap = false;
-            TooltipManager._instance.HideTooltip();
+            //TooltipManager._instance.HideTooltip();
         }
     }
 }
