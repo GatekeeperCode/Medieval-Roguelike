@@ -34,7 +34,7 @@ public class itemScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        position = new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z);
+        position = new Vector3(transform.position.x, transform.position.y + .5f, 0);
         tip = Instantiate(tooltip, position, Quaternion.identity);
 
         gameObject.layer = 1;

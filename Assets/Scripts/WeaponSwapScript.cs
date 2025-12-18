@@ -5,17 +5,28 @@ using UnityEngine;
 public class WeaponSwapScript : MonoBehaviour
 {
     public string swapToTag;
+    public GameObject tooltip;
+    GameObject tip;
+    GameObject player;
+    Vector3 position;
 
-    private void OnMouseEnter()
+    private void Start()
     {
-        print("Hover");
-        //TooltipManager._instance.SetAndShowTooltip(swapToTag);
+        player = GameObject.FindGameObjectWithTag("Player");
+        position = new Vector3(transform.position.x, transform.position.y + .5f, 0);
+        tip = Instantiate(tooltip, position, Quaternion.identity);
     }
 
-    private void OnMouseExit()
+    private void Update()
     {
-        print("Gone");
-        //TooltipManager._instance.HideTooltip();
+        if (Vector3.Distance(transform.position, player.transform.position) < 3)
+        {
+            tip.GetComponent<TooltipManager>().SetAndShowTooltip(swapToTag);
+        }
+        else
+        {
+            tip.GetComponent<TooltipManager>().HideTooltip();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

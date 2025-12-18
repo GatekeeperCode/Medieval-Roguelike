@@ -113,3 +113,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swapToTag: Spear
+  tooltip: {fileID: 2669594540383574588, guid: 84fec670723c5934780a3fca07863fa1, type: 3}
