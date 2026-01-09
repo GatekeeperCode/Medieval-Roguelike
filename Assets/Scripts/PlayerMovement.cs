@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public int _gold;
     public string activeWeaponString;
     public bool canUseMap;
+    public bool canTrade;
     public float score;
     public Text healthDisplay;
     public Text goldDisplay;
@@ -36,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     float baseSpeed;
     public bool paused = false;
     public int[] itemsHeld;
+
+    public GameObject localTrader;
 
     Camera cam;
 
@@ -112,6 +115,10 @@ public class PlayerMovement : MonoBehaviour
         {
             cam.orthographicSize = 25f;
         }
+        else if(canTrade && Input.GetKey(KeyCode.E) && !paused)
+        {
+            localTrader.GetComponent<TraderScript>().openTradeWindow();
+        }
         else
         {
             cam.orthographicSize = 5f;
@@ -151,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Unpauses game and closes pause menu
-    private void unpause()
+    public void unpause()
     {
         Time.timeScale = 1.0f;
         pauseMenu.SetActive(false);

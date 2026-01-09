@@ -32,6 +32,7 @@ TagManager:
   - ToolTip
   - Canvas
   - Trader
+  - TraderMenu
   layers:
   - Default
   - TransparentFX
