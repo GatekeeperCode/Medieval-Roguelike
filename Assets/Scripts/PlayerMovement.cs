@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject localTrader;
 
     Camera cam;
+    bool tradeMenuOpen = false;
 
     void Start()
     {
@@ -117,7 +118,16 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(canTrade && Input.GetKey(KeyCode.E) && !paused)
         {
-            localTrader.GetComponent<TraderScript>().openTradeWindow();
+            if(tradeMenuOpen)
+            {
+                localTrader.GetComponent<TraderScript>().closeTradeWindow();
+                tradeMenuOpen = false;
+            }
+            else
+            {
+                localTrader.GetComponent<TraderScript>().openTradeWindow();
+                tradeMenuOpen = true;
+            }
         }
         else
         {

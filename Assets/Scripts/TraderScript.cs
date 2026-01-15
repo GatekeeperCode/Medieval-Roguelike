@@ -43,5 +43,12 @@ public class TraderScript : MonoBehaviour
     public void openTradeWindow()
     {
         tradingWindow.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void closeTradeWindow()
+    {
+        tradingWindow.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }
