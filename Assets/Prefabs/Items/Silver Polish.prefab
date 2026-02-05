@@ -117,4 +117,5 @@ MonoBehaviour:
   hiddenStat: 5
   itemID: 34
   boost: 1
+  shopCost: 4
   tooltip: {fileID: 2669594540383574588, guid: 84fec670723c5934780a3fca07863fa1, type: 3}

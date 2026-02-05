@@ -116,18 +116,16 @@ public class PlayerMovement : MonoBehaviour
         {
             cam.orthographicSize = 25f;
         }
-        else if(canTrade && Input.GetKey(KeyCode.E) && !paused)
+        else if (canTrade && Input.GetKeyDown(KeyCode.E) && !paused && !tradeMenuOpen)
         {
-            if(tradeMenuOpen)
-            {
-                localTrader.GetComponent<TraderScript>().closeTradeWindow();
-                tradeMenuOpen = false;
-            }
-            else
-            {
-                localTrader.GetComponent<TraderScript>().openTradeWindow();
-                tradeMenuOpen = true;
-            }
+            localTrader.GetComponent<TraderScript>().openTradeWindow();
+            tradeMenuOpen = true;
+        }
+        else if (tradeMenuOpen && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
+        {
+            print("Run");
+            localTrader.GetComponent<TraderScript>().closeTradeWindow();
+            tradeMenuOpen = false;
         }
         else
         {

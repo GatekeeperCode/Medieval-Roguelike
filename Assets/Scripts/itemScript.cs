@@ -22,6 +22,7 @@ public class itemScript : MonoBehaviour
 
     public int itemID;
     public int boost;
+    public int shopCost;
 
     public GameObject tooltip;
     GameObject tip;
