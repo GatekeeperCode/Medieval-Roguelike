@@ -113,6 +113,7 @@ public class SphereWizardScript : EnemyBase
         if (health <= 0)
         {
             player.GetComponent<PlayerMovement>()._defense += .5f;
+            player.GetComponent<PlayerMovement>()._exp += .5f;
             Destroy(gameObject);
         }
     }

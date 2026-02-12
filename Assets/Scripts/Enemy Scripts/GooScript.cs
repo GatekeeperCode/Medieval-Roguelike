@@ -102,6 +102,7 @@ public class GooScript : EnemyBase
             }
 
             player.GetComponent<PlayerMovement>()._magicalStren += .25f;
+            player.GetComponent<PlayerMovement>()._exp += .05f;
             Destroy(gameObject);
         }
     }

@@ -12,11 +12,15 @@ public class PlayerMovement : MonoBehaviour
     public float _magicalStren;
     public float _defense;
     public float _health = 50f;
+    public int _level = 1;
+    public float _exp;
+    public float _expToLevelUp = 10f;
     public int _gold;
     public string activeWeaponString;
     public bool canUseMap;
     public bool canTrade;
     public float score;
+
     public Text healthDisplay;
     public Text goldDisplay;
     public Text speedDisplay;
@@ -25,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public Text magDisplay;
     public Text defDisplay;
     public Text specialItemsDisplay;
+    public Text expDisplay;
     public GameObject statDisplay;
 
     public GameObject _shield;
@@ -81,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         rngDisplay.text = "Range Stren: " + _rangeStren;
         magDisplay.text = "Mag Stren: " + _magicalStren;
         defDisplay.text = "Defense: " + _defense;
+        expDisplay.text = _exp + "/" + _expToLevelUp;
         specialItemsDisplay.text = "Cluster Items: " + itemsHeld[80] + "\nWave Items: " + itemsHeld[79];
 
         if (!paused)
@@ -90,6 +96,11 @@ public class PlayerMovement : MonoBehaviour
 
             //_rbody.velocity = new Vector2(x, y) * _speed;
             _rbody.velocity = transform.up * y * _speed + transform.right * x * _speed;
+        }
+
+        if(_exp>=_expToLevelUp)
+        {
+            levelUp();
         }
 
         if (Input.GetMouseButton(1) && !paused)
@@ -261,6 +272,14 @@ public class PlayerMovement : MonoBehaviour
         _speed *= .75f;
         StartCoroutine("resumeSpeed");
         yield return null;
+    }
+
+    private void levelUp()
+    {
+        _exp = 0;
+        _level++;
+        _expToLevelUp += _expToLevelUp * .5f;
+        //Trigger Item Selection
     }
 
     IEnumerator resumeSpeed()

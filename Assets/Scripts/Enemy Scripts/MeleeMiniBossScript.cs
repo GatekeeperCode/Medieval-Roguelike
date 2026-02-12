@@ -198,6 +198,7 @@ public class MeleeMiniBossScript : EnemyBase
             player.GetComponent<PlayerMovement>()._speed += 1.5f;
             player.GetComponent<PlayerMovement>()._gold += 3;
             player.GetComponent<PlayerMovement>()._health += 5;
+            player.GetComponent<PlayerMovement>()._exp += 1f;
             Destroy(gameObject);
         }
     }

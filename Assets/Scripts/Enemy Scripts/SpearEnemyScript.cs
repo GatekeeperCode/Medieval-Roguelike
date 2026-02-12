@@ -132,6 +132,7 @@ public class SpearEnemyScript : EnemyBase
         if (health <= 0)
         {
             player.GetComponent<PlayerMovement>()._defense += 1;
+            player.GetComponent<PlayerMovement>()._exp += .5f;
             Destroy(gameObject);
         }
     }

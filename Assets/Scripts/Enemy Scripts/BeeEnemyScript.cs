@@ -72,6 +72,7 @@ public class BeeEnemyScript : EnemyBase
         if (health <= 0)
         {
             player.GetComponent<PlayerMovement>()._speed += .5f;
+            player.GetComponent<PlayerMovement>()._exp += .1f;
             Destroy(gameObject);
         }
     }

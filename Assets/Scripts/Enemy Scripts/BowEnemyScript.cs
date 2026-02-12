@@ -136,6 +136,7 @@ public class BowEnemyScript : EnemyBase
         {
             player.GetComponent<PlayerMovement>()._rangeStren += .5f;
             player.GetComponent<PlayerMovement>()._defense += .5f;
+            player.GetComponent<PlayerMovement>()._exp += .5f;
             Destroy(gameObject);
         }
     }

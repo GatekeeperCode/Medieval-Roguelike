@@ -73,6 +73,7 @@ public class SkeletonScript : EnemyBase
         if (health <= 0)
         {
             player.GetComponent<PlayerMovement>()._rangeStren += 1;
+            player.GetComponent<PlayerMovement>()._exp += .25f;
             Destroy(gameObject);
         }
     }

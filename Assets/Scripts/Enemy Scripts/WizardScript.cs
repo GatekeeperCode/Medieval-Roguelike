@@ -148,6 +148,7 @@ public class WizardScript : EnemyBase
         if (health <= 0)
         {
             player.GetComponent<PlayerMovement>()._magicalStren += 1f;
+            player.GetComponent<PlayerMovement>()._exp += .5f;
             Destroy(gameObject);
         }
     }
