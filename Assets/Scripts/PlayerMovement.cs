@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _shield;
     public GameObject pauseMenu;
     public GameObject deathMenu;
+    public GameObject levelUpMenu;
     public Text scoreText;
 
     Rigidbody2D _rbody;
@@ -86,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         rngDisplay.text = "Range Stren: " + _rangeStren;
         magDisplay.text = "Mag Stren: " + _magicalStren;
         defDisplay.text = "Defense: " + _defense;
-        expDisplay.text = _exp + "/" + _expToLevelUp;
+        expDisplay.text = "Level: " + _level + " EXP: " + _exp + "/" + _expToLevelUp;
         specialItemsDisplay.text = "Cluster Items: " + itemsHeld[80] + "\nWave Items: " + itemsHeld[79];
 
         if (!paused)
@@ -278,8 +279,17 @@ public class PlayerMovement : MonoBehaviour
     {
         _exp = 0;
         _level++;
-        _expToLevelUp += _expToLevelUp * .5f;
+        _expToLevelUp += _expToLevelUp * (.5f * _level) * .5f;
+
         //Trigger Item Selection
+        levelUpMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void endLevelUp()
+    {
+        levelUpMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     IEnumerator resumeSpeed()

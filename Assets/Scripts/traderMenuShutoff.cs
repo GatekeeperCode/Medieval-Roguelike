@@ -5,6 +5,7 @@ using UnityEngine;
 public class traderMenuShutoff : MonoBehaviour
 {
     public GameObject tradeMenu;
+    public GameObject levelUpMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +17,6 @@ public class traderMenuShutoff : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         tradeMenu.SetActive(false);
+        levelUpMenu.SetActive(false);
     }
 }
