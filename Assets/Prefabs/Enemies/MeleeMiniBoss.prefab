@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563355242243238417}
   - component: {fileID: 7534479788554610123}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SwingRadius
   m_TagString: swingRadius
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1447644023120166761}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: SwordRotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 255128823021619553}
   - component: {fileID: 2725086007535204737}
   - component: {fileID: 2613349000396527274}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Sword
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2918865633541130783}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Attack Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,9 +282,9 @@ GameObject:
   - component: {fileID: 1548116202808627483}
   - component: {fileID: 6629332424455186086}
   - component: {fileID: 8206066119775165065}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MeleeMiniBoss
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

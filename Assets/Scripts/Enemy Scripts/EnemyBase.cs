@@ -43,6 +43,13 @@ public abstract class EnemyBase : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = Color.red;
                 StartCoroutine(hitReg());
             }
+
+            if(collision.gameObject.tag == "Seeker")
+            {
+                health -= collision.transform.parent.GetComponentInParent<SeekerScript>().damage;
+                GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(hitReg());
+            }
         }
     }
 

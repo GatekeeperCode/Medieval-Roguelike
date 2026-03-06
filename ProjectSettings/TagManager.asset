@@ -33,6 +33,7 @@ TagManager:
   - Canvas
   - Trader
   - TraderMenu
+  - Seeker
   layers:
   - Default
   - TransparentFX

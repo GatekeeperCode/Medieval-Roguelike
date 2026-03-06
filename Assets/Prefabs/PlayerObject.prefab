@@ -860,6 +860,7 @@ GameObject:
   - component: {fileID: 279475270393493327}
   - component: {fileID: 5726448532283899887}
   - component: {fileID: 6933166434221450074}
+  - component: {fileID: 6271570316183119782}
   m_Layer: 3
   m_Name: PlayerObject
   m_TagString: Player
@@ -995,22 +996,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f9efa6cc41710478ecbb498633755b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 7
   _physicalStren: 2
   _rangeStren: 4
   _magicalStren: 0
   _defense: 0
-  _health: 0
+  _health: 50
+  _level: 1
+  _exp: 0
+  _expToLevelUp: 10
   _gold: 0
   activeWeaponString: 
   canUseMap: 0
+  canTrade: 0
   score: 0
+  healthDisplay: {fileID: 0}
+  goldDisplay: {fileID: 0}
+  speedDisplay: {fileID: 0}
+  physDisplay: {fileID: 0}
+  rngDisplay: {fileID: 0}
+  magDisplay: {fileID: 0}
+  defDisplay: {fileID: 0}
+  specialItemsDisplay: {fileID: 0}
+  expDisplay: {fileID: 0}
+  statDisplay: {fileID: 0}
   _shield: {fileID: 1164314410451192480}
   pauseMenu: {fileID: 0}
   deathMenu: {fileID: 0}
+  levelUpMenu: {fileID: 0}
   scoreText: {fileID: 0}
   paused: 0
   itemsHeld: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  localTrader: {fileID: 0}
 --- !u!114 &8808691385100688884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,6 +1111,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cluster: {fileID: 9123187223768051649}
   powerScale: 0
+--- !u!114 &6271570316183119782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396071585597789810}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaad6bf0529bf9489090a37e548c82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seekerSphere: {fileID: 3951297540887488497, guid: 9292057b275706048a87593b36b1b00d, type: 3}
+  stacks: 1
 --- !u!1 &6008269877724684039
 GameObject:
   m_ObjectHideFlags: 0
