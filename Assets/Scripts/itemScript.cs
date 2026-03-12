@@ -23,6 +23,7 @@ public class itemScript : MonoBehaviour
     public int itemID;
     public int boost;
     public int shopCost;
+    public string itemName;
 
     public GameObject tooltip;
     GameObject tip;
@@ -39,9 +40,10 @@ public class itemScript : MonoBehaviour
         tip = Instantiate(tooltip, position, Quaternion.identity);
 
         gameObject.layer = 1;
-        boost = Random.Range(1, 3);
+        boost = Random.Range(2, 6);
 
-        msg = boostedStat + ": " + boost + "\n";
+        msg = itemName + "\n";
+        msg += boostedStat + ": " + boost + "\n";
 
         if(SecondStat != Stats.none)
         {
