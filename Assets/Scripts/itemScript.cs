@@ -24,6 +24,8 @@ public class itemScript : MonoBehaviour
     public int boost;
     public int shopCost;
     public string itemName;
+    public bool boostOverride = false;
+    public bool nameOnly = false;
 
     public GameObject tooltip;
     GameObject tip;
@@ -35,35 +37,45 @@ public class itemScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        position = new Vector3(transform.position.x, transform.position.y + .5f, 0);
-        tip = Instantiate(tooltip, position, Quaternion.identity);
-
-        gameObject.layer = 1;
-        boost = Random.Range(2, 6);
-
-        msg = itemName + "\n";
-        msg += boostedStat + ": " + boost + "\n";
-
-        if(SecondStat != Stats.none)
+        if(!nameOnly)
         {
-            msg += SecondStat + ": " + boost/2 + "\n";
-        }
-        if(hiddenStat != Stats.none)
-        {
-            msg += hiddenStat;
+            player = GameObject.FindGameObjectWithTag("Player");
+            position = new Vector3(transform.position.x, transform.position.y + .5f, 0);
+            tip = Instantiate(tooltip, position, Quaternion.identity);
+
+            gameObject.layer = 1;
+
+            if (!boostOverride)
+            {
+                boost = Random.Range(2, 6);
+            }
+
+            msg = itemName + "\n";
+            msg += boostedStat + ": " + boost + "\n";
+
+            if (SecondStat != Stats.none)
+            {
+                msg += SecondStat + ": " + boost / 2 + "\n";
+            }
+            if (hiddenStat != Stats.none)
+            {
+                msg += hiddenStat;
+            }
         }
     }
 
     private void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position)<3)
+        if(!nameOnly)
         {
-            tip.GetComponent<TooltipManager>().SetAndShowTooltip(msg);
-        }
-        else
-        {
-            tip.GetComponent<TooltipManager>().HideTooltip();
+            if (Vector3.Distance(transform.position, player.transform.position) < 3)
+            {
+                tip.GetComponent<TooltipManager>().SetAndShowTooltip(msg);
+            }
+            else
+            {
+                tip.GetComponent<TooltipManager>().HideTooltip();
+            }
         }
     }
 
