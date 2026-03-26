@@ -7287,6 +7287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Major Boost (Health)
       objectReference: {fileID: 0}
+    - target: {fileID: 7982746175514543605, guid: f27d0cba1f34de443b431094c2d9d02b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f27d0cba1f34de443b431094c2d9d02b, type: 3}
 --- !u!1001 &4337363576263274751
