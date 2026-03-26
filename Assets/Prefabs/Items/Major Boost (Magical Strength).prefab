@@ -116,7 +116,7 @@ MonoBehaviour:
   boostedStat: 1
   SecondStat: 7
   hiddenStat: 5
-  itemID: 0
+  itemID: 54
   boost: 0
   shopCost: 5
   itemName: Major Boost - Magical Strength

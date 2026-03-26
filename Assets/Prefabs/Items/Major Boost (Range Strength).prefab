@@ -116,7 +116,7 @@ MonoBehaviour:
   boostedStat: 1
   SecondStat: 7
   hiddenStat: 5
-  itemID: 0
+  itemID: 56
   boost: 0
   shopCost: 5
   itemName: Major Boost - Range Strength

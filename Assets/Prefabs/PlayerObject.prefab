@@ -861,6 +861,7 @@ GameObject:
   - component: {fileID: 5726448532283899887}
   - component: {fileID: 6933166434221450074}
   - component: {fileID: 6271570316183119782}
+  - component: {fileID: 1349775677}
   m_Layer: 3
   m_Name: PlayerObject
   m_TagString: Player
@@ -1125,6 +1126,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seekerSphere: {fileID: 3951297540887488497, guid: 9292057b275706048a87593b36b1b00d, type: 3}
   stacks: 1
+--- !u!114 &1349775677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396071585597789810}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd6a5b322c04d24794082c573721dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stacks: 1
+  lightning: {fileID: 5148364826262361238, guid: ccb8bc3357cec804c86aa8684af050f5, type: 3}
 --- !u!1 &6008269877724684039
 GameObject:
   m_ObjectHideFlags: 0
