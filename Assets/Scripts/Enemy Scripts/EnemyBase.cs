@@ -50,6 +50,13 @@ public abstract class EnemyBase : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = Color.red;
                 StartCoroutine(hitReg());
             }
+
+            if (collision.gameObject.tag == "Lightning")
+            {
+                health -= collision.transform.parent.GetComponentInParent<LightningObjectScript>().damage;
+                GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(hitReg());
+            }
         }
     }
 
