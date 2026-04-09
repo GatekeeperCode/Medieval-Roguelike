@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightningAttackScript : MonoBehaviour
 {
-    public int stacks;
+    public int stacks = 0;
     public GameObject lightning;
     public float multAdjuster = .25f;
 
