@@ -140,7 +140,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _wall: {fileID: 6605797267273396508, guid: 4744c9edb679ccb4b8c6215461ff06fd, type: 3}
-  roomVars: {fileID: 6185821953183209449}
 --- !u!1 &4015425920277842483
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +206,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2918836806073124114}
   - component: {fileID: 5433353701170665903}
-  - component: {fileID: 6110306637738411778}
   - component: {fileID: 1871085744154068848}
   m_Layer: 0
   m_Name: ActionTrigger4
@@ -256,20 +254,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6110306637738411778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5451299331223284982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0a90fed1c67d85479b0bd308edcfaaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dir: {x: -8.25, y: 0}
-  roomVars: {fileID: 6185821953183209449}
 --- !u!114 &1871085744154068848
 MonoBehaviour:
   m_ObjectHideFlags: 0
