@@ -7369,7 +7369,7 @@ PrefabInstance:
       objectReference: {fileID: 1153537421}
     - target: {fileID: 1179205826, guid: 03a93fd8bed33784bb86e38223821fa2, type: 3}
       propertyPath: scalingRise
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1179205826, guid: 03a93fd8bed33784bb86e38223821fa2, type: 3}
       propertyPath: gameOverMenu
@@ -7377,7 +7377,7 @@ PrefabInstance:
       objectReference: {fileID: 585826276}
     - target: {fileID: 1179205826, guid: 03a93fd8bed33784bb86e38223821fa2, type: 3}
       propertyPath: scalingLength
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1179205826, guid: 03a93fd8bed33784bb86e38223821fa2, type: 3}
       propertyPath: NextWaypointDistance

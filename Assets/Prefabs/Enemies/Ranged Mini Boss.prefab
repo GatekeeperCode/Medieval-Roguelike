@@ -236,12 +236,12 @@ MonoBehaviour:
   damage: 3
   _c: {r: 0, g: 0, b: 0, a: 0}
   bowGO: {fileID: 2254896082527161655}
-  swordGO: {fileID: 0}
+  swordGO: {fileID: 9065393635514858683}
   projectile: {fileID: 6607178418764228449, guid: b82c9cf33ccc06c43a98fc03a423cd89, type: 3}
   dmg: 2
   fireRate: 2.5
   range: 7
-  scalingRise: 3.5
+  scalingRise: 2
   scalingLength: 1
   NextWaypointDistance: 1
   movementWaypoints: []
