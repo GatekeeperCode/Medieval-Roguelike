@@ -159,7 +159,7 @@ Transform:
   m_GameObject: {fileID: 2254896083146606361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 1573125586023235853}
   m_Father: {fileID: 0}
@@ -233,6 +233,7 @@ MonoBehaviour:
   speed: 4
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
+  damage: 3
   _c: {r: 0, g: 0, b: 0, a: 0}
   bowGO: {fileID: 2254896082527161655}
   swordGO: {fileID: 0}
@@ -243,6 +244,7 @@ MonoBehaviour:
   scalingRise: 3.5
   scalingLength: 1
   NextWaypointDistance: 1
+  movementWaypoints: []
 --- !u!61 &2254896083146606366
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -18,9 +18,11 @@ public class MeleeDmgScript : MonoBehaviour
     {
         if(collision.tag=="Player")
         {
-            GameObject go = collision.gameObject;
-            Vector3 dir = (-(go.transform.position - transform.position)).normalized;
-            go.transform.position += (dir * 2f);
+            //GameObject go = collision.gameObject;
+            //Vector3 dir = ((go.transform.position - transform.position)).normalized;
+            //go.transform.position += -(dir * 2f);
+
+            collision.GetComponent<PlayerMovement>()._health -= (damage - Random.Range(0f, collision.GetComponent<PlayerMovement>()._defense / 2));
         }
     }
 }

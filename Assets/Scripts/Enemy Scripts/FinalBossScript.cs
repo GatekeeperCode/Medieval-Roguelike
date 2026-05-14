@@ -45,6 +45,7 @@ public class FinalBossScript : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
+        damage = bossDmg;
         player = GameObject.FindGameObjectWithTag("Player");
         target = player;
         _c = GetComponent<SpriteRenderer>().color;

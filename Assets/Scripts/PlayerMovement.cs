@@ -185,45 +185,6 @@ public class PlayerMovement : MonoBehaviour
         paused = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        float dmgReduction = Random.Range(0f, _defense);
-
-        switch (collision.gameObject.tag)
-        {
-            case "BEE":
-                _health -= (collision.gameObject.GetComponent<BeeEnemyScript>().beeDmg - dmgReduction);
-                break;
-            case "Gobbo":
-                _health -= (collision.gameObject.GetComponent<GobboScript>().gobboDamage - dmgReduction);
-                break;
-            case "Goo":
-                _health -= (collision.gameObject.GetComponent<GooScript>().gooDamage - dmgReduction);
-                break;
-            case "Minotaur":
-                _health -= (collision.gameObject.GetComponent<MinotaurScript>().minoDamage - dmgReduction);
-                break;
-            case "Arrow":
-                _health -= (collision.gameObject.GetComponent<ArrowScript>().damage - dmgReduction);
-                break;
-            case "Fireball":
-                _health -= (collision.gameObject.GetComponent<FireballScript>().damage - dmgReduction);
-                break;
-            case "ElementSphere":
-                _health -= (collision.gameObject.GetComponent<ElementCircleScript>().damage - dmgReduction);
-                break;
-            case "King":
-                _health -= (collision.gameObject.GetComponent<FinalBossScript>().bossDmg - dmgReduction);
-                break;
-            case "Sword":
-                _health -= (collision.gameObject.GetComponent<MeleeDmgScript>().damage - dmgReduction);
-                break;
-            case "Spear":
-                _health -= (collision.gameObject.GetComponent<MeleeDmgScript>().damage - dmgReduction);
-                break;
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Item"))

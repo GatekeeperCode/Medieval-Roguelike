@@ -25,6 +25,7 @@ public class MinotaurScript : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
+        damage = minoDamage;
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         _rbody = GetComponent<Rigidbody2D>();

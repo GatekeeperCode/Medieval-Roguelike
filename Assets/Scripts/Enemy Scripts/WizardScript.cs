@@ -15,7 +15,7 @@ public class WizardScript : EnemyBase
      */
     [Tooltip("Higher Scaling Angle means longer power scale. (C in the Desmos Graph)")]
     public float scalingLength;
-    public float damage;
+    public float wizardDamage;
     public GameObject fireballObject;
     public GameObject fireballAim;
     public float attackDelay;
@@ -77,7 +77,7 @@ public class WizardScript : EnemyBase
 
 
             health = scaleFun * health;
-            damage *= scaleFun;
+            wizardDamage *= scaleFun;
         }
     }
 
@@ -126,8 +126,8 @@ public class WizardScript : EnemyBase
                 {
                     GameObject fireball = Instantiate(fireballObject, fireballAim.transform.GetChild(0).transform.position, Quaternion.identity);
                     fireball.transform.rotation = fireballAim.transform.rotation * Quaternion.Euler(0, 0, 90);
-                    fireball.GetComponent<Rigidbody2D>().AddForce(fireball.transform.up * -50);
-                    fireball.GetComponent<FireballScript>().damage = damage;
+                    fireball.GetComponent<Rigidbody2D>().AddForce(fireball.transform.up * -100);
+                    fireball.GetComponent<FireballScript>().damage = wizardDamage;
                     lastAttack = 0;
                     canFire = false;
                 }

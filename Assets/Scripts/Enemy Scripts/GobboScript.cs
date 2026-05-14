@@ -30,6 +30,7 @@ public class GobboScript : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
+        damage = gobboDamage;
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         seeker = GetComponent<Seeker>();

@@ -11,9 +11,8 @@ public class swordSwingScript : MonoBehaviour
     Transform sword;
     GameObject swordObject;
     PlayerMovement pm;
-    BoxCollider2D bc;
 
-    float lerpDuration = 0.5f;
+    float lerpDuration = 0.25f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +23,6 @@ public class swordSwingScript : MonoBehaviour
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         swordObject = swordGo.transform.GetChild(0).gameObject;
         swordObject.SetActive(true);
-        bc = swordObject.GetComponent<BoxCollider2D>();
-        bc.enabled = false;
-
     }
 
     private void OnEnable()
@@ -71,19 +67,18 @@ public class swordSwingScript : MonoBehaviour
     IEnumerator Rotate90()
     {
         rotating = true;
-        bc.enabled = true;
         float timeElapsed = 0;
         Quaternion startRotation = swordGo.transform.rotation;
-        Quaternion targetRotation = swordGo.transform.rotation * Quaternion.Euler(0, 0, 165);
+        Quaternion swingStartRotation = swordGo.transform.rotation * Quaternion.Euler(0, 0, -90);
+        Quaternion targetRotation = swingStartRotation * Quaternion.Euler(0, 0, 165);
 
         while (timeElapsed < lerpDuration)
         {
-            sword.rotation = Quaternion.Slerp(startRotation, targetRotation, timeElapsed / lerpDuration);
+            sword.rotation = Quaternion.Slerp(swingStartRotation, targetRotation, timeElapsed / lerpDuration);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
         sword.rotation = targetRotation;
-        bc.enabled = false;
         rotating = false;
     }
 }

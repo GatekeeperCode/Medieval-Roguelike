@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class SphereWizardScript : EnemyBase
 {
-    public float damage;
+    public float sphereDamage;
     public GameObject elementPrefab;
     public GameObject elementRotation;
     bool hitStun;
@@ -72,7 +72,7 @@ public class SphereWizardScript : EnemyBase
 
 
             health = scaleFun * health;
-            damage *= scaleFun;
+            sphereDamage *= scaleFun;
         }
     }
 
@@ -126,7 +126,7 @@ public class SphereWizardScript : EnemyBase
         if(numElements<3)
         {
             GameObject newElement = Instantiate(elementPrefab);
-            newElement.GetComponent<ElementCircleScript>().damage = damage;
+            newElement.GetComponent<ElementCircleScript>().damage = sphereDamage;
             newElement.transform.parent = elementRotation.transform;
             elements.Add(newElement);
 

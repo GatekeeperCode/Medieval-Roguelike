@@ -132,9 +132,9 @@ public class BowEnemyScript : EnemyBase
             transform.position = resetPoint.transform.position;
         }
 
-        if (health <= 0)
+        if (health <= 0 || health==float.NaN)
         {
-            player.GetComponent<PlayerMovement>()._rangeStren += .5f;
+            player.GetComponent<PlayerMovement>()._physicalStren += .5f;
             player.GetComponent<PlayerMovement>()._defense += .5f;
             player.GetComponent<PlayerMovement>()._exp += .5f;
             Destroy(gameObject);

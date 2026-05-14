@@ -64,7 +64,14 @@ public class ElementCircleScript : MonoBehaviour
                 StartCoroutine("resetHit");
             }
         }
+
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<PlayerMovement>()._health -= (damage - Random.Range(0f, collision.GetComponent<PlayerMovement>()._defense / 2));
+        }
     }
+
+
 
     IEnumerator resetHit()
     {

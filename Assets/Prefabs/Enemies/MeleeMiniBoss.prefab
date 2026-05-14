@@ -449,6 +449,7 @@ MonoBehaviour:
   speed: 2
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
+  damage: 5
   _c: {r: 0, g: 0, b: 0, a: 0}
   swordGo: {fileID: 1826402640800305048}
   SwingTime: 3

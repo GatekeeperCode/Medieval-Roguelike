@@ -26,6 +26,7 @@ public class BeeEnemyScript : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
+        damage = beeDmg;
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         rb = GetComponent<Rigidbody2D>();

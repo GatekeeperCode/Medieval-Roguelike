@@ -18,13 +18,26 @@ public class ArrowScript : MonoBehaviour
     {
         if(miniBossAttack)
         {
-            if(collision.tag == "Player" || Vector2.Distance(transform.position, player.transform.position)>20)
+            if(Vector2.Distance(transform.position, player.transform.position)>20)
             {
+                Destroy(gameObject);
+            }
+            else if(collision.tag == "Player")
+            {
+                player.GetComponent<PlayerMovement>()._health -= damage;
+
                 Destroy(gameObject);
             }
         }
         else
         {
+            if (collision.tag == "Player")
+            {
+                player.GetComponent<PlayerMovement>()._health -= damage;
+
+                Destroy(gameObject);
+            }
+
             if (collision.tag != "Floor" && collision.tag != "Bow" && collision.tag != "Sword" && collision.tag != "Crossbow" && collision.tag != "Spear" && collision.tag != "Decorative Obstacle")
             {
                 //print(collision.gameObject);

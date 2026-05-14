@@ -20,6 +20,7 @@ public class GooScript : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
+        damage = gooDamage;
         player = GameObject.FindGameObjectWithTag("Player");
         _c = GetComponent<SpriteRenderer>().color;
         startHealth = health;

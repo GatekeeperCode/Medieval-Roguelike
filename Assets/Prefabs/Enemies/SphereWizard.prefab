@@ -160,11 +160,13 @@ MonoBehaviour:
   speed: 3
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
+  damage: 0
   _c: {r: 0, g: 0, b: 0, a: 0}
-  damage: 3
+  sphereDamage: 3
   elementPrefab: {fileID: 6568789575686520819, guid: c916be1dd4da713469d5baee9e15c850, type: 3}
   elementRotation: {fileID: 3024637640866667400}
-  scalingFactor: 25
+  scalingRise: 0
+  scalingLength: 0
   elements: []
   NextWaypointDistance: 1
 --- !u!50 &-3120106422272913423

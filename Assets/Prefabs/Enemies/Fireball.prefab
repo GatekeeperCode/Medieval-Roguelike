@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  timeDelay: 5
+  timeDelay: 8
 --- !u!50 &5894591452565855167
 Rigidbody2D:
   serializedVersion: 4

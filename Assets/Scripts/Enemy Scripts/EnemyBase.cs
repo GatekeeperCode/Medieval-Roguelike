@@ -9,8 +9,15 @@ public abstract class EnemyBase : MonoBehaviour
     public float speed;
     public GameObject resetPoint;
     public roomVarScript roomVars;
+    public float damage;
+    float playerDefense;
 
     public Color _c;
+
+    private void Start()
+    {
+        playerDefense = player.GetComponent<PlayerMovement>()._defense;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -56,6 +63,11 @@ public abstract class EnemyBase : MonoBehaviour
                 health -= collision.transform.parent.GetComponentInParent<LightningObjectScript>().damage;
                 GetComponent<SpriteRenderer>().color = Color.red;
                 StartCoroutine(hitReg());
+            }
+
+            if (collision.gameObject.tag == "Player")
+            {
+                player.GetComponent<PlayerMovement>()._health -= (damage - Random.Range(0f, playerDefense / 2));
             }
         }
     }
