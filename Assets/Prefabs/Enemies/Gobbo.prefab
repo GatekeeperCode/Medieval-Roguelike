@@ -150,6 +150,7 @@ MonoBehaviour:
   speed: 2
   resetPoint: {fileID: 0}
   roomVars: {fileID: 0}
+  damage: 0
   _c: {r: 0, g: 0, b: 0, a: 0}
   gobboDamage: 2
   scalingRise: 1

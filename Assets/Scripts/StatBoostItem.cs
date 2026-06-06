@@ -6,7 +6,6 @@ public enum Stat
 {
     _speed,
     _physicalStren,
-    _rangeStren,
     _magicalStren,
     _defense,
     _health
@@ -53,9 +52,6 @@ public class StatBoostItem : MonoBehaviour
                     break;
                 case Stat._physicalStren:
                     player.GetComponent<PlayerMovement>()._physicalStren += player.GetComponent<PlayerMovement>()._physicalStren * .25f;
-                    break;
-                case Stat._rangeStren:
-                    player.GetComponent<PlayerMovement>()._rangeStren += player.GetComponent<PlayerMovement>()._rangeStren * .25f;
                     break;
                 case Stat._magicalStren:
                     player.GetComponent<PlayerMovement>()._magicalStren += player.GetComponent<PlayerMovement>()._magicalStren * .25f;

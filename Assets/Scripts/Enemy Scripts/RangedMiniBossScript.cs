@@ -247,8 +247,7 @@ public class RangedMiniBossScript : EnemyBase
 
         if (health <= 0)
         {
-            player.GetComponent<PlayerMovement>()._rangeStren += 1.5f;
-            player.GetComponent<PlayerMovement>()._defense += 1.5f;
+            player.GetComponent<PlayerMovement>()._defense += 3f;
             player.GetComponent<PlayerMovement>()._gold += 3;
             player.GetComponent<PlayerMovement>()._health += 5;
             player.GetComponent<PlayerMovement>()._exp += 1f;

@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     public float _speed;
     public float _physicalStren;
-    public float _rangeStren;
     public float _magicalStren;
     public float _defense;
     public float _health = 50f;
@@ -57,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         _rbody = GetComponent<Rigidbody2D>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        baseScore = (_speed + _physicalStren + _rangeStren + _defense + _health + _magicalStren);
+        baseScore = (_speed + _physicalStren + _defense + _health + _magicalStren);
         baseSpeed = _speed;
 
         //Spawning in a "SpawnRoom"
@@ -78,13 +77,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = (_speed + _physicalStren + _rangeStren + _defense + _health + _magicalStren) - baseScore;
+        score = (_speed + _physicalStren + _defense + _health + _magicalStren) - baseScore;
 
         healthDisplay.text = "Health: " + _health;
         goldDisplay.text = "Gold: " + _gold;
         speedDisplay.text = "Speed: " + _speed;
         physDisplay.text = "Phys Stren: " + _physicalStren;
-        rngDisplay.text = "Range Stren: " + _rangeStren;
         magDisplay.text = "Mag Stren: " + _magicalStren;
         defDisplay.text = "Defense: " + _defense;
         expDisplay.text = "Level: " + _level + " EXP: " + _exp + "/" + _expToLevelUp;
@@ -208,9 +206,6 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case "physicalStren":
                 _physicalStren += boost;
-                break;
-            case "rangeStren":
-                _rangeStren += boost;
                 break;
             case "magicalStren":
                 _magicalStren += boost;

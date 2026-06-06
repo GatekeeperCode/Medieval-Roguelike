@@ -10,7 +10,6 @@ public class RangedDmgScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerMovement pmScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        damage = pmScript._rangeStren * weaponModifier;
+        
     }
 }
